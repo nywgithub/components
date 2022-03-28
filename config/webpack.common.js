@@ -12,8 +12,8 @@ module.exports = {
     output: {
         //输出路径
         path: BUILD_DIR,
-        filename: '[name]/js/index.js?[chunkhash:8]',
-        chunkFilename: '[name]/js/index.js?[chunkhash:8]'
+        filename: '[name]/js/index.js?',
+        chunkFilename: '[id]/js/index.js?'
     },
     externals: {
        
@@ -87,10 +87,9 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: '[name]/css/index.css?[hash:8]',
-            chunkFilename: "[name]/css/index.css?[hash:8]"
+            // 类似 webpackOptions.output里面的配置 
+            filename: '[name]/css/index.css',
+            chunkFilename: "[id]/css/index.css"
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "../public/index.html"),
