@@ -1,7 +1,7 @@
 const path = require('path');
-var APP_DIR = path.resolve(__dirname, '../src');//_dirname 代表当前文件的目录绝对路径
+var APP_DIR = path.resolve(__dirname, '../src'); //_dirname 代表当前文件的目录绝对路径
 var BUILD_DIR = path.resolve(__dirname, '../dist');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");//样式单独打包出来
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //样式单独打包出来
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const entryDir = path.resolve(APP_DIR, 'input/index.tsx');//入口文件
 
@@ -16,15 +16,15 @@ module.exports = {
         //输出路径
         path: BUILD_DIR,
         filename: '[name]/js/index.js?',
-        chunkFilename: '[id]/js/index.js?'
+        chunkFilename: '[id]/js/chunk.js?'
     },
     externals: {
-       
+
     },
     module: {
         rules: [{
                 test: /\.(js|jsx)$/,
-                use:{
+                use: {
                     loader: 'babel-loader',
                 },
                 exclude: /node_modules/,
@@ -41,7 +41,7 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     // "style-loader",
                     "css-loader",
-                    
+
                 ]
             },
             {
@@ -101,6 +101,10 @@ module.exports = {
             },
             favicon: null
         }),
+        /* new webpack.optimize.CommonsChunkPlugin({
+            // vendor是包括公共的第三方代码，称为initial chunk
+            name: 'vendor'
+        }) */
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss', '.less', '.json'],

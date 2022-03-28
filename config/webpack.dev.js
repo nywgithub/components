@@ -2,7 +2,7 @@
  * @Author: niyongwei
  * @Date: 2022-03-24 15:34:02
  * @LastEditors: niyongwei
- * @LastEditTime: 2022-03-28 20:24:26
+ * @LastEditTime: 2022-03-28 22:00:29
  * @FilePath: \components\config\webpack.dev.js
  * @Description: 
  * 
@@ -26,7 +26,7 @@ module.exports = merge(common, {
         publicPath: "dist/",
         //publicPath: "/",
         filename: '[name]/js/index.js',
-        chunkFilename: '[id]/js/index.js'
+        chunkFilename: '[id]/js/chunk.js'
     },
     mode: "development",
     // devtool: '#eval-source-map',
