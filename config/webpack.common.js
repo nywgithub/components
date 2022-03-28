@@ -3,11 +3,14 @@ var APP_DIR = path.resolve(__dirname, '../src');//_dirname 代表当前文件的
 var BUILD_DIR = path.resolve(__dirname, '../dist');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");//样式单独打包出来
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const entryDir = path.resolve(APP_DIR, 'input/index.tsx');//入口文件
+// const entryDir = path.resolve(APP_DIR, 'input/index.tsx');//入口文件
 
 //公共webpack规定打包入口和出口
 module.exports = {
-    entry: entryDir,
+    entry: {
+        input: path.resolve(APP_DIR, 'input/index.tsx'),
+        upload: path.resolve(APP_DIR, 'upload/index.tsx')
+    },
 
     output: {
         //输出路径

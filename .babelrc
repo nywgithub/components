@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "wei",
+                "style": true,
+                "libraryDirectory": "dist"
+            }
+        ]
+    ]
+}
