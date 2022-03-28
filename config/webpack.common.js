@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");//样式集中�
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const entryDir = path.resolve(APP_DIR, 'index.jsx');//入口文件
 
+//公共webpack规定打包入口和出口
 module.exports = {
     entry: entryDir,
 
