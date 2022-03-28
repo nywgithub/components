@@ -1,4 +1,4 @@
-const merge = require("webpack-merge");
+const {merge} = require("webpack-merge");
 const common = require("./webpack.common.js");
 const {
   CleanWebpackPlugin
@@ -15,15 +15,7 @@ module.exports = merge(common, {
   optimization: {
     minimize: true,
     minimizer: [
-      new TerserPlugin({
-        sourceMap: true, // Must be set to true if using source-maps in production
-        extractComments: false,
-        terserOptions: {
-          compress: {
-            drop_console: true//清除console语句
-          }
-        }
-      })
+      new TerserPlugin()
     ],
     runtimeChunk: {
       name: "runtime",
