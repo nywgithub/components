@@ -18,8 +18,10 @@ module.exports = {
         filename: '[name]/js/index.js?',
         chunkFilename: '[id]/js/chunk.js?'
     },
+    externalsType: 'script',
     externals: {
-
+        "react": ["https://cdn.bootcdn.net/ajax/libs/react/18.0.0-rc.3-next-033fe52b4-20220325/cjs/react-jsx-dev-runtime.development.js","React"],
+        "react-dom": ["https://cdn.bootcdn.net/ajax/libs/react-dom/18.0.0-rc.3-next-033fe52b4-20220325/cjs/react-dom-server-legacy.browser.development.js","ReactDom"]
     },
     module: {
         rules: [{
