@@ -131,7 +131,7 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
       // console.warn('超过5张')
     }
     if (response.code === '0' || response.code === 0) {
-      let data = []
+      let data:any = []
 
       data = !isMobilePlatform ? response.data : response.content
 
@@ -218,6 +218,7 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
       }}
       {...this.props}
       onError={this.onError}
+      // @ts-ignore
       beforeUpload={(file, FileList) => {
         this.beforeUpload(file, FileList)
       }}

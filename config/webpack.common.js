@@ -3,10 +3,11 @@ var APP_DIR = path.resolve(__dirname, '../src'); //_dirname 代表当前文件�
 var BUILD_DIR = path.resolve(__dirname, '../dist');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //样式单独打包出来
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const entryDir = path.resolve(APP_DIR, 'input/index.tsx');//入口文件
+const entryDir = path.resolve(APP_DIR, 'input/index.tsx');//入口文件
 
 //公共webpack规定打包入口和出口
 module.exports = {
+    //TODO: 函数自动识别入口
     entry: {
         input: path.resolve(APP_DIR, 'input/index.tsx'),
         upload: path.resolve(APP_DIR, 'upload/index.tsx')
@@ -97,6 +98,7 @@ module.exports = {
             chunkFilename: "[id]/css/index.css"
         }),
         new HtmlWebpackPlugin({
+            //选择模板
             template: path.resolve(__dirname, "../public/index.html"),
             templateParameters: {
                 title: "TS-Webpack-React"
