@@ -2,7 +2,7 @@
  * @Author: niyongwei
  * @Date: 2022-03-24 15:34:02
  * @LastEditors: niyongwei
- * @LastEditTime: 2022-03-28 22:00:29
+ * @LastEditTime: 2022-04-06 19:12:43
  * @FilePath: \components\config\webpack.dev.js
  * @Description: 
  * 
@@ -13,7 +13,7 @@ const {
 } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
-var BUILD_DIR = path.resolve(__dirname, '../dist');
+var BUILD_DIR = path.resolve(__dirname, '../lib');
 
 
 module.exports = merge(common, {
@@ -23,7 +23,7 @@ module.exports = merge(common, {
     ],
     output: {
         path: BUILD_DIR,
-        publicPath: "dist/",
+        publicPath: "lib/",
         //publicPath: "/",
         filename: '[name]/js/index.js',
         chunkFilename: '[id]/js/chunk.js'

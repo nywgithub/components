@@ -1,16 +1,37 @@
 const path = require('path');
 var APP_DIR = path.resolve(__dirname, '../src'); //_dirname 代表当前文件的目录绝对路径
-var BUILD_DIR = path.resolve(__dirname, '../dist');
+var BUILD_DIR = path.resolve(__dirname, '../lib');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //样式单独打包出来
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const entryDir = path.resolve(APP_DIR, 'input/index.tsx');//入口文件
+const entryDir = path.resolve(APP_DIR, './entry');
 
+function getEntry(entryDir) {
+    let entryMap = {};
+
+    var getFile = function (pageDir) {
+        fs.readdirSync(pageDir).forEach((pathname) => {
+            let fullPathName = path.resolve(pageDir, pathname);
+            let stat = fs.statSync(fullPathName);
+            if (stat.isDirectory()) {
+                getFile(fullPathName)
+            }
+            if (stat.isFile()) {
+                let _arr = fullPathName.split('.');
+                _arr.pop();
+                let _tar = _arr.join('.');
+                let _rel_tar = path.relative(entryDir, _tar)
+                entryMap[_rel_tar] = fullPathName;
+            }
+
+        });
+    }
+    getFile(entryDir);
+    return entryMap;
+}
 //公共webpack规定打包入口和出口
 module.exports = {
-    //TODO: 函数自动识别入口
     entry: {
-        input: path.resolve(APP_DIR, 'input/index.tsx'),
-        upload: path.resolve(APP_DIR, 'upload/index.tsx')
+        index: path.resolve(APP_DIR, './index.ts'),
     },
 
     output: {
@@ -80,7 +101,7 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[contenthash:8]',
                     outputPath: './imgs',
-                    publicPath: "/dist/imgs",
+                    publicPath: "/lib/imgs",
                     //publicPath: "//www.micstatic.com/xxx/imgs",
                     //emitFile:false
                 }

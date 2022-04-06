@@ -5,7 +5,7 @@
             {
                 "libraryName": "wei",
                 "style": true,
-                "libraryDirectory": "dist"
+                "libraryDirectory": "lib"
             }
         ],
         "@babel/plugin-syntax-dynamic-import",

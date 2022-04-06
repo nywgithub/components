@@ -1,0 +1,75 @@
+{
+  "menus": {
+    "en-US": {
+      "/alert": [
+        {
+          "title": "反馈",
+          "meta": {
+            "order": 1,
+            "__fallback": true
+          },
+          "children": [
+            {
+              "path": "/alert",
+              "title": "Alert 警告提示",
+              "meta": {}
+            }
+          ]
+        }
+      ],
+      "/getting-started": [
+        {
+          "path": "/getting-started",
+          "title": "快速上手",
+          "meta": {}
+        }
+      ],
+      "/help": [
+        {
+          "path": "/help",
+          "title": "帮助",
+          "meta": {}
+        }
+      ],
+      "*": [
+        {
+          "path": "/",
+          "title": "Happy UI",
+          "meta": {}
+        }
+      ]
+    }
+  },
+  "locales": [
+    {
+      "name": "en-US",
+      "label": "English"
+    }
+  ],
+  "navs": {
+    "en-US": [
+      {
+        "title": "快速上手",
+        "order": 1,
+        "path": "/getting-started"
+      },
+      {
+        "title": "组件",
+        "order": 2,
+        "path": "/alert"
+      },
+      {
+        "title": "帮助",
+        "path": "/help"
+      }
+    ]
+  },
+  "title": "Wei UI",
+  "mode": "site",
+  "repository": {
+    "url": "",
+    "branch": "master"
+  },
+  "theme": {},
+  "exportStatic": {}
+}

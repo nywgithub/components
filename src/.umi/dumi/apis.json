@@ -1,0 +1,12 @@
+{
+  "alert": {
+    "default": [
+      {
+        "identifier": "kind",
+        "description": "Alert 的类型",
+        "type": "\"info\" | \"positive\" | \"negative\" | \"warning\"",
+        "default": "info"
+      }
+    ]
+  }
+}
