@@ -70,16 +70,12 @@ export function getRoutes() {
           "filePath": "src/alert/index.md",
           "updatedTime": 1649248345000,
           "componentName": "alert",
-          "title": "Alert 警告提示",
+          "title": "alert",
+          "order": 1,
+          "toc": "menu",
           "nav": {
             "title": "组件",
             "order": 2,
-            "path": "/alert"
-          },
-          "group": {
-            "title": "反馈",
-            "order": 1,
-            "__fallback": true,
             "path": "/alert"
           },
           "slugs": [
@@ -106,7 +102,54 @@ export function getRoutes() {
           ],
           "hasPreviewer": true
         },
-        "title": "Alert 警告提示 - Wei UI"
+        "title": "alert - Wei UI"
+      },
+      {
+        "path": "/upload",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'upload__index.md' */'D:/git-work/components/src/upload/index.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "src/upload/index.md",
+          "updatedTime": 1649301324000,
+          "componentName": "upload",
+          "title": "upload",
+          "order": 2,
+          "toc": "menu",
+          "nav": {
+            "title": "组件",
+            "order": 2,
+            "path": "/upload"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "upload 上传",
+              "heading": "upload-上传"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            },
+            {
+              "depth": 3,
+              "value": "Vupload",
+              "heading": "api-vupload"
+            }
+          ],
+          "hasPreviewer": true
+        },
+        "title": "upload - Wei UI"
       },
       {
         "path": "/getting-started",
@@ -114,7 +157,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/getting-started.md",
-          "updatedTime": 1649248345000,
+          "updatedTime": 1649301324000,
           "nav": {
             "title": "快速上手",
             "order": 1,
@@ -174,10 +217,10 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",
-          "updatedTime": 1649248345000,
-          "title": "Happy UI",
+          "updatedTime": 1649301324000,
+          "title": "weiui",
           "hero": {
-            "title": "Happy UI",
+            "title": "weiui",
             "desc": "<div class=\"markdown\"><p>文档站点基于 dumi 生成</p></div>",
             "actions": [
               {
@@ -206,7 +249,7 @@ export function getRoutes() {
           "footer": "<div class=\"markdown\"><p>Open-source MIT Licensed | Copyright © 2020<br />Powered by <a href=\"https://d.umijs.org/\" target=\"_blank\">dumi<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" width=\"15\" height=\"15\" class=\"__dumi-default-external-link-icon\"><path fill=\"currentColor\" d=\"M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z\"></path><polygon fill=\"currentColor\" points=\"45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9\"></polygon></svg></a></p></div>",
           "slugs": []
         },
-        "title": "Happy UI - Wei UI"
+        "title": "weiui - Wei UI"
       }
     ],
     "title": "Wei UI",

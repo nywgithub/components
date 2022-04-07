@@ -1,11 +1,10 @@
 ---
-title: upload 上传
+title: upload
+order: 2
+toc: menu
 nav:
   title: 组件
   order: 2
-group:
-  title: 反馈
-  order: 1
 ---
 
 # upload 上传

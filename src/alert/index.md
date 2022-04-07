@@ -1,11 +1,10 @@
 ---
-title: Alert 警告提示
+title: alert
+order: 1
+toc: menu
 nav:
   title: 组件
   order: 2
-group:
-  title: 反馈
-  order: 1
 ---
 
 # Alert 警告提示

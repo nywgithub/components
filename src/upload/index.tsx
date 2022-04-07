@@ -123,6 +123,7 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
     // console.log('file', file)
   }
   onSuccess(response: any, file: RcFile, xhr: any) {
+    const {max} = this.state
     // console.log(response, file, xhr)
     if (response.code === '10010' || response.code === 10010) {
       this.warning('You have already uploaded this image.')
@@ -131,6 +132,7 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
       // console.warn('超过5张')
     }
     if (response.code === '0' || response.code === 0) {
+      
       let data:any = []
 
       data = !isMobilePlatform ? response.data : response.content
@@ -140,11 +142,11 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
         return
       }
       let imgList = this.state.imgList
-      imgList.length <= 4 && imgList.push(data.picUrl) //此处为接口返回图片地址
+      imgList.length < max && imgList.push(data.picUrl) //此处为接口返回图片地址
       let ffsidList = this.state.ffsid
-      ffsidList.length <= 4 && ffsidList.push(data.picId)
+      ffsidList.length < max && ffsidList.push(data.picId)
       let titleList = this.state.titleList
-      titleList.length <= 4 && titleList.push(data.picName)
+      titleList.length < max && titleList.push(data.picName)
       this.setState(
         {
           imgList,
@@ -211,11 +213,11 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
     })
     const uploadArea = <Upload
       ref={this.uploadRef}
-      data={(file) => {
-        return {
-          picId: this.state.ffsid.join(','),
-        }
-      }}
+      // data={(file) => {
+      //   return {
+      //     picId: this.state.ffsid.join(','),
+      //   }
+      // }}
       {...this.props}
       onError={this.onError}
       // @ts-ignore

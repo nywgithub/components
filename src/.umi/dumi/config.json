@@ -3,18 +3,20 @@
     "en-US": {
       "/alert": [
         {
-          "title": "反馈",
+          "path": "/alert",
+          "title": "alert",
           "meta": {
-            "order": 1,
-            "__fallback": true
-          },
-          "children": [
-            {
-              "path": "/alert",
-              "title": "Alert 警告提示",
-              "meta": {}
-            }
-          ]
+            "order": 1
+          }
+        }
+      ],
+      "/upload": [
+        {
+          "path": "/upload",
+          "title": "upload",
+          "meta": {
+            "order": 2
+          }
         }
       ],
       "/getting-started": [
@@ -34,7 +36,7 @@
       "*": [
         {
           "path": "/",
-          "title": "Happy UI",
+          "title": "weiui",
           "meta": {}
         }
       ]
@@ -57,6 +59,11 @@
         "title": "组件",
         "order": 2,
         "path": "/alert"
+      },
+      {
+        "title": "组件",
+        "order": 2,
+        "path": "/upload"
       },
       {
         "title": "帮助",
