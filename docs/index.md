@@ -1,7 +1,7 @@
 ---
-title: Happy UI
+title: weiui
 hero:
-  title: Happy UI
+  title: weiui
   desc: 文档站点基于 dumi 生成
   actions:
     - text: 快速上手

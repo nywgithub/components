@@ -107,5 +107,6 @@ dist/
 dist/
 dist/*
 dist/*
+doc-site/
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
