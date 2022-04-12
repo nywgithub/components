@@ -68,13 +68,13 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/alert/index.md",
-          "updatedTime": 1649248345000,
+          "updatedTime": 1649320657000,
           "componentName": "alert",
           "title": "alert",
           "order": 1,
           "toc": "menu",
           "nav": {
-            "title": "组件",
+            "title": "alert",
             "order": 2,
             "path": "/alert"
           },
@@ -102,7 +102,7 @@ export function getRoutes() {
           ],
           "hasPreviewer": true
         },
-        "title": "alert - Wei UI"
+        "title": "alert - W"
       },
       {
         "path": "/upload",
@@ -110,13 +110,13 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/upload/index.md",
-          "updatedTime": 1649301324000,
+          "updatedTime": 1649320657000,
           "componentName": "upload",
           "title": "upload",
           "order": 2,
           "toc": "menu",
           "nav": {
-            "title": "组件",
+            "title": "upload",
             "order": 2,
             "path": "/upload"
           },
@@ -149,7 +149,7 @@ export function getRoutes() {
           ],
           "hasPreviewer": true
         },
-        "title": "upload - Wei UI"
+        "title": "upload - W"
       },
       {
         "path": "/getting-started",
@@ -187,7 +187,7 @@ export function getRoutes() {
           ],
           "title": "快速上手"
         },
-        "title": "快速上手 - Wei UI"
+        "title": "快速上手 - W"
       },
       {
         "path": "/help",
@@ -209,7 +209,7 @@ export function getRoutes() {
           ],
           "title": "帮助"
         },
-        "title": "帮助 - Wei UI"
+        "title": "帮助 - W"
       },
       {
         "path": "/",
@@ -249,10 +249,10 @@ export function getRoutes() {
           "footer": "<div class=\"markdown\"><p>Open-source MIT Licensed | Copyright © 2020<br />Powered by <a href=\"https://d.umijs.org/\" target=\"_blank\">dumi<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" width=\"15\" height=\"15\" class=\"__dumi-default-external-link-icon\"><path fill=\"currentColor\" d=\"M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z\"></path><polygon fill=\"currentColor\" points=\"45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9\"></polygon></svg></a></p></div>",
           "slugs": []
         },
-        "title": "weiui - Wei UI"
+        "title": "weiui - W"
       }
     ],
-    "title": "Wei UI",
+    "title": "W",
     "component": (props) => props.children
   }
 ];

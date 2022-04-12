@@ -3,7 +3,7 @@ title: upload
 order: 2
 toc: menu
 nav:
-  title: 组件
+  title: upload
   order: 2
 ---
 

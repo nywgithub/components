@@ -3,7 +3,7 @@ title: alert
 order: 1
 toc: menu
 nav:
-  title: 组件
+  title: alert
   order: 2
 ---
 

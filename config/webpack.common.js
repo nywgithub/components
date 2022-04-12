@@ -120,14 +120,14 @@ module.exports = {
             filename: '[name]/css/index.css',
             chunkFilename: "[id]/css/index.css"
         }),
-        new HtmlWebpackPlugin({
+        /* new HtmlWebpackPlugin({
             //选择模板
             template: path.resolve(__dirname, "../public/index.html"),
             templateParameters: {
                 title: "TS-Webpack-React"
             },
             favicon: null
-        }),
+        }), */
         /* new webpack.optimize.CommonsChunkPlugin({
             // vendor是包括公共的第三方代码，称为initial chunk
             name: 'vendor'

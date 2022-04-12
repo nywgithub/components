@@ -231,7 +231,7 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
       {!isMobilePlatform ? (
         <div className="upload-area">
           <i className="ft-icon icon-attachment"></i>
-          Upload images
+          Upload images 
           <span>({imgList.length}/5)</span>
         </div>
       ) : (

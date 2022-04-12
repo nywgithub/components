@@ -56,12 +56,12 @@
         "path": "/getting-started"
       },
       {
-        "title": "组件",
+        "title": "alert",
         "order": 2,
         "path": "/alert"
       },
       {
-        "title": "组件",
+        "title": "upload",
         "order": 2,
         "path": "/upload"
       },
@@ -71,7 +71,7 @@
       }
     ]
   },
-  "title": "Wei UI",
+  "title": "W",
   "mode": "site",
   "repository": {
     "url": "",
