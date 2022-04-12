@@ -31,8 +31,9 @@ function getEntry(entryDir) {
 //公共webpack规定打包入口和出口
 module.exports = {
     entry: {
-        input: path.resolve(APP_DIR, './input/index.tsx'),
-        upload: path.resolve(APP_DIR, './upload/index.tsx'),
+        Input: path.resolve(APP_DIR, './input/index.tsx'),
+        Upload: path.resolve(APP_DIR, './upload/index.tsx'),
+        Alert: path.resolve(APP_DIR, './alert/index.tsx'),
     },
 
     output: {

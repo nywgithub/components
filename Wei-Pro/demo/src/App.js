@@ -1,27 +1,24 @@
-import logo from './logo.svg';
+/*
+ * @Author: niyongwei
+ * @Date: 2022-04-07 10:32:36
+ * @LastEditors: niyongwei
+ * @LastEditTime: 2022-04-08 11:45:47
+ * @FilePath: \git-work\components\Wei-Pro\demo\src\App.js
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by nyw, All Rights Reserved. 
+ */
 import {
-  upload
+  Upload, Alert
 } from 'weiui'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <upload></upload>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+        <Upload></Upload>
+        <Alert kind="warning">这是一条警告提示?</Alert>
     </div>
   );
 }
