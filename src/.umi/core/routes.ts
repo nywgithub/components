@@ -68,7 +68,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/alert/index.md",
-          "updatedTime": 1649320657000,
+          "updatedTime": 1649747571000,
           "componentName": "alert",
           "title": "alert",
           "order": 1,
@@ -110,7 +110,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/upload/index.md",
-          "updatedTime": 1649320657000,
+          "updatedTime": 1649747571000,
           "componentName": "upload",
           "title": "upload",
           "order": 2,

@@ -15,3 +15,4 @@ npm run build:site     //打包站点
 - [x] dumi dev 调试 demo
 - [] .eslint.js
 - [] .prettierrc.js
+- [] npm 发布

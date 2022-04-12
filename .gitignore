@@ -109,5 +109,5 @@ dist/*
 dist/*
 doc-site/
 doc-site/*
-
+src/.umi/*
 # End of https://www.gitignore.io/api/node,visualstudiocode
