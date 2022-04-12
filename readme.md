@@ -2,10 +2,10 @@
 
 ```bash
 npm run i
-npm run dev
-npm run build
-npm run release
-npm run build:site
+npm run dev            //开发模式
+npm run build          //开发模式打包
+npm run release        //正式打包发布
+npm run build:site     //打包站点
 ```
 
 ### Todo
@@ -13,3 +13,5 @@ npm run build:site
 - [] 按需加載
 - [] npm link
 - [x] dumi dev 调试 demo
+- [] .eslint.js
+- [] .prettierrc.js
