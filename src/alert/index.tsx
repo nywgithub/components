@@ -1,6 +1,6 @@
 import React from 'react';
 import t from 'prop-types';
-
+import {ConfigConsumer, ConfigConsumerProps} from '../common-provider/context'
 export interface AlertProps {
   /**
    * @description       Alert 的类型
@@ -11,8 +11,6 @@ export interface AlertProps {
 
 export type KindMap = Record<Required<AlertProps>['kind'], string>;
 
-const prefixCls = 'happy-alert';
-
 const kinds: KindMap = {
   info: '#5352ED',
   positive: '#2ED573',
@@ -21,15 +19,22 @@ const kinds: KindMap = {
 };
 
 const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
-  <div
-    className={prefixCls}
-    style={{
-      background: kinds[kind],
+  <ConfigConsumer>
+    {({ getPrefixCls }: ConfigConsumerProps) => {
+      const prefixCls = getPrefixCls('alert')
+      return (
+        <div
+          className={prefixCls}
+          style={{
+            background: kinds[kind],
+          }}
+          {...rest}
+        >
+          {children}
+        </div>
+      )
     }}
-    {...rest}
-  >
-    {children}
-  </div>
+  </ConfigConsumer>
 );
 
 Alert.propTypes = {

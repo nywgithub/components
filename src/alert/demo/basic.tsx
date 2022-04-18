@@ -10,6 +10,13 @@
  */
 import React from 'react';
 import Alert from '..';
+import ConfigProvider from '../../common-provider/context'
 import '../style';
 
-export default () => <Alert kind="warning">这是一条警告提示?</Alert>;
+export default () => {
+    return (
+        <ConfigProvider>
+            <Alert kind="warning">这是一条警告提示?</Alert>
+        </ConfigProvider>
+    )
+};
