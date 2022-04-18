@@ -110,7 +110,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/input/index.md",
-          "updatedTime": 1650267134836,
+          "updatedTime": 1650267197000,
           "componentName": "input",
           "title": "input",
           "order": 2,

@@ -1,8 +1,11 @@
+//全局化配置
+
 import * as React from 'react'
 export interface ConfigConsumerProps {
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string
+  locale?: string
 }
-export interface ConfigProviderProps {
+export interface ConfigProviderProps extends ConfigConsumerProps {
   children?: React.ReactNode;
 }
 

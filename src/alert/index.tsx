@@ -20,8 +20,9 @@ const kinds: KindMap = {
 
 const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, locale }: ConfigConsumerProps) => {
       const prefixCls = getPrefixCls('alert')
+      console.log(locale)
       return (
         <div
           className={prefixCls}
@@ -30,6 +31,7 @@ const Alert: React.FC<AlertProps> = ({ children, kind = 'info', ...rest }) => (
           }}
           {...rest}
         >
+          {locale && 'ok'}
           {children}
         </div>
       )
