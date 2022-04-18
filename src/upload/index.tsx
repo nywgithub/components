@@ -2,6 +2,7 @@ import React, { createRef, LegacyRef } from 'react'
 import Upload from 'rc-upload'
 import { RcFile, UploadProps } from 'rc-upload/lib/interface'
 import { isMobilePlatform } from '../util/platFrom'
+import './style'
 export interface VuploadState {
   accept: string
   imgList: string[] //上传图片后列表
@@ -64,8 +65,6 @@ class Vupload extends React.Component<VuploadProps, VuploadState> {
   }
   //异步获取的prop数据，需要在componentDidUpdate中给值
   componentDidUpdate(prevProps:VuploadProps){
-    // console.log('prevProps.defaultImg',prevProps.defaultImg)
-    // console.log('this.props.defaultImg',this.props.defaultImg)
     if(JSON.stringify(prevProps.defaultImg) !== JSON.stringify(this.props.defaultImg)){
       this.setState({
         imgList:this.props.defaultImg as string[]

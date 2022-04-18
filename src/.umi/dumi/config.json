@@ -10,6 +10,15 @@
           }
         }
       ],
+      "/input": [
+        {
+          "path": "/input",
+          "title": "input",
+          "meta": {
+            "order": 2
+          }
+        }
+      ],
       "/upload": [
         {
           "path": "/upload",
@@ -64,6 +73,11 @@
         "title": "upload",
         "order": 2,
         "path": "/upload"
+      },
+      {
+        "title": "input",
+        "order": 3,
+        "path": "/input"
       },
       {
         "title": "帮助",

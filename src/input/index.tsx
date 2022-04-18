@@ -9,10 +9,12 @@
  * Copyright (c) 2022 by nyw, All Rights Reserved.
  */
 import React from 'react'
-import './css'
+import './style'
 const Input = function(){
     return(
-        <input></input>
+        <div className='weiui-input'>
+            <input></input>
+        </div>
     )
 }
 export default Input

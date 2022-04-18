@@ -105,6 +105,43 @@ export function getRoutes() {
         "title": "alert - W"
       },
       {
+        "path": "/input",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'input__index.md' */'D:/git-work/components/src/input/index.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "src/input/index.md",
+          "updatedTime": 1650267134836,
+          "componentName": "input",
+          "title": "input",
+          "order": 2,
+          "toc": "menu",
+          "nav": {
+            "title": "input",
+            "order": 3,
+            "path": "/input"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "input输入框",
+              "heading": "input输入框"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            }
+          ],
+          "hasPreviewer": true
+        },
+        "title": "input - W"
+      },
+      {
         "path": "/upload",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'upload__index.md' */'D:/git-work/components/src/upload/index.md')}),
         "exact": true,
