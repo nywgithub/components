@@ -24,17 +24,24 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
 
 export const ConfigConsumer = ConfigContext.Consumer
 
-const ConfigProvider = (props: ConfigProviderProps) => {
+const ConfigProvider : React.FC<ConfigProviderProps> = (props) => {
   const { children } = props
+  const getContextValue = (context) =>{
+    return {
+      ...context,
+      ...props
+    }
+  }
   return (
     <ConfigConsumer>
       {(context) => (
+        <>
         <ConfigContext.Provider
-          value={context}
-          {...props}
+          value={getContextValue(context)}
         >
           {children}
         </ConfigContext.Provider>
+        </>
       )}
     </ConfigConsumer>
   )
