@@ -9,7 +9,6 @@
       }
     ]
   },
-  "input": {},
   "upload": {
     "Vupload": [
       {
@@ -1277,5 +1276,6 @@
         "type": "TransitionEventHandler<HTMLInputElement>"
       }
     ]
-  }
+  },
+  "input": {}
 }

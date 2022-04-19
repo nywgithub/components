@@ -2,10 +2,12 @@
 
 import * as React from 'react'
 export interface ConfigConsumerProps {
+  //class名前缀统一处理
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string
+  //多语配置
   locale?: string
 }
-export interface ConfigProviderProps extends ConfigConsumerProps {
+export interface ConfigProviderProps extends Omit<ConfigConsumerProps, 'getPrefixCls'> {
   children?: React.ReactNode;
 }
 
@@ -26,18 +28,17 @@ export const ConfigConsumer = ConfigContext.Consumer
 
 const ConfigProvider : React.FC<ConfigProviderProps> = (props) => {
   const { children } = props
-  const getContextValue = (context) =>{
-    return {
-      ...context,
-      ...props
-    }
-  }
   return (
     <ConfigConsumer>
       {(context) => (
         <>
         <ConfigContext.Provider
-          value={getContextValue(context)}
+          value={
+            {
+              ...context,
+              ...props
+            }
+          }
         >
           {children}
         </ConfigContext.Provider>
