@@ -135,6 +135,11 @@ export function getRoutes() {
               "depth": 3,
               "value": "基本用法",
               "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
             }
           ],
           "hasPreviewer": true

@@ -8,13 +8,13 @@
  *
  * Copyright (c) 2022 by nyw, All Rights Reserved.
  */
-import React from 'react'
-import './style'
-const Input = function(){
-    return(
-        <div className='weiui-input'>
-            <input></input>
-        </div>
-    )
-}
-export default Input
+
+import Input from './input';
+import InputNumber from './inputNumber';
+
+export { InputProps } from './input';
+export { InputNumberProps } from './inputNumber';
+
+Input.InputNumber = InputNumber;
+
+export default Input;
