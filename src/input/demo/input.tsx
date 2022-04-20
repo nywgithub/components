@@ -12,7 +12,6 @@ export default () => {
     <>
       <Input></Input>
       <InputNumber
-        size={123}
         ref={inputRef}
         min={-8000}
         max={10000000}

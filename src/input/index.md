@@ -18,4 +18,4 @@ textarea输入框
 
 <code src="./demo/input.tsx"></code>
 
-<API src="./index.tsx"></API>
+<API src="./inputNumber.tsx"></API>
