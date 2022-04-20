@@ -14,6 +14,7 @@ export interface InputNumberProps extends RcInputNumberProps {
 
 //转发原生input的ref,在使用组件的时候可以获取原生input的ref
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>(
+  //解构改变prefixCls名称(避免重名)
   ({ prefixCls: customizePrefixCls, ...props }, ref) => {
     const { addonBefore, addonAfter } = props
     //获取context中的getPrefixCls
