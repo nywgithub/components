@@ -9,22 +9,33 @@ interface BasicInputProps {
   allowClear?: boolean
   prefixCls: string
   element: React.ReactElement
-  type: string
+  type: string,
+  handleClear: any
 }
 
 const BasicInput: React.FC<BasicInputProps> = (props) => {
-  const { allowClear, prefixCls, prefix, suffix, element, type } = props
+  const {
+    allowClear,
+    prefixCls,
+    prefix,
+    suffix,
+    addonBefore,
+    addonAfter,
+    element,
+    type,
+    handleClear
+  } = props
   const renderClearIcon = (prefixCls: string) => {
     if (!allowClear) {
       return
     }
     const className = `${prefixCls}-clear-icon`
     // TODO:换成icon图标
-    return <span className={className}>x</span>
+    return <span className={className} onClick={handleClear}>x</span>
   }
   //区分textarea 和 普通input框
-  const renderTetxArea = (prefixCls:string, element: React.ReactElement) => {
-    return(
+  const renderTetxArea = (prefixCls: string, element: React.ReactElement) => {
+    return (
       <span className={`${prefixCls}-wrapper`}>
         {React.cloneElement(element)}
         {/* 清除按钮 */}
@@ -33,29 +44,33 @@ const BasicInput: React.FC<BasicInputProps> = (props) => {
     )
   }
 
+  const renderLabelNode = (prefixCls: string, type: string) => {
+    const obj = {
+      suffix,
+      prefix,
+      addonBefore,
+      addonAfter,
+    }
+    return obj[type] ? <span className={`${prefixCls}-${type}`}>{obj[type]}</span> : null
+  }
 
-  const renderInput = (prefixCls:string, element: React.ReactElement) => {
-      const prefixNode = prefix ? (
-        <span className={`${prefixCls}-prefix`}>{prefix}</span>
-      ) : null
-      const suffixNode = suffix ? (
-        <span className={`${prefixCls}-prefix`}>{suffix}</span>
-      ) : null
-    return(
+  const renderInput = (prefixCls: string, element: React.ReactElement) => {
+    return (
       <span className={`${prefixCls}-wrapper`}>
-        {prefixNode}
+        {renderLabelNode(prefixCls, 'addonBefore')}
+        {renderLabelNode(prefixCls, 'prefix')}
         {React.cloneElement(element)}
-        {suffixNode}
         {/* 清除按钮 */}
-        {renderClearIcon('textarea')}
+        {renderClearIcon('input')}
+        {renderLabelNode(prefixCls, 'suffix')}
+        {renderLabelNode(prefixCls, 'addonAfter')}
       </span>
     )
   }
-  
-  
-  return (
-      type === 'textarea' ? renderTetxArea(prefixCls, element) : renderInput(prefixCls, element)
-  )
+
+  return type === 'textarea'
+    ? renderTetxArea(prefixCls, element)
+    : renderInput(prefixCls, element)
 }
 
 export default BasicInput

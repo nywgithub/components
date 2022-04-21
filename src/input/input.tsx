@@ -102,6 +102,7 @@ const Input: React.FC<InputProps> = ({
       prefixCls={prefixCls}
       type={'input'}
       {...props}
+      handleClear={handleClear}
       element={
         <input
           {...otherProps}

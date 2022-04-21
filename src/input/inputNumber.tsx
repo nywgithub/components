@@ -22,14 +22,14 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>(
     // prefixCls为统一前缀(ui库名称-组件名称)
     const prefixCls = getPrefixCls('input-number', customizePrefixCls)
     const addonBeforeNode = addonBefore ? (
-      <div className={`${prefixCls}-addbe`}>
+      <span className={`${prefixCls}-addbe`}>
         {addonBefore}
-      </div>
+      </span>
     ) : null
     const addonAfterNode = addonAfter ? (
-      <div className={`${prefixCls}-addaf`}>
+      <span className={`${prefixCls}-addaf`}>
         {addonAfter}
-      </div>
+      </span>
     ) : null
     return (
       <div className={prefixCls}>

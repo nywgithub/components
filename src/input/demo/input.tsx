@@ -22,6 +22,11 @@ export default () => {
           console.log('onKeyDown')
         }}
         defaultValue={'默认值'}
+        addonBefore={<span>前缀</span>}
+        addonAfter={<span>后缀</span>}
+        prefix={<span>prefix</span>}
+        suffix={<span>suffix</span>}
+        allowClear
       ></Input>
       <InputNumber
         ref={inputRef}
