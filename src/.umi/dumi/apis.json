@@ -9,9 +9,6 @@
       }
     ]
   },
-  "input": {
-    "default": []
-  },
   "upload": {
     "Vupload": [
       {
@@ -1279,6 +1276,9 @@
         "type": "TransitionEventHandler<HTMLInputElement>"
       }
     ]
+  },
+  "input": {
+    "default": []
   },
   "inputNumber": {
     "default": [

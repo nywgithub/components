@@ -8,9 +8,21 @@ export default () => {
   useEffect(() => {
     console.log(inputRef)
   }, [])
+  const handleChange = (e: any) => {
+    console.log(e)
+  }
   return (
     <>
-      <Input></Input>
+      <Input
+        onChange={handleChange}
+        onPressEnter={() => {
+          console.log('onPressEnter')
+        }}
+        onKeyDown={() => {
+          console.log('onKeyDown')
+        }}
+        defaultValue={'默认值'}
+      ></Input>
       <InputNumber
         ref={inputRef}
         min={-8000}

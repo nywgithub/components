@@ -38,6 +38,6 @@ export default {
       loader: async () => (await import(/* webpackChunkName: "demos_tupni" */'D:/git-work/components/src/input/demo/input.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode11},"index.tsx":{"import":"..","content":rawCode12},"input.tsx":{"import":"./input","content":rawCode13},"inputNumber.tsx":{"import":"./inputNumber","content":rawCode14},"style/index.ts":{"import":"./style","content":rawCode15},"style/index.less":{"import":"./index.less","content":rawCode16},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode3}},"dependencies":{"react":{"version":">=16.9.0"},"rc-input-number":{"version":"7.3.4"},"react-dom":{"version":">=16.9.0"}},"componentName":"input","identifier":"input-input"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode11},"index.tsx":{"import":"..","content":rawCode12},"input.tsx":{"import":"./input","content":rawCode13},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode3},"inputNumber.tsx":{"import":"./inputNumber","content":rawCode14},"style/index.ts":{"import":"./style","content":rawCode15},"style/index.less":{"import":"./index.less","content":rawCode16}},"dependencies":{"react":{"version":">=16.9.0"},"rc-util":{"version":"5.19.3"},"react-dom":{"version":">=16.9.0"},"rc-input-number":{"version":"7.3.4"}},"componentName":"input","identifier":"input-input"},
   },
 };
