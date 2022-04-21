@@ -14,9 +14,10 @@ import rawCode10 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/
 import rawCode11 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/demo/input.tsx?dumi-raw-code';
 import rawCode12 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/index.tsx?dumi-raw-code';
 import rawCode13 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/input.tsx?dumi-raw-code';
-import rawCode14 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/inputNumber.tsx?dumi-raw-code';
-import rawCode15 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.ts?dumi-raw-code';
-import rawCode16 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.less?dumi-raw-code';
+import rawCode14 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/BasicInput.tsx?dumi-raw-code';
+import rawCode15 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/inputNumber.tsx?dumi-raw-code';
+import rawCode16 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.ts?dumi-raw-code';
+import rawCode17 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.less?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -38,6 +39,6 @@ export default {
       loader: async () => (await import(/* webpackChunkName: "demos_tupni" */'D:/git-work/components/src/input/demo/input.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode11},"index.tsx":{"import":"..","content":rawCode12},"input.tsx":{"import":"./input","content":rawCode13},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode3},"inputNumber.tsx":{"import":"./inputNumber","content":rawCode14},"style/index.ts":{"import":"./style","content":rawCode15},"style/index.less":{"import":"./index.less","content":rawCode16}},"dependencies":{"react":{"version":">=16.9.0"},"rc-util":{"version":"5.19.3"},"react-dom":{"version":">=16.9.0"},"rc-input-number":{"version":"7.3.4"}},"componentName":"input","identifier":"input-input"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode11},"index.tsx":{"import":"..","content":rawCode12},"input.tsx":{"import":"./input","content":rawCode13},"BasicInput.tsx":{"import":"./BasicInput","content":rawCode14},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode3},"inputNumber.tsx":{"import":"./inputNumber","content":rawCode15},"style/index.ts":{"import":"./style","content":rawCode16},"style/index.less":{"import":"./index.less","content":rawCode17}},"dependencies":{"react":{"version":">=16.9.0"},"rc-util":{"version":"5.19.3"},"react-dom":{"version":">=16.9.0"},"rc-input-number":{"version":"7.3.4"}},"componentName":"input","identifier":"input-input"},
   },
 };

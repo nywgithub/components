@@ -90,7 +90,7 @@ const Input: React.FC<InputProps> = ({
   }
   //输入监听
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e)
+    setValue(e.target.value)
     props.onChange?.(e)
   }
   //清除输入值
@@ -99,7 +99,7 @@ const Input: React.FC<InputProps> = ({
   }
   return (
     <BasicInput
-      prefixCls={'input'}
+      prefixCls={prefixCls}
       type={'input'}
       {...props}
       element={
