@@ -10,7 +10,7 @@
     "build:site": "rimraf doc-site && dumi build",
     "preview:site": "npm run build:site && serve doc-site"
   },
-  "author": "",
+  "author": "nyw",
   "license": "ISC",
   "browserslist": {
     "production": [
