@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Input from '..'
+import ConfigProvider from '../../common-provider/context'
 // import InputNumber from '../inputNumber'
 import '../style'
 const { InputNumber } = Input
@@ -28,13 +29,15 @@ export default () => {
         suffix={<span>suffix</span>}
         allowClear
       ></Input>
-      <InputNumber
-        ref={inputRef}
-        min={-8000}
-        max={10000000}
-        addonBefore={<span>数量</span>}
-        addonAfter={<span>个</span>}
-      />
+      <ConfigProvider locale={'test'}>
+        <InputNumber
+          ref={inputRef}
+          min={-8000}
+          max={10000000}
+          addonBefore={<span>数量</span>}
+          addonAfter={<span>个</span>}
+        />
+      </ConfigProvider>
     </>
   )
 }

@@ -18,7 +18,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>(
   ({ prefixCls: customizePrefixCls, ...props }, ref) => {
     const { addonBefore, addonAfter } = props
     //获取context中的getPrefixCls
-    const { getPrefixCls } = React.useContext(ConfigContext)
+    const { getPrefixCls, locale } = React.useContext(ConfigContext)
+    console.log('locale', locale)
     // prefixCls为统一前缀(ui库名称-组件名称)
     const prefixCls = getPrefixCls('input-number', customizePrefixCls)
     const addonBeforeNode = addonBefore ? (
