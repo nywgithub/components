@@ -10,4 +10,4 @@
  */
 export { default as Alert } from './alert'
 export { default as Input } from './input'
-export { default as Upload } from './upload'
+export { default as Upload } from './upload/upload'

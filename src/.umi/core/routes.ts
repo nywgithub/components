@@ -110,7 +110,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/input/index.md",
-          "updatedTime": 1650267197000,
+          "updatedTime": 1650438544000,
           "componentName": "input",
           "title": "input",
           "order": 2,
@@ -182,11 +182,6 @@ export function getRoutes() {
               "depth": 2,
               "value": "API",
               "heading": "api"
-            },
-            {
-              "depth": 3,
-              "value": "Vupload",
-              "heading": "api-vupload"
             }
           ],
           "hasPreviewer": true
