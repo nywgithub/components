@@ -6,6 +6,30 @@
         "description": "Alert 的类型",
         "type": "\"info\" | \"positive\" | \"negative\" | \"warning\"",
         "default": "info"
+      },
+      {
+        "identifier": "duration",
+        "description": "自动消失的时间间距，单位毫秒，默认空",
+        "type": "ValueType",
+        "default": ""
+      },
+      {
+        "identifier": "onClose",
+        "description": "关闭按钮的回调",
+        "type": "() => void",
+        "default": "null"
+      },
+      {
+        "identifier": "close",
+        "description": "关闭按钮",
+        "type": "ReactNode",
+        "default": "<span>x</span>"
+      },
+      {
+        "identifier": "closeable",
+        "description": "是否展示关闭按钮",
+        "type": "boolean",
+        "default": "false"
       }
     ]
   },
