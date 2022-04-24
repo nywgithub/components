@@ -6,5 +6,6 @@
   color: white;
   background: white;
   border-radius: 3px;
+  display: flex;
 }
 
