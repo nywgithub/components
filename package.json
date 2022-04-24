@@ -46,6 +46,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "dumi": "^1.1.40",
     "html-webpack-plugin": "^5.5.0",
+    "less-loader": "^10.2.0",
     "mini-css-extract-plugin": "^2.6.0",
     "serve": "^13.0.2",
     "terser-webpack-plugin": "^5.3.1",

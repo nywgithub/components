@@ -16,7 +16,10 @@ import '../style';
 export default () => {
     return (
         <ConfigProvider locale={'asd'}>
-            <Alert kind="warning">这是一条警告提示?</Alert>
+            <Alert kind="warning">
+                <div>这是一条警告提示?</div>
+                <span>1</span>
+            </Alert>
         </ConfigProvider>
     )
 };

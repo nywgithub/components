@@ -1,5 +1,6 @@
 import React from 'react';
 import t from 'prop-types';
+import './style'
 import {ConfigConsumer, ConfigConsumerProps} from '../common-provider/context'
 export interface AlertProps {
   /**
