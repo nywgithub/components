@@ -9,7 +9,7 @@ interface BasicInputProps {
   allowClear?: boolean
   prefixCls: string
   element: React.ReactElement
-  type: string,
+  type: string
   handleClear: any
 }
 
@@ -23,15 +23,19 @@ const BasicInput: React.FC<BasicInputProps> = (props) => {
     addonAfter,
     element,
     type,
-    handleClear
+    handleClear,
   } = props
   const renderClearIcon = (prefixCls: string) => {
     if (!allowClear) {
-      return
+      return null
     }
     const className = `${prefixCls}-clear-icon`
     // TODO:换成icon图标
-    return <span className={className} onClick={handleClear}>x</span>
+    return (
+      <span className={className} onClick={handleClear}>
+        x
+      </span>
+    )
   }
   //区分textarea 和 普通input框
   const renderTetxArea = (prefixCls: string, element: React.ReactElement) => {
@@ -51,7 +55,9 @@ const BasicInput: React.FC<BasicInputProps> = (props) => {
       addonBefore,
       addonAfter,
     }
-    return obj[type] ? <span className={`${prefixCls}-${type}`}>{obj[type]}</span> : null
+    return obj[type] ? (
+      <span className={`${prefixCls}-${type}`}>{obj[type]}</span>
+    ) : null
   }
 
   const renderInput = (prefixCls: string, element: React.ReactElement) => {

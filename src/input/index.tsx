@@ -9,12 +9,12 @@
  * Copyright (c) 2022 by nyw, All Rights Reserved.
  */
 
-import Input from './input';
-import InputNumber from './inputNumber';
+import Input from './input'
+import InputNumber from './inputNumber'
 
-export { InputProps } from './input';
-export { InputNumberProps } from './inputNumber';
+export { InputProps } from './input'
+export { InputNumberProps } from './inputNumber'
 
-Input.InputNumber = InputNumber;
+Input.InputNumber = InputNumber
 
-export default Input;
+export default Input
