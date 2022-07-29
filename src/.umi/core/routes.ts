@@ -152,7 +152,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "src/upload/index.md",
-          "updatedTime": 1649747571000,
+          "updatedTime": 1650619638000,
           "componentName": "upload",
           "title": "upload",
           "order": 2,

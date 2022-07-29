@@ -31,7 +31,7 @@ const ConfigProvider : React.FC<ConfigProviderProps> = (props) => {
   const { children } = props
   return (
     <ConfigConsumer>
-      {(context) => (
+      {(context) => {console.log(context);return(
         // 2.使用provider将数据传给组件
         <ConfigContext.Provider
           value={
@@ -43,7 +43,7 @@ const ConfigProvider : React.FC<ConfigProviderProps> = (props) => {
         >
           {children}
         </ConfigContext.Provider>
-      )}
+      )}}
     </ConfigConsumer>
   )
 }

@@ -1301,30 +1301,6 @@
   "upload": {
     "default": [
       {
-        "identifier": "size",
-        "type": "number"
-      },
-      {
-        "identifier": "max",
-        "type": "number"
-      },
-      {
-        "identifier": "errorMessage",
-        "type": "{ size?: string; same?: string; format?: string; }"
-      },
-      {
-        "identifier": "defaultImg",
-        "type": "string[]"
-      },
-      {
-        "identifier": "defaultFFsid",
-        "type": "string[]"
-      },
-      {
-        "identifier": "defaultTitle",
-        "type": "string[]"
-      },
-      {
         "identifier": "name",
         "type": "string"
       },
@@ -1489,6 +1465,10 @@
         "type": "string"
       },
       {
+        "identifier": "max",
+        "type": "string | number"
+      },
+      {
         "identifier": "maxLength",
         "type": "number"
       },
@@ -1515,6 +1495,10 @@
       {
         "identifier": "required",
         "type": "boolean"
+      },
+      {
+        "identifier": "size",
+        "type": "number"
       },
       {
         "identifier": "src",

@@ -3,6 +3,7 @@ import omit from 'rc-util/lib/omit'
 import BasicInput  from './BasicInput'
 import { ConfigContext } from '../common-provider/context'
 import type InputNumber from './inputNumber'
+//联合类型：把两个存在并集的类型，拆开为联合类型
 type LiteralUnion<T extends U, U> = T | (U & {})
 //继承原生input的属性
 export interface InputProps
