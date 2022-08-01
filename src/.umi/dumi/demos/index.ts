@@ -14,10 +14,6 @@ import rawCode10 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/i
 import rawCode11 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.ts?dumi-raw-code';
 import rawCode12 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.less?dumi-raw-code';
 import rawCode13 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/demo/basic.tsx?dumi-raw-code';
-import rawCode14 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/index.tsx?dumi-raw-code';
-import rawCode15 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/upload.tsx?dumi-raw-code';
-import rawCode16 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
-import rawCode17 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -39,6 +35,6 @@ export default {
       loader: async () => (await import(/* webpackChunkName: "demos_daolpu" */'D:/git-work/components/src/upload/demo/basic.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode13},"index.tsx":{"import":"..","content":rawCode14},"upload.tsx":{"import":"./upload","content":rawCode15},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"style/index.ts":{"import":"./style","content":rawCode16},"style/index.less":{"import":"./index.less","content":rawCode17}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"react-dom":{"version":">=16.9.0"}},"componentName":"upload","identifier":"upload-basic"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode13}},"dependencies":{},"componentName":"upload","identifier":"upload-basic"},
   },
 };

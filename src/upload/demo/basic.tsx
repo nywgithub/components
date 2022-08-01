@@ -34,7 +34,7 @@ export default () => {
             action={"upload"}
             beforeUpload={beforeUpload}
             onSuccess={onSuccess}
-            // prefixCls="diyClass"
+            prefixCls="diyClass"
         >
             上传
         </Upload>
