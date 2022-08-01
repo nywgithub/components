@@ -37,11 +37,11 @@ const Upload: React.FC<UploadProps> = ({
         console.info("onSuccess-response:", response)
         console.info("onSuccess-file:", file)
         console.info("onSuccess-xhr:", xhr)
-        const asd = fileList
-        asd.push(file)
-        console.log("fileList", asd)
+        let cloneFileList = [...fileList]
+        cloneFileList.push(file)
+        console.log("fileList", cloneFileList)
 
-        setFileList(asd)
+        setFileList(cloneFileList)
     }
 
     const onError: RcUploadTypes["onError"] = (

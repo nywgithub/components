@@ -6,15 +6,19 @@ import type { RcFile as RcFileProps } from "rc-upload/lib/interface"
 
 export interface UploadProps extends RcUploadProps {}
 
+//原生File类型
 export interface FileProps extends RcFileProps {}
 
 export interface UploadListProps {
-    prefixCls?: string
+    prefixCls: string
     fileList: Array<FileProps>
 }
 
 export interface ProgressProps {}
 
 export interface ItemProps {
-    prefixCls?: string
+    prefixCls: string
+    file: FileProps
+    type?: string
+    renderItem?: () => void
 }

@@ -2,19 +2,20 @@ import * as React from "react"
 import { UploadListProps, FileProps } from "./interface"
 import Item from "./item"
 
-const UploadList: React.FC<UploadListProps> = ({
-    prefixCls,
-    fileList,
-    ...props
-}) => {
-    React.useEffect(() => {
-        console.log("fileList", fileList)
-    }, [fileList])
-    
+const UploadList: React.FC<UploadListProps> = (props) => {
+    const { prefixCls, fileList } = props
+
+    const itemList = [
+        ...fileList.map((file: FileProps) => ({
+            key: file.uid,
+            file,
+        })),
+    ]
+
     return (
         <div className={`${prefixCls}-list`}>
-            {fileList.map((item, index) => (
-                <Item prefixCls={prefixCls} />
+            {itemList.map((item, index) => (
+                <Item prefixCls={prefixCls} key={index} file={item.file} />
             ))}
         </div>
     )
