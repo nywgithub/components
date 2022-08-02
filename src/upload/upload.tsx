@@ -69,15 +69,20 @@ const Upload: React.FC<UploadProps> = ({
     ) => {
         console.info("beforeUpload-file:", file)
         console.info("beforeUpload-FileList:", FileList)
-        beforeUpload?.(file, FileList)
+        let result = await beforeUpload?.(file, FileList)
+        if(result === false){
+            return result
+        }
         const { size } = file
-        //TODO: 停止上传
-        if (fileSize && size / 1024 / 1024 > fileSize) {
-            onFileSize?.(size)
+        
+        if (fileSize && (size / 1024 > fileSize)) {
+            onFileSize?.(size / 1024)
+            return false
         }
 
-        if (fileLimit && FileList.length > fileLimit) {
-            onFileLimit?.()
+        if (fileLimit && fileList.length >= fileLimit) {
+            onFileLimit?.(fileList.length)
+            return false
         }
     }
 

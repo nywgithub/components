@@ -14,17 +14,9 @@ import Upload from ".."
 export default () => {
     const [listValue, setListValue] = React.useState([])
     const beforeUpload = async (file: any, FileList: any) => {
-        /* if (file.size / 1024 / 1024 > 2) {
-      alert(1)
-      return false
-    } */
-        await new Promise((resolve, reject) => {
-            console.log(file.size / 1024 / 1024)
-            if (file.size / 1024 / 1024 > 2) {
-                reject()
-            }
-            resolve(file)
-        })
+        console.log(file)
+        console.log(FileList)
+        return false
     }
     const onSuccess = (a, b, c) => {
         console.log(a, b, c)
@@ -33,19 +25,26 @@ export default () => {
         console.log(file, fileList)
         setListValue(fileList)
     }
+    const onFileLimit = (limit) => {
+        alert(`超出${limit}个限制了`)
+    }
+    const onFileSize = (size) => {
+        alert(`当前${size}kb,超出限制了`)
+    }
     return (
         <Upload
-            // filkeSize={2048}
-            action={"upload"}
+            fileSize={100}
+            onFileLimit={onFileLimit}
+            fileLimit={2}
+            onFileSize={onFileSize}
+            action={"upload/add"}
             beforeUpload={beforeUpload}
             onSuccess={onSuccess}
             prefixCls="diyClass"
             onChange={onChange}
             listValue={listValue}
         >
-            上传
-            已上传: {listValue.length}
+            上传 已上传: {listValue.length}
         </Upload>
-
     )
 }

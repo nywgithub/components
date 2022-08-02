@@ -20,7 +20,7 @@ export interface ExtraUploadProps {
     deleteIcon?: React.ReactNode
     itemRender?: () => void
     fileLimit?: number
-    onFileLimit?: () => void
+    onFileLimit?: (limit: number) => void
     fileSize?: number
     onFileSize?: (size: number) => void
     onChange?: (file: RcFileProps, fileList: RcFileProps[]) => void
