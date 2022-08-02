@@ -12,6 +12,7 @@ import React from "react"
 import Upload from ".."
 // import '../style';
 export default () => {
+    const [listValue, setListValue] = React.useState([])
     const beforeUpload = async (file: any, FileList: any) => {
         /* if (file.size / 1024 / 1024 > 2) {
       alert(1)
@@ -28,15 +29,23 @@ export default () => {
     const onSuccess = (a, b, c) => {
         console.log(a, b, c)
     }
+    const onChange = (file, fileList) => {
+        console.log(file, fileList)
+        setListValue(fileList)
+    }
     return (
         <Upload
-            size={1}
+            // filkeSize={2048}
             action={"upload"}
             beforeUpload={beforeUpload}
             onSuccess={onSuccess}
             prefixCls="diyClass"
+            onChange={onChange}
+            listValue={listValue}
         >
             上传
+            已上传: {listValue.length}
         </Upload>
+
     )
 }

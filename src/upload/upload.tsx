@@ -15,8 +15,10 @@ const Upload: React.FC<UploadProps> = ({
     const {
         defaultFile,
         listType,
+        listValue,
         itemRender,
         deleteIcon,
+        onChange,
         onStart,
         beforeUpload,
         onSuccess,
@@ -30,7 +32,7 @@ const Upload: React.FC<UploadProps> = ({
     const prefixCls = getPrefixCls("upload", customizePrefixCls) //wei-upload
 
     const [fileList, setFileList] = React.useState<Array<FileProps>>(
-        defaultFile || []
+        defaultFile?.concat(listValue || []) || []
     )
 
     //上传列表发生改变处理方法
@@ -46,6 +48,7 @@ const Upload: React.FC<UploadProps> = ({
             cloneFileList[fileIndex] = file
             type === "delete" && cloneFileList.splice(fileIndex, 1)
         }
+        onChange?.(file, cloneFileList)
         return cloneFileList
     }
 
@@ -57,7 +60,7 @@ const Upload: React.FC<UploadProps> = ({
     /* 上传生命周期 */
     const mergeStart: RcUploadTypes["onStart"] = (file: FileProps) => {
         console.info("onStart-file:", file)
-        onStart && onStart(file)
+        onStart?.(file)
     }
 
     const mergeBeforeUpload: RcUploadTypes["beforeUpload"] = async (
@@ -66,14 +69,15 @@ const Upload: React.FC<UploadProps> = ({
     ) => {
         console.info("beforeUpload-file:", file)
         console.info("beforeUpload-FileList:", FileList)
-        beforeUpload && beforeUpload(file, FileList)
+        beforeUpload?.(file, FileList)
         const { size } = file
+        //TODO: 停止上传
         if (fileSize && size / 1024 / 1024 > fileSize) {
-            onFileSize && onFileSize()
+            onFileSize?.(size)
         }
 
         if (fileLimit && FileList.length > fileLimit) {
-            onFileLimit && onFileLimit()
+            onFileLimit?.()
         }
     }
 
@@ -88,7 +92,7 @@ const Upload: React.FC<UploadProps> = ({
         //新增file直接push
         let nextFileList = updateUploadList(file)
         setFileList(nextFileList)
-        onSuccess && onSuccess(response, file, xhr)
+        onSuccess?.(response, file, xhr)
     }
 
     const mergeError: RcUploadTypes["onError"] = (
@@ -99,12 +103,12 @@ const Upload: React.FC<UploadProps> = ({
         console.info("onError-error:", error)
         console.info("onError-ret:", ret)
         console.info("onError-file:", file)
-        onError && onError(error, ret, file)
+        onError?.(error, ret, file)
     }
 
     //rc-upload属性单独拎出来写
     const RcUploadProps = {
-        ...props,
+        ...(props as RcUploadTypes),
         prefixCls,
         onStart: mergeStart,
         beforeUpload: mergeBeforeUpload,

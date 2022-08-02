@@ -5,7 +5,7 @@ const Item: React.FC<ItemProps> = (props) => {
     const { prefixCls, file, deleteIcon, listType, itemRender, deleteItem } = props
 
     const handleDelete = (e: React.MouseEvent<HTMLElement>) => {
-        deleteItem && deleteItem(file)
+        deleteItem?.(file)
     }
     return (
         <div className={`${prefixCls}-list-item`}>
