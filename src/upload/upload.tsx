@@ -12,24 +12,72 @@ const Upload: React.FC<UploadProps> = ({
     prefixCls: customizePrefixCls,
     ...props
 }) => {
+    const {
+        defaultFile,
+        listType,
+        itemRender,
+        deleteIcon,
+        onStart,
+        beforeUpload,
+        onSuccess,
+        onError,
+        fileLimit,
+        onFileLimit,
+        fileSize,
+        onFileSize,
+    } = props
     const { getPrefixCls } = React.useContext(ConfigContext)
     const prefixCls = getPrefixCls("upload", customizePrefixCls) //wei-upload
 
-    const [fileList, setFileList] = React.useState<Array<FileProps>>([])
+    const [fileList, setFileList] = React.useState<Array<FileProps>>(
+        defaultFile || []
+    )
 
-    const onStart: RcUploadTypes["onStart"] = (file: FileProps) => {
-        console.info("onStart-file:", file)
+    //上传列表发生改变处理方法
+    const updateUploadList = (file: FileProps, type?: string) => {
+        let cloneFileList = [...fileList]
+
+        //判断发生改变的file 是新增，删除还是修改
+        let fileIndex = cloneFileList.findIndex((item) => item.uid === file.uid)
+
+        if (fileIndex === -1) {
+            cloneFileList.push(file)
+        } else {
+            cloneFileList[fileIndex] = file
+            type === "delete" && cloneFileList.splice(fileIndex, 1)
+        }
+        return cloneFileList
     }
 
-    const beforeUpload: RcUploadTypes["beforeUpload"] = async (
+    const deleteItem = (file: FileProps) => {
+        let removedFileList = updateUploadList(file, "delete")
+        setFileList(removedFileList)
+    }
+
+    /* 上传生命周期 */
+    const mergeStart: RcUploadTypes["onStart"] = (file: FileProps) => {
+        console.info("onStart-file:", file)
+        onStart && onStart(file)
+    }
+
+    const mergeBeforeUpload: RcUploadTypes["beforeUpload"] = async (
         file: FileProps,
         FileList: FileProps[]
     ) => {
         console.info("beforeUpload-file:", file)
         console.info("beforeUpload-FileList:", FileList)
+        beforeUpload && beforeUpload(file, FileList)
+        const { size } = file
+        if (fileSize && size / 1024 / 1024 > fileSize) {
+            onFileSize && onFileSize()
+        }
+
+        if (fileLimit && FileList.length > fileLimit) {
+            onFileLimit && onFileLimit()
+        }
     }
 
-    const onSuccess: RcUploadTypes["onSuccess"] = (
+    const mergeSuccess: RcUploadTypes["onSuccess"] = (
         response: Record<string, unknown>,
         file: FileProps,
         xhr: XMLHttpRequest
@@ -37,14 +85,13 @@ const Upload: React.FC<UploadProps> = ({
         console.info("onSuccess-response:", response)
         console.info("onSuccess-file:", file)
         console.info("onSuccess-xhr:", xhr)
-        let cloneFileList = [...fileList]
-        cloneFileList.push(file)
-        console.log("fileList", cloneFileList)
-
-        setFileList(cloneFileList)
+        //新增file直接push
+        let nextFileList = updateUploadList(file)
+        setFileList(nextFileList)
+        onSuccess && onSuccess(response, file, xhr)
     }
 
-    const onError: RcUploadTypes["onError"] = (
+    const mergeError: RcUploadTypes["onError"] = (
         error: Error,
         ret: Record<string, unknown>,
         file: FileProps
@@ -52,16 +99,17 @@ const Upload: React.FC<UploadProps> = ({
         console.info("onError-error:", error)
         console.info("onError-ret:", ret)
         console.info("onError-file:", file)
+        onError && onError(error, ret, file)
     }
 
     //rc-upload属性单独拎出来写
     const RcUploadProps = {
         ...props,
         prefixCls,
-        onStart,
-        beforeUpload,
-        onSuccess,
-        onError,
+        onStart: mergeStart,
+        beforeUpload: mergeBeforeUpload,
+        onSuccess: mergeSuccess,
+        onError: mergeError,
     }
 
     const rcUpload = React.useRef(null)
@@ -69,9 +117,20 @@ const Upload: React.FC<UploadProps> = ({
     return (
         <div className={`${prefixCls}-wrapper`}>
             <RcUpload {...RcUploadProps} ref={rcUpload} />
-            <UploadList prefixCls={prefixCls} fileList={fileList} />
+            <UploadList
+                prefixCls={prefixCls}
+                fileList={fileList}
+                itemRender={itemRender}
+                listType={listType}
+                deleteIcon={deleteIcon}
+                deleteItem={deleteItem}
+            />
         </div>
     )
+}
+
+Upload.defaultProps = {
+    deleteIcon: <span>x</span>,
 }
 
 export default Upload

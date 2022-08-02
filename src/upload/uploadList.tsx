@@ -3,7 +3,14 @@ import { UploadListProps, FileProps } from "./interface"
 import Item from "./item"
 
 const UploadList: React.FC<UploadListProps> = (props) => {
-    const { prefixCls, fileList } = props
+    const {
+        prefixCls,
+        fileList,
+        listType,
+        itemRender,
+        deleteIcon,
+        deleteItem,
+    } = props
 
     const itemList = [
         ...fileList.map((file: FileProps) => ({
@@ -15,7 +22,15 @@ const UploadList: React.FC<UploadListProps> = (props) => {
     return (
         <div className={`${prefixCls}-list`}>
             {itemList.map((item, index) => (
-                <Item prefixCls={prefixCls} key={index} file={item.file} />
+                <Item
+                    prefixCls={prefixCls}
+                    key={index}
+                    file={item.file}
+                    listType={listType}
+                    itemRender={itemRender}
+                    deleteIcon={deleteIcon}
+                    deleteItem={deleteItem}
+                />
             ))}
         </div>
     )
