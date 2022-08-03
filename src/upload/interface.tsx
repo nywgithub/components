@@ -9,7 +9,19 @@ import type {
     UploadRequestMethod,
     UploadRequestHeader,
     UploadRequestOption,
+    UploadProgressEvent,
 } from "rc-upload/lib/interface"
+
+//原生File类型
+
+export interface InsertFileProps{
+    percent?: number
+    status?: string
+    lastModifiedDate?: string
+}
+export interface FileProps extends RcFileProps,InsertFileProps {
+    
+}
 
 //封装rc-upload后新增字段
 export interface ExtraUploadProps {
@@ -18,27 +30,28 @@ export interface ExtraUploadProps {
     listValue?: Array<FileProps>
     listType?: "picture" | "text" | "card"
     deleteIcon?: React.ReactNode
-    itemRender?: () => void
+    itemRender?: (file: FileProps) => React.ReactElement
     fileLimit?: number
     onFileLimit?: (limit: number) => void
     fileSize?: number
     onFileSize?: (size: number) => void
-    onChange?: (file: RcFileProps, fileList: RcFileProps[]) => void
+    onChange?: (file: FileProps, fileList: FileProps[]) => void
     //和rc-upload同名，但已经覆盖
-    onStart?: (file: RcFileProps) => void
+    onStart?: (file: FileProps) => void
     onError?: (
         error: Error,
         ret: Record<string, unknown>,
-        file: RcFileProps
+        file: FileProps
     ) => void
     onSuccess?: (
         response: Record<string, unknown>,
-        file: RcFileProps,
+        file: FileProps,
         xhr: XMLHttpRequest
     ) => void
+    onProgress?: (event: UploadProgressEvent, file: FileProps) => void
     beforeUpload?: (
-        file: RcFileProps,
-        FileList: RcFileProps[]
+        file: FileProps,
+        FileList: FileProps[]
     ) => BeforeUploadFileType | Promise<void | BeforeUploadFileType>
 }
 
@@ -51,7 +64,7 @@ export interface KeepUploadProps {
     directory?: boolean
     data?:
         | Record<string, unknown>
-        | ((file: RcFileProps | string | Blob) => Record<string, unknown>)
+        | ((file: FileProps | string | Blob) => Record<string, unknown>)
     headers?: UploadRequestHeader
     accept?: string
     multiple?: boolean
@@ -62,19 +75,19 @@ export interface KeepUploadProps {
 
 export interface UploadProps extends ExtraUploadProps, KeepUploadProps {}
 
-//原生File类型
-export interface FileProps extends RcFileProps {}
-
 export interface UploadListProps {
     prefixCls: string
     fileList: Array<FileProps>
     listType?: string
     deleteIcon?: React.ReactNode
     deleteItem?: (file: FileProps) => void
-    itemRender?: () => void
+    itemRender?: (file: FileProps) => React.ReactElement
 }
 
-export interface ProgressProps {}
+export interface ProgressProps {
+    prefixCls?: string
+    percent?: number
+}
 
 export interface ItemProps {
     prefixCls: string
@@ -82,5 +95,5 @@ export interface ItemProps {
     listType?: string
     deleteIcon?: React.ReactNode
     deleteItem?: (file: FileProps) => void
-    itemRender?: () => void
+    itemRender?: (file: FileProps) => React.ReactElement
 }

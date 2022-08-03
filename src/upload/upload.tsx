@@ -1,7 +1,11 @@
 import React from "react"
+import type {
+    UploadProgressEvent,
+    RcFile as RcFileProps,
+} from "rc-upload/lib/interface"
 import RcUpload, { UploadProps as RcUploadTypes } from "rc-upload"
 import classNames from "classnames"
-import { UploadProps, FileProps } from "./interface"
+import { UploadProps, FileProps, InsertFileProps } from "./interface"
 import { ConfigContext } from "../common-provider/context"
 import UploadList from "./uploadList"
 
@@ -21,6 +25,7 @@ const Upload: React.FC<UploadProps> = ({
         onChange,
         onStart,
         beforeUpload,
+        onProgress,
         onSuccess,
         onError,
         fileLimit,
@@ -35,6 +40,29 @@ const Upload: React.FC<UploadProps> = ({
         defaultFile?.concat(listValue || []) || []
     )
 
+    // 解决file不能通过使用对象展开问题
+    const insertedFileObj = (file: FileProps, insertObj: InsertFileProps) => {
+        const {
+            uid,
+            lastModified,
+            lastModifiedDate,
+            name,
+            size,
+            type,
+            webkitRelativePath,
+        } = file
+        return {
+            uid,
+            lastModified,
+            lastModifiedDate,
+            name,
+            size,
+            type,
+            webkitRelativePath,
+            ...insertObj,
+        }
+    }
+
     //上传列表发生改变处理方法
     const updateUploadList = (file: FileProps, type?: string) => {
         let cloneFileList = [...fileList]
@@ -48,18 +76,36 @@ const Upload: React.FC<UploadProps> = ({
             cloneFileList[fileIndex] = file
             type === "delete" && cloneFileList.splice(fileIndex, 1)
         }
-        onChange?.(file, cloneFileList)
         return cloneFileList
     }
 
     const deleteItem = (file: FileProps) => {
         let removedFileList = updateUploadList(file, "delete")
         setFileList(removedFileList)
+        onChange?.(file, removedFileList)
+    }
+
+    //为file新增属性, antd做法：onBatchStart时在file中植入新增的属性
+    const onBatchStart: RcUploadTypes["onBatchStart"] = (
+        FileList: {
+            file: FileProps
+            parsedFile: string | File | Blob
+        }[]
+    ) => {
+        const insertObj = {
+            percent: 0,
+            status: "start",
+        }
+        const insertedFileInfoList = FileList.map((item) => {
+            return insertedFileObj(item.file,insertObj)
+        })
+        let nextFileList = [...fileList, ...insertedFileInfoList]
+
+        setFileList(nextFileList as FileProps[])
     }
 
     /* 上传生命周期 */
     const mergeStart: RcUploadTypes["onStart"] = (file: FileProps) => {
-        console.info("onStart-file:", file)
         onStart?.(file)
     }
 
@@ -67,15 +113,15 @@ const Upload: React.FC<UploadProps> = ({
         file: FileProps,
         FileList: FileProps[]
     ) => {
-        console.info("beforeUpload-file:", file)
-        console.info("beforeUpload-FileList:", FileList)
-        let result = await beforeUpload?.(file, FileList)
-        if(result === false){
-            return result
+        if (beforeUpload) {
+            let result = await beforeUpload(file, FileList)
+            if (result === false) {
+                return result
+            }
         }
         const { size } = file
-        
-        if (fileSize && (size / 1024 > fileSize)) {
+
+        if (fileSize && size / 1024 > fileSize) {
             onFileSize?.(size / 1024)
             return false
         }
@@ -86,17 +132,30 @@ const Upload: React.FC<UploadProps> = ({
         }
     }
 
+    const mergeProgress: RcUploadTypes["onProgress"] = (
+        event: UploadProgressEvent,
+        file: FileProps
+    ) => {
+        const insertObj = insertedFileObj(file, {
+            percent: event.percent,
+            status: "pending",
+        })
+        let nextFileList = updateUploadList(insertObj as FileProps)
+        setFileList(nextFileList)
+        onProgress?.(event, file)
+    }
+
     const mergeSuccess: RcUploadTypes["onSuccess"] = (
         response: Record<string, unknown>,
         file: FileProps,
         xhr: XMLHttpRequest
     ) => {
-        console.info("onSuccess-response:", response)
-        console.info("onSuccess-file:", file)
-        console.info("onSuccess-xhr:", xhr)
-        //新增file直接push
-        let nextFileList = updateUploadList(file)
+        const insertObj = insertedFileObj(file, {
+            status: "success",
+        })
+        let nextFileList = updateUploadList(insertObj as FileProps)
         setFileList(nextFileList)
+        onChange?.(file, nextFileList)
         onSuccess?.(response, file, xhr)
     }
 
@@ -105,9 +164,6 @@ const Upload: React.FC<UploadProps> = ({
         ret: Record<string, unknown>,
         file: FileProps
     ) => {
-        console.info("onError-error:", error)
-        console.info("onError-ret:", ret)
-        console.info("onError-file:", file)
         onError?.(error, ret, file)
     }
 
@@ -119,6 +175,8 @@ const Upload: React.FC<UploadProps> = ({
         beforeUpload: mergeBeforeUpload,
         onSuccess: mergeSuccess,
         onError: mergeError,
+        onProgress: mergeProgress,
+        onBatchStart,
     }
 
     const rcUpload = React.useRef(null)

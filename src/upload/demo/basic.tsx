@@ -8,15 +8,19 @@
  *
  * Copyright (c) 2022 by nyw, All Rights Reserved.
  */
+import { rejects } from "assert"
 import React from "react"
 import Upload from ".."
 // import '../style';
 export default () => {
     const [listValue, setListValue] = React.useState([])
+    const [percent, setPercent] = React.useState(0)
     const beforeUpload = async (file: any, FileList: any) => {
         console.log(file)
         console.log(FileList)
-        return false
+    }
+    const onProgress = (e, file) => {
+        setPercent(e.percent)
     }
     const onSuccess = (a, b, c) => {
         console.log(a, b, c)
@@ -24,6 +28,7 @@ export default () => {
     const onChange = (file, fileList) => {
         console.log(file, fileList)
         setListValue(fileList)
+        setPercent(0)
     }
     const onFileLimit = (limit) => {
         alert(`超出${limit}个限制了`)
@@ -39,12 +44,13 @@ export default () => {
             onFileSize={onFileSize}
             action={"upload/add"}
             beforeUpload={beforeUpload}
+            onProgress={onProgress}
             onSuccess={onSuccess}
             prefixCls="diyClass"
             onChange={onChange}
             listValue={listValue}
         >
-            上传 已上传: {listValue.length}
+            上传 已上传: {listValue.length} 进度：{percent}
         </Upload>
     )
 }

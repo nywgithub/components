@@ -1,8 +1,11 @@
 import * as React from "react"
 import {ProgressProps } from "./interface"
 
-const UploadList: React.FC<ProgressProps> = (props) => {
-    return <div></div>
+const Progress: React.FC<ProgressProps> = (props) => {
+    const {prefixCls, percent} = props
+    return <div className={`${prefixCls}-process`}>
+        {percent}
+    </div>
 }
 
-export default UploadList
+export default Progress

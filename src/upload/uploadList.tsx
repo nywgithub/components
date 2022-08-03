@@ -12,13 +12,15 @@ const UploadList: React.FC<UploadListProps> = (props) => {
         deleteItem,
     } = props
 
-    const itemList = [
+    let itemList = [
         ...fileList.map((file: FileProps) => ({
             key: file.uid,
             file,
         })),
     ]
-
+    //TODO: 过滤status为start的数据
+    itemList = itemList.filter((item) => item.file.status !== "start")
+    console.log('itemList', itemList)
     return (
         <div className={`${prefixCls}-list`}>
             {itemList.map((item, index) => (
