@@ -24,6 +24,7 @@ export default () => {
     }
     const onSuccess = (a, b, c) => {
         console.log(a, b, c)
+        console.log("uploadRef",uploadRef.current)
     }
     const onChange = (file, fileList) => {
         console.log(file, fileList)
@@ -36,6 +37,7 @@ export default () => {
     const onFileSize = (size) => {
         alert(`当前${size}kb,超出限制了`)
     }
+    const uploadRef = React.useRef(null)
     return (
         <Upload
             fileSize={100}
@@ -49,6 +51,7 @@ export default () => {
             prefixCls="diyClass"
             onChange={onChange}
             listValue={listValue}
+            ref = {uploadRef}
         >
             上传 已上传: {listValue.length} 进度：{percent}
         </Upload>

@@ -11,11 +11,14 @@ import UploadList from "./uploadList"
 
 import "./style"
 
-const Upload: React.FC<UploadProps> = ({
-    //自定义class前缀prefixCls
-    prefixCls: customizePrefixCls,
-    ...props
-}) => {
+const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
+    {
+        //自定义class前缀prefixCls
+        prefixCls: customizePrefixCls,
+        ...props
+    },
+    ref
+) => {
     const {
         defaultFile,
         listType,
@@ -33,6 +36,16 @@ const Upload: React.FC<UploadProps> = ({
         fileSize,
         onFileSize,
     } = props
+
+    React.useImperativeHandle(ref, () => ({
+        onBatchStart,
+        onSuccess: mergeSuccess,
+        onProgress: mergeProgress,
+        onError: mergeError,
+        fileList,
+        upload: rcUpload.current,
+    }))
+
     const { getPrefixCls } = React.useContext(ConfigContext)
     const prefixCls = getPrefixCls("upload", customizePrefixCls) //wei-upload
 
@@ -97,7 +110,7 @@ const Upload: React.FC<UploadProps> = ({
             status: "start",
         }
         const insertedFileInfoList = FileList.map((item) => {
-            return insertedFileObj(item.file,insertObj)
+            return insertedFileObj(item.file, insertObj)
         })
         let nextFileList = [...fileList, ...insertedFileInfoList]
 
@@ -195,6 +208,12 @@ const Upload: React.FC<UploadProps> = ({
         </div>
     )
 }
+
+const Upload = React.forwardRef<unknown, UploadProps>(
+    ForwardRefUpload
+) as React.ForwardRefExoticComponent<
+    React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
+>
 
 Upload.defaultProps = {
     deleteIcon: <span>x</span>,

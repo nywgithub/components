@@ -1416,6 +1416,14 @@
       {
         "identifier": "openFileDialogOnClick",
         "type": "boolean"
+      },
+      {
+        "identifier": "ref",
+        "type": "Ref<any>"
+      },
+      {
+        "identifier": "key",
+        "type": "Key"
       }
     ]
   }
