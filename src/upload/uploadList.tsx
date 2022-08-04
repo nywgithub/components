@@ -1,5 +1,6 @@
 import * as React from "react"
 import { UploadListProps, FileProps } from "./interface"
+import { previewImage } from "./utils"
 import Item from "./item"
 
 const UploadList: React.FC<UploadListProps> = (props) => {
@@ -20,7 +21,18 @@ const UploadList: React.FC<UploadListProps> = (props) => {
     ]
     //TODO: 过滤status为start的数据
     itemList = itemList.filter((item) => item.file.status !== "start")
-    console.log('itemList', itemList)
+    console.log("itemList", itemList)
+    /* itemList.map((item) => {
+        const { file } = item
+        console.log("currfile", file)
+        previewImage(file as File)
+            .then((previewDataUrl: string) => {
+                file.thumbUrl = previewDataUrl || ""
+            })
+            .catch((e) => {
+                console.error(e)
+            })
+    }) */
     return (
         <div className={`${prefixCls}-list`}>
             {itemList.map((item, index) => (

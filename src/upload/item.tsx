@@ -20,6 +20,11 @@ const Item: React.FC<ItemProps> = (props) => {
             <div className={`${prefixCls}-item-logo`}></div>
             {console.log(file)}
             <div className={`${prefixCls}-item-name`}>{file.name}</div>
+            <img
+                src={file.thumbUrl || file.url}
+                alt={file.name}
+                className={`${prefixCls}-list-item-image`}
+            />
             <div className={`${prefixCls}-item-delete`} onClick={handleDelete}>
                 {deleteIcon}
             </div>

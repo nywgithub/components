@@ -20,6 +20,10 @@ export interface InsertFileProps {
     response?: Record<string, unknown>
     xhr?: XMLHttpRequest
     lastModifiedDate?: string
+    //预览的base 64, 组件内部生成
+    thumbUrl?: string
+    //外部传入url
+    url?: string
 }
 export interface FileProps extends Partial<RcFileProps>, Partial<InsertFileProps> {}
 

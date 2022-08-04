@@ -17,10 +17,11 @@ import rawCode13 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/
 import rawCode14 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/index.tsx?dumi-raw-code';
 import rawCode15 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/upload.tsx?dumi-raw-code';
 import rawCode16 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/uploadList.tsx?dumi-raw-code';
-import rawCode17 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/item.tsx?dumi-raw-code';
-import rawCode18 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
-import rawCode19 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
-import rawCode20 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
+import rawCode17 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/utils.tsx?dumi-raw-code';
+import rawCode18 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/item.tsx?dumi-raw-code';
+import rawCode19 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
+import rawCode20 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
+import rawCode21 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -42,6 +43,6 @@ export default {
       loader: async () => (await import(/* webpackChunkName: "demos_daolpu" */'D:/git-work/components/src/upload/demo/basic.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode13},"index.tsx":{"import":"..","content":rawCode14},"upload.tsx":{"import":"./upload","content":rawCode15},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode16},"item.tsx":{"import":"./item","content":rawCode17},"progress.tsx":{"import":"./progress","content":rawCode18},"style/index.ts":{"import":"./style","content":rawCode19},"style/index.less":{"import":"./index.less","content":rawCode20}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"componentName":"upload","identifier":"upload-basic"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode13},"index.tsx":{"import":"..","content":rawCode14},"upload.tsx":{"import":"./upload","content":rawCode15},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode16},"utils.tsx":{"import":"./utils","content":rawCode17},"item.tsx":{"import":"./item","content":rawCode18},"progress.tsx":{"import":"./progress","content":rawCode19},"style/index.ts":{"import":"./style","content":rawCode20},"style/index.less":{"import":"./index.less","content":rawCode21}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"componentName":"upload","identifier":"upload-basic"},
   },
 };

@@ -25,7 +25,7 @@ export default () => {
             webkitRelativePath: "",
         },
     ]
-    const [listValue, setListValue] = React.useState(defaultList)
+    const [listValue, setListValue] = React.useState([])
     const [percent, setPercent] = React.useState(0)
     const beforeUpload = async (file: any, FileList: any) => {
         console.log(file)

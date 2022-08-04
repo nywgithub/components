@@ -51,10 +51,10 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     const prefixCls = getPrefixCls("upload", customizePrefixCls) //wei-upload
 
     const [fileList, setFileList] = useMergedState(defaultFile || [], {
-      value: listValue,
-      postState: list => list ?? [],
-    });
-    
+        value: listValue,
+        postState: (list) => list ?? [],
+    })
+
     /* React.useEffect(()=>{
       setFileList(listValue || [])
     },[listValue]) */
@@ -115,8 +115,25 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             percent: 0,
             status: "start",
         }
-        const insertedFileInfoList = FileList.map((item) => {
-            return insertedFileObj(item.file, insertObj)
+        let insertedFileInfoList = FileList.map((item) => {
+            let originFileObj = item.file
+            let clone
+
+            try {
+                clone = (new File([originFileObj], originFileObj.name, {
+                    type: originFileObj.type,
+                }) as any) as FileProps
+                console.log("clone", clone)
+            } catch (e) {
+                console.log("转化失败", e)
+                clone = (new Blob([originFileObj], {
+                    type: originFileObj.type,
+                }) as any) as FileProps
+                clone.name = originFileObj.name
+                clone.lastModifiedDate = new Date()
+                clone.lastModified = new Date().getTime()
+            }
+            return insertedFileObj(clone, insertObj)
         })
         let nextFileList = [...fileList, ...insertedFileInfoList]
 
@@ -232,7 +249,7 @@ const Upload = React.forwardRef<unknown, UploadProps>(
 
 Upload.defaultProps = {
     deleteIcon: <span>x</span>,
-    type: 'select'
+    type: "select",
 }
 
 export default Upload
