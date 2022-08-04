@@ -4,7 +4,7 @@ import type {
     RcFile as RcFileProps,
 } from "rc-upload/lib/interface"
 import RcUpload, { UploadProps as RcUploadTypes } from "rc-upload"
-import classNames from "classnames"
+import useMergedState from "rc-util/lib/hooks/useMergedState"
 import { UploadProps, FileProps, InsertFileProps } from "./interface"
 import { ConfigContext } from "../common-provider/context"
 import UploadList from "./uploadList"
@@ -44,14 +44,20 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         onError: mergeError,
         fileList,
         upload: rcUpload.current,
+        deleteItem,
     }))
 
     const { getPrefixCls } = React.useContext(ConfigContext)
     const prefixCls = getPrefixCls("upload", customizePrefixCls) //wei-upload
 
-    const [fileList, setFileList] = React.useState<Array<FileProps>>(
-        defaultFile?.concat(listValue || []) || []
-    )
+    const [fileList, setFileList] = useMergedState(defaultFile || [], {
+      value: listValue,
+      postState: list => list ?? [],
+    });
+    
+    /* React.useEffect(()=>{
+      setFileList(listValue || [])
+    },[listValue]) */
 
     // 解决file不能通过使用对象展开问题
     const insertedFileObj = (file: FileProps, insertObj: InsertFileProps) => {
@@ -77,7 +83,7 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     }
 
     //上传列表发生改变处理方法
-    const updateUploadList = (file: FileProps, type?: string) => {
+    const updateUploadList = (file: FileProps, updateType?: string) => {
         let cloneFileList = [...fileList]
 
         //判断发生改变的file 是新增，删除还是修改
@@ -87,7 +93,7 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             cloneFileList.push(file)
         } else {
             cloneFileList[fileIndex] = file
-            type === "delete" && cloneFileList.splice(fileIndex, 1)
+            updateType === "delete" && cloneFileList.splice(fileIndex, 1)
         }
         return cloneFileList
     }
@@ -133,8 +139,9 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             }
         }
         const { size } = file
-
+        //@ts-ignore
         if (fileSize && size / 1024 > fileSize) {
+            //@ts-ignore
             onFileSize?.(size / 1024)
             return false
         }
@@ -164,7 +171,10 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         xhr: XMLHttpRequest
     ) => {
         const insertObj = insertedFileObj(file, {
+            percent: 100,
             status: "success",
+            xhr,
+            response,
         })
         let nextFileList = updateUploadList(insertObj as FileProps)
         setFileList(nextFileList)
@@ -177,6 +187,11 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
         ret: Record<string, unknown>,
         file: FileProps
     ) => {
+        const insertObj = insertedFileObj(file, {
+            status: "error",
+        })
+        let nextFileList = updateUploadList(insertObj as FileProps)
+        setFileList(nextFileList)
         onError?.(error, ret, file)
     }
 
@@ -217,6 +232,7 @@ const Upload = React.forwardRef<unknown, UploadProps>(
 
 Upload.defaultProps = {
     deleteIcon: <span>x</span>,
+    type: 'select'
 }
 
 export default Upload

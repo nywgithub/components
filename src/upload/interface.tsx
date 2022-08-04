@@ -14,23 +14,24 @@ import type {
 
 //原生File类型
 
-export interface InsertFileProps{
+export interface InsertFileProps {
     percent?: number
     status?: string
+    response?: Record<string, unknown>
+    xhr?: XMLHttpRequest
     lastModifiedDate?: string
 }
-export interface FileProps extends RcFileProps,InsertFileProps {
-    
-}
+export interface FileProps extends Partial<RcFileProps>, Partial<InsertFileProps> {}
 
 //封装rc-upload后新增字段
 export interface ExtraUploadProps {
     prefixCls?: string
+    type?: 'drag' | 'select'
     defaultFile?: Array<FileProps>
     listValue?: Array<FileProps>
     listType?: "picture" | "text" | "card"
     deleteIcon?: React.ReactNode
-    itemRender?: (file: FileProps) => React.ReactElement
+    itemRender?: false | ((file: FileProps, any) => React.ReactElement)
     fileLimit?: number
     onFileLimit?: (limit: number) => void
     fileSize?: number
@@ -81,7 +82,7 @@ export interface UploadListProps {
     listType?: string
     deleteIcon?: React.ReactNode
     deleteItem?: (file: FileProps) => void
-    itemRender?: (file: FileProps) => React.ReactElement
+    itemRender?: false | ((file: FileProps, any) => React.ReactElement)
 }
 
 export interface ProgressProps {
@@ -95,5 +96,5 @@ export interface ItemProps {
     listType?: string
     deleteIcon?: React.ReactNode
     deleteItem?: (file: FileProps) => void
-    itemRender?: (file: FileProps) => React.ReactElement
+    itemRender?: false | ((file: FileProps, any) => React.ReactElement)
 }

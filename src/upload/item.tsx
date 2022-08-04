@@ -26,7 +26,13 @@ const Item: React.FC<ItemProps> = (props) => {
             <Progress percent={file?.percent} prefixCls={prefixCls} />
         </div>
     )
-    return itemRender ? itemRender(file) : itemDom
+    return typeof itemRender === "function"
+        ? itemRender(file, {
+              del: deleteItem?.bind(null, file),
+          })
+        : itemRender === false
+        ? null
+        : itemDom
 }
 
 export default Item
