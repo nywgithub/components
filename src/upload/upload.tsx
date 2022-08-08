@@ -11,6 +11,7 @@ import UploadList from "./uploadList"
 
 import "./style"
 
+
 const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
     {
         //自定义class前缀prefixCls
@@ -120,12 +121,14 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
             let clone
 
             try {
+                // @ts-ignore
                 clone = (new File([originFileObj], originFileObj.name, {
                     type: originFileObj.type,
                 }) as any) as FileProps
                 console.log("clone", clone)
             } catch (e) {
                 console.log("转化失败", e)
+                // @ts-ignore
                 clone = (new Blob([originFileObj], {
                     type: originFileObj.type,
                 }) as any) as FileProps

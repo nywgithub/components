@@ -1298,11 +1298,17 @@
       }
     ]
   },
+  "pagination": {},
   "upload": {
     "default": [
       {
         "identifier": "prefixCls",
         "type": "string"
+      },
+      {
+        "identifier": "type",
+        "type": "\"drag\" | \"select\"",
+        "default": "select"
       },
       {
         "identifier": "defaultFile",
@@ -1323,7 +1329,7 @@
       },
       {
         "identifier": "itemRender",
-        "type": "(file: FileProps) => ReactElement<any, string | JSXElementConstructor<any>>"
+        "type": "false | ((file: FileProps, any: any) => ReactElement<any, string | JSXElementConstructor<any>>)"
       },
       {
         "identifier": "fileLimit",

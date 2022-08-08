@@ -1,33 +1,6 @@
 {
   "menus": {
     "en-US": {
-      "/alert": [
-        {
-          "path": "/alert",
-          "title": "alert",
-          "meta": {
-            "order": 1
-          }
-        }
-      ],
-      "/input": [
-        {
-          "path": "/input",
-          "title": "input",
-          "meta": {
-            "order": 2
-          }
-        }
-      ],
-      "/upload": [
-        {
-          "path": "/upload",
-          "title": "upload",
-          "meta": {
-            "order": 2
-          }
-        }
-      ],
       "/getting-started": [
         {
           "path": "/getting-started",
@@ -48,6 +21,28 @@
           "title": "weiui",
           "meta": {}
         }
+      ],
+      "/component": [
+        {
+          "path": "/component/alert",
+          "title": "Alert 警告提示",
+          "meta": {}
+        },
+        {
+          "path": "/component/input",
+          "title": "input输入框",
+          "meta": {}
+        },
+        {
+          "path": "/component/pagination",
+          "title": "Pagination 分页",
+          "meta": {}
+        },
+        {
+          "path": "/component/upload",
+          "title": "upload 上传",
+          "meta": {}
+        }
       ]
     }
   },
@@ -65,23 +60,12 @@
         "path": "/getting-started"
       },
       {
-        "title": "alert",
-        "order": 2,
-        "path": "/alert"
-      },
-      {
-        "title": "upload",
-        "order": 2,
-        "path": "/upload"
-      },
-      {
-        "title": "input",
-        "order": 3,
-        "path": "/input"
-      },
-      {
         "title": "帮助",
         "path": "/help"
+      },
+      {
+        "path": "/component",
+        "title": "Component"
       }
     ]
   },

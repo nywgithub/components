@@ -63,132 +63,6 @@ export function getRoutes() {
     "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/git-work/components/node_modules/dumi-theme-default/es/layout.js')})],
     "routes": [
       {
-        "path": "/alert",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'alert__index.md' */'D:/git-work/components/src/alert/index.md')}),
-        "exact": true,
-        "meta": {
-          "filePath": "src/alert/index.md",
-          "updatedTime": 1649747571000,
-          "componentName": "alert",
-          "title": "alert",
-          "order": 1,
-          "toc": "menu",
-          "nav": {
-            "title": "alert",
-            "order": 2,
-            "path": "/alert"
-          },
-          "slugs": [
-            {
-              "depth": 1,
-              "value": "Alert 警告提示",
-              "heading": "alert-警告提示"
-            },
-            {
-              "depth": 2,
-              "value": "代码演示",
-              "heading": "代码演示"
-            },
-            {
-              "depth": 3,
-              "value": "基本用法",
-              "heading": "基本用法"
-            },
-            {
-              "depth": 2,
-              "value": "API",
-              "heading": "api"
-            }
-          ],
-          "hasPreviewer": true
-        },
-        "title": "alert - W"
-      },
-      {
-        "path": "/input",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'input__index.md' */'D:/git-work/components/src/input/index.md')}),
-        "exact": true,
-        "meta": {
-          "filePath": "src/input/index.md",
-          "updatedTime": 1650438544000,
-          "componentName": "input",
-          "title": "input",
-          "order": 2,
-          "toc": "menu",
-          "nav": {
-            "title": "input",
-            "order": 3,
-            "path": "/input"
-          },
-          "slugs": [
-            {
-              "depth": 1,
-              "value": "input输入框",
-              "heading": "input输入框"
-            },
-            {
-              "depth": 2,
-              "value": "代码演示",
-              "heading": "代码演示"
-            },
-            {
-              "depth": 3,
-              "value": "基本用法",
-              "heading": "基本用法"
-            },
-            {
-              "depth": 2,
-              "value": "API",
-              "heading": "api"
-            }
-          ],
-          "hasPreviewer": true
-        },
-        "title": "input - W"
-      },
-      {
-        "path": "/upload",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'upload__index.md' */'D:/git-work/components/src/upload/index.md')}),
-        "exact": true,
-        "meta": {
-          "filePath": "src/upload/index.md",
-          "updatedTime": 1650619638000,
-          "componentName": "upload",
-          "title": "upload",
-          "order": 2,
-          "toc": "menu",
-          "nav": {
-            "title": "upload",
-            "order": 2,
-            "path": "/upload"
-          },
-          "slugs": [
-            {
-              "depth": 1,
-              "value": "upload 上传",
-              "heading": "upload-上传"
-            },
-            {
-              "depth": 2,
-              "value": "代码演示",
-              "heading": "代码演示"
-            },
-            {
-              "depth": 3,
-              "value": "基本用法",
-              "heading": "基本用法"
-            },
-            {
-              "depth": 2,
-              "value": "API",
-              "heading": "api"
-            }
-          ],
-          "hasPreviewer": true
-        },
-        "title": "upload - W"
-      },
-      {
         "path": "/getting-started",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__getting-started.md' */'D:/git-work/components/docs/getting-started.md')}),
         "exact": true,
@@ -287,6 +161,164 @@ export function getRoutes() {
           "slugs": []
         },
         "title": "weiui - W"
+      },
+      {
+        "path": "/component/alert",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__alert.md' */'D:/git-work/components/docs/component/alert.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/alert.md",
+          "updatedTime": 1659930379319,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Alert 警告提示",
+              "heading": "alert-警告提示"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Alert 警告提示",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "Alert 警告提示 - W"
+      },
+      {
+        "path": "/component/input",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__input.md' */'D:/git-work/components/docs/component/input.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/input.md",
+          "updatedTime": 1659940692833,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "input输入框",
+              "heading": "input输入框"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "input输入框",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "input输入框 - W"
+      },
+      {
+        "path": "/component/pagination",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__pagination.md' */'D:/git-work/components/docs/component/pagination.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/pagination.md",
+          "updatedTime": 1659940832409,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Pagination 分页",
+              "heading": "pagination-分页"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Pagination 分页",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "Pagination 分页 - W"
+      },
+      {
+        "path": "/component/upload",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__upload.md' */'D:/git-work/components/docs/component/upload.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/upload.md",
+          "updatedTime": 1659940607548,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "upload 上传",
+              "heading": "upload-上传"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "upload 上传",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "upload 上传 - W"
+      },
+      {
+        "path": "/component",
+        "meta": {},
+        "exact": true,
+        "redirect": "/component/alert"
       }
     ],
     "title": "W",
