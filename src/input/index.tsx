@@ -15,6 +15,7 @@ import InputNumber from './inputNumber'
 export { InputProps } from './input'
 export { InputNumberProps } from './inputNumber'
 
+//@ts-ignore
 Input.InputNumber = InputNumber
 
 export default Input

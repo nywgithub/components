@@ -1,5 +1,44 @@
-@popupPrefix: wei-pagination;
+@pagerPrefix: wei-pagination;
 
-.@{popupPrefix} {
-
+.@{pagerPrefix} {
+    display: flex;
+    align-items: center;
+    &-total-container {
+        margin-right: 15px;
+    }
+    &-pager-container {
+        display: flex;
+        align-items: center;
+    }
+    &-pager-item {
+        display: inline-block;
+        min-width: 28px;
+        height: 28px;
+        margin-right: 8px;
+        font-family: Arial;
+        line-height: 26px;
+        text-align: center;
+        vertical-align: middle;
+        list-style: none;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+        outline: 0;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #888;
+        &.current {
+            border: 1px solid red;
+            color: red;
+        }
+    }
+    &-jump-container {
+        margin-left: 15px;
+    }
+    &-size-container {
+        margin-left: 15px;
+    }
 }

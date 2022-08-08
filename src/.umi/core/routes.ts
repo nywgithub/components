@@ -168,7 +168,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/alert.md",
-          "updatedTime": 1659930379319,
+          "updatedTime": 1659940915000,
           "slugs": [
             {
               "depth": 1,
@@ -206,12 +206,12 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/input.md",
-          "updatedTime": 1659940692833,
+          "updatedTime": 1659940915000,
           "slugs": [
             {
               "depth": 1,
-              "value": "input输入框",
-              "heading": "input输入框"
+              "value": "Input 输入框",
+              "heading": "input-输入框"
             },
             {
               "depth": 2,
@@ -229,14 +229,14 @@ export function getRoutes() {
               "heading": "api"
             }
           ],
-          "title": "input输入框",
+          "title": "Input 输入框",
           "hasPreviewer": true,
           "nav": {
             "path": "/component",
             "title": "Component"
           }
         },
-        "title": "input输入框 - W"
+        "title": "Input 输入框 - W"
       },
       {
         "path": "/component/pagination",
@@ -244,7 +244,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/pagination.md",
-          "updatedTime": 1659940832409,
+          "updatedTime": 1659940915000,
           "slugs": [
             {
               "depth": 1,
@@ -282,11 +282,11 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/upload.md",
-          "updatedTime": 1659940607548,
+          "updatedTime": 1659940915000,
           "slugs": [
             {
               "depth": 1,
-              "value": "upload 上传",
+              "value": "Upload 上传",
               "heading": "upload-上传"
             },
             {
@@ -305,14 +305,14 @@ export function getRoutes() {
               "heading": "api"
             }
           ],
-          "title": "upload 上传",
+          "title": "Upload 上传",
           "hasPreviewer": true,
           "nav": {
             "path": "/component",
             "title": "Component"
           }
         },
-        "title": "upload 上传 - W"
+        "title": "Upload 上传 - W"
       },
       {
         "path": "/component",

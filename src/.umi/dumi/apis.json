@@ -33,11 +33,19 @@
       }
     ]
   },
-  "inputNumber": {
+  "input": {
     "default": [
       {
         "identifier": "prefixCls",
         "type": "string"
+      },
+      {
+        "identifier": "type",
+        "type": "LiteralUnion<\"number\" | \"hidden\" | \"color\" | \"button\" | \"checkbox\" | \"date\" | \"datetime-local\" | \"email\" | \"file\" | \"image\" | \"month\" | \"password\" | \"radio\" | \"range\" | \"reset\" | \"search\" | ... 5 more ... | \"week\", string>"
+      },
+      {
+        "identifier": "onPressEnter",
+        "type": "KeyboardEventHandler<HTMLInputElement>"
       },
       {
         "identifier": "addonBefore",
@@ -48,93 +56,24 @@
         "type": "ReactNode"
       },
       {
-        "identifier": "stringMode",
-        "description": "value will show as string",
-        "type": "boolean"
-      },
-      {
-        "identifier": "defaultValue",
-        "type": "ValueType"
-      },
-      {
-        "identifier": "value",
-        "type": "ValueType"
-      },
-      {
-        "identifier": "className",
-        "type": "string"
-      },
-      {
-        "identifier": "style",
-        "type": "CSSProperties"
-      },
-      {
-        "identifier": "min",
-        "type": "ValueType"
-      },
-      {
-        "identifier": "max",
-        "type": "ValueType"
-      },
-      {
-        "identifier": "step",
-        "type": "ValueType"
-      },
-      {
-        "identifier": "tabIndex",
-        "type": "number"
-      },
-      {
-        "identifier": "controls",
-        "type": "boolean"
-      },
-      {
-        "identifier": "upHandler",
+        "identifier": "prefix",
         "type": "ReactNode"
       },
       {
-        "identifier": "downHandler",
+        "identifier": "suffix",
         "type": "ReactNode"
       },
       {
-        "identifier": "keyboard",
+        "identifier": "allowClear",
         "type": "boolean"
       },
       {
-        "identifier": "parser",
-        "description": "Parse display value to validate number",
-        "type": "(displayValue: string) => ValueType"
+        "identifier": "bordered",
+        "type": "boolean"
       },
       {
-        "identifier": "formatter",
-        "description": "Transform `value` to display value show in input",
-        "type": "(value: ValueType, info: { userTyping: boolean; input: string; }) => string"
-      },
-      {
-        "identifier": "precision",
-        "description": "Syntactic sugar of `formatter`. Config precision of display.",
+        "identifier": "htmlSize",
         "type": "number"
-      },
-      {
-        "identifier": "decimalSeparator",
-        "description": "Syntactic sugar of `formatter`. Config decimal separator of display.",
-        "type": "string"
-      },
-      {
-        "identifier": "onInput",
-        "type": "(text: string) => void"
-      },
-      {
-        "identifier": "onChange",
-        "type": "(value: ValueType) => void"
-      },
-      {
-        "identifier": "onPressEnter",
-        "type": "KeyboardEventHandler<HTMLInputElement>"
-      },
-      {
-        "identifier": "onStep",
-        "type": "(value: ValueType, info: { offset: ValueType; type: \"up\" | \"down\"; }) => void"
       },
       {
         "identifier": "accept",
@@ -170,7 +109,7 @@
       },
       {
         "identifier": "enterKeyHint",
-        "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\""
+        "type": "\"search\" | \"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"send\""
       },
       {
         "identifier": "form",
@@ -205,8 +144,16 @@
         "type": "string"
       },
       {
+        "identifier": "max",
+        "type": "string | number"
+      },
+      {
         "identifier": "maxLength",
         "type": "number"
+      },
+      {
+        "identifier": "min",
+        "type": "string | number"
       },
       {
         "identifier": "minLength",
@@ -245,16 +192,28 @@
         "type": "string"
       },
       {
-        "identifier": "type",
-        "type": "HTMLInputTypeAttribute"
+        "identifier": "step",
+        "type": "string | number"
+      },
+      {
+        "identifier": "value",
+        "type": "string | number | readonly string[]"
       },
       {
         "identifier": "width",
         "type": "string | number"
       },
       {
+        "identifier": "onChange",
+        "type": "ChangeEventHandler<HTMLInputElement>"
+      },
+      {
         "identifier": "defaultChecked",
         "type": "boolean"
+      },
+      {
+        "identifier": "defaultValue",
+        "type": "string | number | readonly string[]"
       },
       {
         "identifier": "suppressContentEditableWarning",
@@ -266,6 +225,10 @@
       },
       {
         "identifier": "accessKey",
+        "type": "string"
+      },
+      {
+        "identifier": "className",
         "type": "string"
       },
       {
@@ -305,6 +268,14 @@
         "type": "Booleanish"
       },
       {
+        "identifier": "style",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "tabIndex",
+        "type": "number"
+      },
+      {
         "identifier": "title",
         "type": "string"
       },
@@ -331,10 +302,6 @@
       {
         "identifier": "inlist",
         "type": "any"
-      },
-      {
-        "identifier": "prefix",
-        "type": "string"
       },
       {
         "identifier": "property",
@@ -403,7 +370,7 @@
       {
         "identifier": "inputMode",
         "description": "Hints at the type of data that might be entered by the user while editing the element or its contents\n@see https://html.spec.whatwg.org/multipage/interaction.html#input-modalities:-the-inputmode-attribute",
-        "type": "\"search\" | \"email\" | \"tel\" | \"text\" | \"url\" | \"none\" | \"numeric\" | \"decimal\""
+        "type": "\"email\" | \"search\" | \"tel\" | \"text\" | \"url\" | \"none\" | \"numeric\" | \"decimal\""
       },
       {
         "identifier": "is",
@@ -728,6 +695,10 @@
       },
       {
         "identifier": "onBeforeInputCapture",
+        "type": "FormEventHandler<HTMLInputElement>"
+      },
+      {
+        "identifier": "onInput",
         "type": "FormEventHandler<HTMLInputElement>"
       },
       {
@@ -1287,10 +1258,79 @@
       {
         "identifier": "onTransitionEndCapture",
         "type": "TransitionEventHandler<HTMLInputElement>"
+      }
+    ]
+  },
+  "pagination": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "string"
+      },
+      {
+        "identifier": "type",
+        "type": "\"default\" | \"simple\""
+      },
+      {
+        "identifier": "total",
+        "type": "number",
+        "required": true
+      },
+      {
+        "identifier": "pageNo",
+        "type": "number"
+      },
+      {
+        "identifier": "pageSize",
+        "type": "number"
+      },
+      {
+        "identifier": "showTotal",
+        "type": "boolean"
+      },
+      {
+        "identifier": "showJumpInput",
+        "type": "boolean"
+      },
+      {
+        "identifier": "showSizerSelect",
+        "type": "boolean"
+      },
+      {
+        "identifier": "itemRender",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onChange",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onSizeChange",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onJumpChange",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onPrevClick",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onNextClick",
+        "type": "() => void"
       },
       {
         "identifier": "ref",
-        "type": "Ref<HTMLInputElement>"
+        "type": "Ref<unknown>"
       },
       {
         "identifier": "key",
@@ -1298,7 +1338,6 @@
       }
     ]
   },
-  "pagination": {},
   "upload": {
     "default": [
       {

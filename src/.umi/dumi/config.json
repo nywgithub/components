@@ -30,7 +30,7 @@
         },
         {
           "path": "/component/input",
-          "title": "input输入框",
+          "title": "Input 输入框",
           "meta": {}
         },
         {
@@ -40,7 +40,7 @@
         },
         {
           "path": "/component/upload",
-          "title": "upload 上传",
+          "title": "Upload 上传",
           "meta": {}
         }
       ]

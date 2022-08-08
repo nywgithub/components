@@ -14,14 +14,19 @@ import rawCode10 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/i
 import rawCode11 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.ts?dumi-raw-code';
 import rawCode12 from '!!dumi-raw-code-loader!D:/git-work/components/src/input/style/index.less?dumi-raw-code';
 import rawCode13 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/demo/basic.tsx?dumi-raw-code';
-import rawCode14 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/demo/basic.tsx?dumi-raw-code';
-import rawCode15 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/index.tsx?dumi-raw-code';
-import rawCode16 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/upload.tsx?dumi-raw-code';
-import rawCode17 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/uploadList.tsx?dumi-raw-code';
-import rawCode18 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/item.tsx?dumi-raw-code';
-import rawCode19 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
-import rawCode20 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
-import rawCode21 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
+import rawCode14 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/index.tsx?dumi-raw-code';
+import rawCode15 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/pagination.tsx?dumi-raw-code';
+import rawCode16 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/interface.ts?dumi-raw-code';
+import rawCode17 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/style/index.ts?dumi-raw-code';
+import rawCode18 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/style/index.less?dumi-raw-code';
+import rawCode19 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/demo/basic.tsx?dumi-raw-code';
+import rawCode20 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/index.tsx?dumi-raw-code';
+import rawCode21 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/upload.tsx?dumi-raw-code';
+import rawCode22 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/uploadList.tsx?dumi-raw-code';
+import rawCode23 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/item.tsx?dumi-raw-code';
+import rawCode24 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
+import rawCode25 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
+import rawCode26 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -43,13 +48,13 @@ export default {
       loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'D:/git-work/components/src/pagination/demo/basic.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode13}},"dependencies":{},"identifier":"pagination-basic"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode13},"index.tsx":{"import":"..","content":rawCode14},"pagination.tsx":{"import":"./pagination","content":rawCode15},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"interface.ts":{"import":"./interface","content":rawCode16},"style/index.ts":{"import":"../style","content":rawCode17},"style/index.less":{"import":"./index.less","content":rawCode18}},"dependencies":{"react":{"version":"17.0.2"}},"identifier":"pagination-basic"},
   },
   'upload-basic': {
     component: dynamic({
       loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'D:/git-work/components/src/upload/demo/basic.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode14},"index.tsx":{"import":"..","content":rawCode15},"upload.tsx":{"import":"./upload","content":rawCode16},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode17},"item.tsx":{"import":"./item","content":rawCode18},"progress.tsx":{"import":"./progress","content":rawCode19},"style/index.ts":{"import":"./style","content":rawCode20},"style/index.less":{"import":"./index.less","content":rawCode21}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"identifier":"upload-basic"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode19},"index.tsx":{"import":"..","content":rawCode20},"upload.tsx":{"import":"./upload","content":rawCode21},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode22},"item.tsx":{"import":"./item","content":rawCode23},"progress.tsx":{"import":"./progress","content":rawCode24},"style/index.ts":{"import":"./style","content":rawCode25},"style/index.less":{"import":"./index.less","content":rawCode26}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"identifier":"upload-basic"},
   },
 };

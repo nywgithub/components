@@ -1,5 +1,5 @@
 
-# input输入框
+# Input 输入框
 
 input普通输入框、数字输入框
 textarea输入框
@@ -10,4 +10,4 @@ textarea输入框
 
 <code src="../../src/input/demo/input.tsx"></code>
 
-<API src="../../src/input/inputNumber.tsx"></API>
+<API src="../../src/input/index.tsx"></API>
