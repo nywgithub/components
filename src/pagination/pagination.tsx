@@ -2,7 +2,8 @@ import React from "react"
 import classNames from "classnames"
 import { PagerProps } from "./interface"
 import { ConfigContext } from "../common-provider/context"
-
+import Input from '../input'
+const { InputNumber } = Input
 const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     { prefixCls: customizePrefixCls, ...props },
     ref
@@ -42,12 +43,15 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
 
     const pagerList: Array<React.ReactElement> = []
 
-    const clickPager = (n: number) => {
+    const pagerChange = (n: number) => {
+        console.log(n)
         setCurrent(n)
         onChange?.(n)
     }
 
     const [current, setCurrent] = React.useState<number>(pageNo!)
+
+    const pagerNumCls = `${prefixCls}-pager-number`
 
     const renderPager = () => {
         for (let i = 0; i < totalPage; i++) {
@@ -55,11 +59,11 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
                 <li
                     key={i}
                     className={`${prefixCls}-pager-item ${classNames({
-                        current: current === (i + 1),
+                        current: current === i + 1,
                     })}`}
-                    onClick={() => clickPager(i + 1)}
+                    onClick={() => pagerChange(i + 1)}
                 >
-                    {i + 1}
+                    <div className={pagerNumCls}>{i + 1}</div>
                 </li>
             )
         }
@@ -67,13 +71,64 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
 
     renderPager()
 
-    return (
-        <div className={prefixCls}>
+    const clickPrev = () => {
+        if (current === 1){
+            return
+        }
+        pagerChange(current - 1)
+        onPrevClick?.(current)
+    }
+
+    const clickNext = () => {
+        if(current === totalPage){
+            return
+        }
+        pagerChange(current + 1)
+        onNextClick?.(current)
+    }
+
+    const prevDom = (
+        <div className={`${prefixCls}-pager-prev`} onClick={() => clickPrev()}>
+            prev
+        </div>
+    )
+    const nextDom = (
+        <div className={`${prefixCls}-pager-next`} onClick={() => clickNext()}>
+            next
+        </div>
+    )
+
+
+    const defaultPager = (
+        <>
             {showTotal ? Total : null}
-            <div className={`${prefixCls}-pager-container`}>{pagerList}</div>
+            <div className={`${prefixCls}-pager-container`}>
+                {prevDom}
+                {pagerList}
+                {nextDom}
+            </div>
             {showJumpInput ? Jumper : null}
             {showSizerSelect ? Sizer : null}
-        </div>
+        </>
+    )
+
+    const simplePager = (
+        <>
+            {prevDom}
+            <div className={pagerNumCls}>
+                {showJumpInput ? <InputNumber value={current} /> : current}
+            </div>
+            <span className={`${prefixCls}-slash`}>/</span>
+            <div className={pagerNumCls}>{totalPage}</div>
+            {nextDom}
+        </>
+    )
+
+    return (
+        hidePagerNum !== totalPage ? <div className={`${prefixCls} ${className || ""}`} style={style}>
+            {type === "default" ? defaultPager : null}
+            {type === "simple" ? simplePager : null}
+        </div> : null
     )
 }
 

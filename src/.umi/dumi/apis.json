@@ -1268,6 +1268,10 @@
         "type": "string"
       },
       {
+        "identifier": "locale",
+        "type": "\"en\" | \"cn\""
+      },
+      {
         "identifier": "className",
         "type": "string"
       },
@@ -1277,7 +1281,8 @@
       },
       {
         "identifier": "type",
-        "type": "\"default\" | \"simple\""
+        "type": "\"default\" | \"simple\"",
+        "default": "default"
       },
       {
         "identifier": "total",
@@ -1286,11 +1291,13 @@
       },
       {
         "identifier": "pageNo",
-        "type": "number"
+        "type": "number",
+        "default": "1"
       },
       {
         "identifier": "pageSize",
-        "type": "number"
+        "type": "number",
+        "default": "10"
       },
       {
         "identifier": "showTotal",
@@ -1305,12 +1312,16 @@
         "type": "boolean"
       },
       {
+        "identifier": "hidePagerNum",
+        "type": "number"
+      },
+      {
         "identifier": "itemRender",
         "type": "() => void"
       },
       {
         "identifier": "onChange",
-        "type": "() => void"
+        "type": "(val: number) => void"
       },
       {
         "identifier": "onSizeChange",

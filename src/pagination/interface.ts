@@ -1,8 +1,8 @@
 export interface PagerProps {
     prefixCls?: string
-    locale?: 'en' | 'cn'
+    locale?: "en" | "cn"
     className?: string
-    style?: string
+    style?: React.CSSProperties
     type?: "default" | "simple"
     total: number
     pageNo?: number
@@ -15,6 +15,6 @@ export interface PagerProps {
     onChange?: (val: number) => void
     onSizeChange?: () => void
     onJumpChange?: () => void
-    onPrevClick?: () => void
-    onNextClick?: () => void
+    onPrevClick?: (val:number) => void
+    onNextClick?: (val:number) => void
 }

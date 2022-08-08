@@ -4,6 +4,6 @@ import "../style"
 
 export default () => {
     return(
-      <Pagination total={20} showJumpInput showTotal showSizerSelect/>
+      <Pagination type="simple" total={20} showJumpInput showTotal showSizerSelect/>
     )
 }
