@@ -84,13 +84,13 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
 
     const clickPrev = () => {
         pagerChange(current - 1)
-        pagerChange_Input(current - 1)
+        type === 'simple' && pagerChange_Input(current - 1)
         onPrevClick?.(current)
     }
 
     const clickNext = () => {
         pagerChange(current + 1)
-        pagerChange_Input(current + 1)
+        type === 'simple' && pagerChange_Input(current + 1)
         onNextClick?.(current)
     }
 
