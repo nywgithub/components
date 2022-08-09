@@ -3,7 +3,29 @@ import Pagination from ".."
 import "../style"
 
 export default () => {
-    return(
-      <Pagination type="simple" total={20} showJumpInput showTotal showSizerSelect/>
+    const handleChangeSimple =(val) =>{
+      console.log('handleChangeSimple', val)
+    }
+    const handleChangeDefault =(val) =>{
+      console.log('handleChangeDefault', val)
+    }
+    return (
+        <>
+            <Pagination
+                type="simple"
+                total={35}
+                showJumpInput
+                onChange={handleChangeSimple}
+                style={{ margin: 10 }}
+            />
+            <Pagination
+                total={35}
+                showJumpInput
+                showTotal
+                showSizerSelect
+                onChange={handleChangeDefault}
+                style={{ margin: 10 }}
+            />
+        </>
     )
 }

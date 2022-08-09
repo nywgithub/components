@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType, dynamic } from '/Users/leo/Desktop/components/node_modules/@umijs/runtime';
+import { ApplyPluginsType, dynamic } from 'D:/git-work/components/node_modules/@umijs/runtime';
 import * as umiExports from './umiExports';
 import { plugin } from './plugin';
 
@@ -13,7 +13,7 @@ export function getRoutes() {
     "component": ((props) => dynamic({
           loader: async () => {
             const React = await import('react');
-            const { default: getDemoRenderArgs } = await import(/* webpackChunkName: 'dumi_demos' */ '/Users/leo/Desktop/components/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
+            const { default: getDemoRenderArgs } = await import(/* webpackChunkName: 'dumi_demos' */ 'D:/git-work/components/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
             const { default: Previewer } = await import(/* webpackChunkName: 'dumi_demos' */ 'dumi-theme-default/es/builtins/Previewer.js');
             const { usePrefersColor, context } = await import(/* webpackChunkName: 'dumi_demos' */ 'dumi/theme');
 
@@ -60,11 +60,11 @@ export function getRoutes() {
     "__dumiRoot": true,
     "layout": false,
     "path": "/",
-    "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'/Users/leo/Desktop/components/node_modules/dumi-theme-default/es/layout.js')})],
+    "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/git-work/components/node_modules/dumi-theme-default/es/layout.js')})],
     "routes": [
       {
         "path": "/getting-started",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__getting-started.md' */'/Users/leo/Desktop/components/docs/getting-started.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__getting-started.md' */'D:/git-work/components/docs/getting-started.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/getting-started.md",
@@ -102,7 +102,7 @@ export function getRoutes() {
       },
       {
         "path": "/help",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__help.md' */'/Users/leo/Desktop/components/docs/help.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__help.md' */'D:/git-work/components/docs/help.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/help.md",
@@ -124,7 +124,7 @@ export function getRoutes() {
       },
       {
         "path": "/",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__index.md' */'/Users/leo/Desktop/components/docs/index.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__index.md' */'D:/git-work/components/docs/index.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",
@@ -164,7 +164,7 @@ export function getRoutes() {
       },
       {
         "path": "/component/alert",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__alert.md' */'/Users/leo/Desktop/components/docs/component/alert.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__alert.md' */'D:/git-work/components/docs/component/alert.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/component/alert.md",
@@ -202,7 +202,7 @@ export function getRoutes() {
       },
       {
         "path": "/component/input",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__input.md' */'/Users/leo/Desktop/components/docs/component/input.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__input.md' */'D:/git-work/components/docs/component/input.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/component/input.md",
@@ -240,7 +240,7 @@ export function getRoutes() {
       },
       {
         "path": "/component/pagination",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__pagination.md' */'/Users/leo/Desktop/components/docs/component/pagination.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__pagination.md' */'D:/git-work/components/docs/component/pagination.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/component/pagination.md",
@@ -278,7 +278,7 @@ export function getRoutes() {
       },
       {
         "path": "/component/upload",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__upload.md' */'/Users/leo/Desktop/components/docs/component/upload.md')}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__upload.md' */'D:/git-work/components/docs/component/upload.md')}),
         "exact": true,
         "meta": {
           "filePath": "docs/component/upload.md",

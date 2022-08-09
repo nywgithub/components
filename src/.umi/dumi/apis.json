@@ -1277,7 +1277,7 @@
       },
       {
         "identifier": "style",
-        "type": "string"
+        "type": "CSSProperties"
       },
       {
         "identifier": "type",
@@ -1333,11 +1333,11 @@
       },
       {
         "identifier": "onPrevClick",
-        "type": "() => void"
+        "type": "(val: number) => void"
       },
       {
         "identifier": "onNextClick",
-        "type": "() => void"
+        "type": "(val: number) => void"
       },
       {
         "identifier": "ref",

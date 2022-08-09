@@ -1,16 +1,17 @@
 @pagerPrefix: wei-pagination;
+@margin: 15px;
 
 .@{pagerPrefix} {
     display: flex;
     align-items: center;
     &-total-container {
-        margin-right: 15px;
+        margin-right: @margin;
     }
-    &-pager-container {
+    &-paper-container {
         display: flex;
         align-items: center;
     }
-    &-pager-item {
+    &-paper-item {
         display: inline-block;
         min-width: 28px;
         height: 28px;
@@ -36,9 +37,29 @@
         }
     }
     &-jump-container {
-        margin-left: 15px;
+        margin-left: @margin;
     }
     &-size-container {
-        margin-left: 15px;
+        margin-left: @margin;
+    }
+    &-paper-next,
+    &-paper-prev {
+        cursor: pointer;
+        margin-right: @margin;
+    }
+    &.simple {
+        .@{pagerPrefix}-paper-number{
+            margin-right: @margin;
+
+            input{
+                border-radius: 2px;
+                outline: none;
+                text-align: center;
+            }
+        }
+    }
+
+    &-slash{
+        margin-right: @margin;
     }
 }
