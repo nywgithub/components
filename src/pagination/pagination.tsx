@@ -39,8 +39,6 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     const Jumper = <div className={`${prefixCls}-jump-container`}></div>
     const Sizer = <div className={`${prefixCls}-size-container`}></div>
 
-    const pagerList: Array<React.ReactElement> = []
-
     //当前实时页码
     const [current, setCurrent] = React.useState<number>(pageNo!)
 
@@ -68,6 +66,8 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     }
 
     const pagerNumCls = `${prefixCls}-paper-number`
+
+    const pagerList: Array<React.ReactElement> = []
 
     const renderPager = () => {
         for (let i = 0; i < totalPage; i++) {
@@ -120,19 +120,6 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
         </div>
     )
 
-    const defaultPager = (
-        <>
-            {showTotal ? Total : null}
-            <div className={`${prefixCls}-paper-container`}>
-                {prevDom}
-                {pagerList}
-                {nextDom}
-            </div>
-            {showJumpInput ? Jumper : null}
-            {showSizerSelect ? Sizer : null}
-        </>
-    )
-
     const inputRef = React.useRef(null)
 
     const handleKeyDown = (e) => {
@@ -167,36 +154,56 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     }
 
     const handleBlur = (e) => {
-        if (!currentInput){
-           return setCurrentInput(current)
-        } 
+        if (!currentInput) {
+            return setCurrentInput(current)
+        }
         pagerChange(currentInput)
         onJumpChange?.(currentInput)
     }
+
+    const inputJumper = (
+        <input
+            type="text"
+            value={currentInput}
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            size={3}
+        />
+    )
 
     const simplePager = (
         <>
             {prevDom}
             <div className={pagerNumCls}>
-                {showJumpInput ? (
-                    <input
-                        type="text"
-                        value={currentInput}
-                        onKeyDown={handleKeyDown}
-                        onKeyUp={handleKeyUp}
-                        onChange={handleInputChange}
-                        onBlur={handleBlur}
-                        size={3}
-                    />
-                ) : (
-                    current
-                )}
+                {showJumpInput ? inputJumper : current}
             </div>
             <span className={`${prefixCls}-slash`}>/</span>
             <div className={pagerNumCls}>{totalPage}</div>
             {nextDom}
         </>
     )
+
+    const defaultPager = (
+        <>
+            {showTotal ? Total : null}
+            <div className={`${prefixCls}-paper-container`}>
+                {prevDom}
+                {pagerList}
+                {nextDom}
+            </div>
+            {showJumpInput ? Jumper : null}
+            {showSizerSelect ? Sizer : null}
+        </>
+    )
+
+    React.useImperativeHandle(ref, () => ({
+        current,
+        inputRef,
+        clickNext,
+        clickPrev,
+    }))
 
     return hidePagerNum !== totalPage ? (
         <div
