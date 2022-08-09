@@ -33,12 +33,7 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     }
 
     const totalPage = getTotalPage(total, pageSize!)
-    const Total = (
-        <div className={`${prefixCls}-total-container`}>Total: {totalPage}</div>
-    )
-    const Jumper = <div className={`${prefixCls}-jump-container`}></div>
-    const Sizer = <div className={`${prefixCls}-size-container`}></div>
-
+    
     //当前实时页码
     const [current, setCurrent] = React.useState<number>(pageNo!)
 
@@ -163,6 +158,7 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
 
     const inputJumper = (
         <input
+            className={`${prefixCls}-input`}
             type="text"
             value={currentInput}
             onKeyDown={handleKeyDown}
@@ -172,6 +168,14 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
             size={3}
         />
     )
+
+    const Total = (
+        <div className={`${prefixCls}-total-container`}>Total: {totalPage}</div>
+    )
+    const Jumper = (
+        <div className={`${prefixCls}-jump-container`}>Go to {inputJumper}</div>
+    )
+    const Sizer = <div className={`${prefixCls}-size-container`}></div>
 
     const simplePager = (
         <>

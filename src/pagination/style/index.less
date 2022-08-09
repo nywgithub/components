@@ -41,10 +41,10 @@
         }
     }
     &-jump-container {
-        margin-left: @margin;
+        margin-right: @margin;
     }
     &-size-container {
-        margin-left: @margin;
+        margin-right: @margin;
     }
     &-paper-next,
     &-paper-prev {
@@ -57,13 +57,13 @@
     &.simple {
         .@{pagerPrefix}-paper-number{
             margin-right: @margin;
-
-            input{
-                border-radius: 2px;
-                outline: none;
-                text-align: center;
-            }
         }
+    }
+
+    &-input{
+        border-radius: 2px;
+        outline: none;
+        text-align: center;
     }
 
     &-slash{
