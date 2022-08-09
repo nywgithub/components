@@ -1,14 +1,19 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Pagination from ".."
 import "../style"
 
 export default () => {
-    const handleChangeSimple =(val) =>{
-      console.log('handleChangeSimple', val)
+    const handleChangeSimple = (val) => {
+        console.log("handleChangeSimple", val)
     }
-    const handleChangeDefault =(val) =>{
-      console.log('handleChangeDefault', val)
+    const handleChangeDefault = (val) => {
+        console.log("handleChangeDefault", val)
     }
+
+    const handleJumpChange = (val) => {
+        console.log("handleJumpChange", val)
+    }
+
     return (
         <>
             <Pagination
@@ -16,6 +21,7 @@ export default () => {
                 total={35}
                 showJumpInput
                 onChange={handleChangeSimple}
+                onJumpChange={handleJumpChange}
                 style={{ margin: 10 }}
             />
             <Pagination

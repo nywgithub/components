@@ -1,3 +1,4 @@
+export type handlePageNo =  (n: number) => void
 export interface PagerProps {
     prefixCls?: string
     locale?: "en" | "cn"
@@ -12,9 +13,9 @@ export interface PagerProps {
     showSizerSelect?: boolean
     hidePagerNum?: number
     itemRender?: () => void
-    onChange?: (val: number) => void
+    onChange?: handlePageNo
     onSizeChange?: () => void
-    onJumpChange?: () => void
-    onPrevClick?: (val:number) => void
-    onNextClick?: (val:number) => void
+    onJumpChange?: handlePageNo
+    onPrevClick?: handlePageNo
+    onNextClick?: handlePageNo
 }

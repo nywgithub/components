@@ -4,6 +4,10 @@
 .@{pagerPrefix} {
     display: flex;
     align-items: center;
+    &-disabled{
+        cursor: not-allowed;
+        color: #888;
+    }
     &-total-container {
         margin-right: @margin;
     }
@@ -46,6 +50,9 @@
     &-paper-prev {
         cursor: pointer;
         margin-right: @margin;
+        &.@{pagerPrefix}-disabled{
+            cursor: not-allowed;
+        }
     }
     &.simple {
         .@{pagerPrefix}-paper-number{

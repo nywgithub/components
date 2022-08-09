@@ -41,18 +41,31 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
 
     const pagerList: Array<React.ReactElement> = []
 
-    const pagerChange = (n: number) => {
-        const handleChange = (val) => {
-            setCurrent(val)
-            onChange?.(val)
-        }
-        if (n < 1) return handleChange(1)
-        if (n > totalPage) return handleChange(totalPage)
+    //当前实时页码
+    const [current, setCurrent] = React.useState<number>(pageNo!)
 
-        handleChange(n)
+    //仅用于展示jump输入框的值
+    const [currentInput, setCurrentInput] = React.useState<number>(pageNo!)
+
+    const handleChange = (n: number, callback: (n: number) => void) => {
+        if (n < 1) return callback(1)
+        if (n > totalPage) return callback(totalPage)
+        callback(n)
     }
 
-    const [current, setCurrent] = React.useState<number>(pageNo!)
+    const pagerChange = (n: number) => {
+        handleChange(n, (val) => {
+            setCurrent(val)
+            onChange?.(val)
+        })
+    }
+
+    const pagerChange_Input = (n: number) => {
+        handleChange(n, (val) => {
+            setCurrentInput(val)
+            onJumpChange?.(val)
+        })
+    }
 
     const pagerNumCls = `${prefixCls}-paper-number`
 
@@ -76,21 +89,33 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
 
     const clickPrev = () => {
         pagerChange(current - 1)
+        pagerChange_Input(current - 1)
         onPrevClick?.(current)
     }
 
     const clickNext = () => {
         pagerChange(current + 1)
+        pagerChange_Input(current + 1)
         onNextClick?.(current)
     }
 
     const prevDom = (
-        <div className={`${prefixCls}-paper-prev`} onClick={() => clickPrev()}>
+        <div
+            className={classNames(`${prefixCls}-paper-prev`, {
+                [`${prefixCls}-disabled`]: current === 1,
+            })}
+            onClick={() => clickPrev()}
+        >
             prev
         </div>
     )
     const nextDom = (
-        <div className={`${prefixCls}-paper-next`} onClick={() => clickNext()}>
+        <div
+            className={classNames(`${prefixCls}-paper-next`, {
+                [`${prefixCls}-disabled`]: current === totalPage,
+            })}
+            onClick={() => clickNext()}
+        >
             next
         </div>
     )
@@ -117,21 +142,36 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     }
 
     const handleKeyUp = (e) => {
+        if (e.key === "Enter") {
+            pagerChange(currentInput)
+            onJumpChange?.(currentInput)
+        }
         if (e.key === "ArrowUp") {
-            pagerChange(current + 1)
+            pagerChange_Input(current + 1)
         }
 
         if (e.key === "ArrowDown") {
-            pagerChange(current - 1)
+            pagerChange_Input(current - 1)
         }
 
-        if (!isNaN(parseInt(e.key))) {
-            pagerChange(parseInt(e.key))
+        if (!isNaN(Number(e.key))) {
+            pagerChange_Input(Number(e.key))
+        }
+    }
+
+    const handleInputChange = (e) => {
+        const value = e.target.value
+        if (!isNaN(Number(value))) {
+            setCurrentInput(value)
         }
     }
 
     const handleBlur = (e) => {
-        console.log("Blur", e)
+        if (!currentInput){
+           return setCurrentInput(current)
+        } 
+        pagerChange(currentInput)
+        onJumpChange?.(currentInput)
     }
 
     const simplePager = (
@@ -141,10 +181,10 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
                 {showJumpInput ? (
                     <input
                         type="text"
-                        value={current}
+                        value={currentInput}
                         onKeyDown={handleKeyDown}
                         onKeyUp={handleKeyUp}
-                        onChange={handleKeyUp}
+                        onChange={handleInputChange}
                         onBlur={handleBlur}
                         size={3}
                     />
@@ -159,9 +199,12 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     )
 
     return hidePagerNum !== totalPage ? (
-        <div className={`${prefixCls} ${className || ""} ${classNames(
-            {'simple': type === 'simple'}
-        )}`} style={style}>
+        <div
+            className={`${prefixCls} ${className || ""} ${classNames({
+                simple: type === "simple",
+            })}`}
+            style={style}
+        >
             {type === "default" ? defaultPager : null}
             {type === "simple" ? simplePager : null}
         </div>
