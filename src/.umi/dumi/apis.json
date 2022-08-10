@@ -1317,11 +1317,11 @@
       },
       {
         "identifier": "itemRender",
-        "type": "() => void"
+        "type": "{ prevNode?: (current: number) => ReactNode; nextNode?: (current: number) => ReactNode; totalNode?: (totalPage: number) => ReactNode; pagerNode?: (num: number) => ReactNode; }"
       },
       {
         "identifier": "onChange",
-        "type": "(val: number) => void"
+        "type": "handlePageNo"
       },
       {
         "identifier": "onSizeChange",
@@ -1329,15 +1329,15 @@
       },
       {
         "identifier": "onJumpChange",
-        "type": "() => void"
+        "type": "handlePageNo"
       },
       {
         "identifier": "onPrevClick",
-        "type": "(val: number) => void"
+        "type": "handlePageNo"
       },
       {
         "identifier": "onNextClick",
-        "type": "(val: number) => void"
+        "type": "handlePageNo"
       },
       {
         "identifier": "ref",
