@@ -277,6 +277,44 @@ export function getRoutes() {
         "title": "Pagination 分页 - W"
       },
       {
+        "path": "/component/select",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__select.md' */'D:/git-work/components/docs/component/select.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/select.md",
+          "updatedTime": 1660102846836,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Select 选择",
+              "heading": "select-选择"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Select 选择",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "Select 选择 - W"
+      },
+      {
         "path": "/component/upload",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__upload.md' */'D:/git-work/components/docs/component/upload.md')}),
         "exact": true,

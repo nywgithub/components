@@ -39,6 +39,11 @@
           "meta": {}
         },
         {
+          "path": "/component/select",
+          "title": "Select 选择",
+          "meta": {}
+        },
+        {
           "path": "/component/upload",
           "title": "Upload 上传",
           "meta": {}
