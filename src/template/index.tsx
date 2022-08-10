@@ -1,3 +1,3 @@
-import Demo from './pagination'
+import Demo from './demo'
 export { DemoProps } from './interface'
 export default Demo
