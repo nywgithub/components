@@ -33,7 +33,7 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
     }
 
     const totalPage = getTotalPage(total, pageSize!)
-    
+
     //当前实时页码
     const [current, setCurrent] = React.useState<number>(pageNo!)
 
@@ -74,7 +74,11 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
                     })}`}
                     onClick={() => pagerChange(i + 1)}
                 >
-                    <div className={pagerNumCls}>{i + 1}</div>
+                    {itemRender?.pagerNode ? (
+                        itemRender?.pagerNode(i + 1)
+                    ) : (
+                        <div className={pagerNumCls}>{i + 1}</div>
+                    )}
                 </li>
             )
         }
@@ -84,36 +88,15 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
 
     const clickPrev = () => {
         pagerChange(current - 1)
-        type === 'simple' && pagerChange_Input(current - 1)
+        type === "simple" && pagerChange_Input(current - 1)
         onPrevClick?.(current)
     }
 
     const clickNext = () => {
         pagerChange(current + 1)
-        type === 'simple' && pagerChange_Input(current + 1)
+        type === "simple" && pagerChange_Input(current + 1)
         onNextClick?.(current)
     }
-
-    const prevDom = (
-        <div
-            className={classNames(`${prefixCls}-paper-prev`, {
-                [`${prefixCls}-disabled`]: current === 1,
-            })}
-            onClick={() => clickPrev()}
-        >
-            prev
-        </div>
-    )
-    const nextDom = (
-        <div
-            className={classNames(`${prefixCls}-paper-next`, {
-                [`${prefixCls}-disabled`]: current === totalPage,
-            })}
-            onClick={() => clickNext()}
-        >
-            next
-        </div>
-    )
 
     const inputRef = React.useRef(null)
 
@@ -169,8 +152,33 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
         />
     )
 
+    const prevDom = (
+        <div
+            className={classNames(`${prefixCls}-paper-prev`, {
+                [`${prefixCls}-disabled`]: current === 1,
+            })}
+            onClick={() => clickPrev()}
+        >
+            {itemRender?.prevNode ? itemRender?.prevNode(current) : "prev"}
+        </div>
+    )
+    const nextDom = (
+        <div
+            className={classNames(`${prefixCls}-paper-next`, {
+                [`${prefixCls}-disabled`]: current === totalPage,
+            })}
+            onClick={() => clickNext()}
+        >
+            {itemRender?.nextNode ? itemRender?.nextNode(current) : "next"}
+        </div>
+    )
+
     const Total = (
-        <div className={`${prefixCls}-total-container`}>Total: {totalPage}</div>
+        <div className={`${prefixCls}-total-container`}>
+            {itemRender?.totalNode
+                ? itemRender?.totalNode(totalPage)
+                : `Total: ${totalPage}`}
+        </div>
     )
     const Jumper = (
         <div className={`${prefixCls}-jump-container`}>Go to {inputJumper}</div>

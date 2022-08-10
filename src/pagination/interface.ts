@@ -1,4 +1,4 @@
-export type handlePageNo =  (n: number) => void
+export type handlePageNo = (n: number) => void
 export interface PagerProps {
     prefixCls?: string
     locale?: "en" | "cn"
@@ -12,7 +12,12 @@ export interface PagerProps {
     showJumpInput?: boolean
     showSizerSelect?: boolean
     hidePagerNum?: number
-    itemRender?: () => void
+    itemRender?: {
+        prevNode?: (current: number) => React.ReactNode
+        nextNode?: (current: number) => React.ReactNode
+        totalNode?: (totalPage: number) => React.ReactNode
+        pagerNode?: (num: number) => React.ReactNode
+    }
     onChange?: handlePageNo
     onSizeChange?: () => void
     onJumpChange?: handlePageNo
