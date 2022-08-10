@@ -25,12 +25,13 @@ export default () => {
                 style={{ margin: 10 }}
             />
             <Pagination
-                total={35}
+                total={31}
                 showJumpInput
                 showTotal
                 showSizerSelect
                 onChange={handleChangeDefault}
                 style={{ margin: 10 }}
+                // hidePagerNum={3}
                 itemRender={{
                     prevNode(current) {
                         return <div className="pager-prev">上一个</div>

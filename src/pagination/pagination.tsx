@@ -217,7 +217,7 @@ const ForwardPagination: React.ForwardRefRenderFunction<unknown, PagerProps> = (
         clickPrev,
     }))
 
-    return hidePagerNum !== totalPage ? (
+    return (hidePagerNum || 0) < totalPage ? (
         <div
             className={`${prefixCls} ${className || ""} ${classNames({
                 simple: type === "simple",
