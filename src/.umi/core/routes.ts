@@ -282,7 +282,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/select.md",
-          "updatedTime": 1660102846836,
+          "updatedTime": 1660125088000,
           "slugs": [
             {
               "depth": 1,

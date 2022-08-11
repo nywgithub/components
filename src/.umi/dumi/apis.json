@@ -1364,6 +1364,10 @@
         "type": "string"
       },
       {
+        "identifier": "trigger",
+        "type": "\"click\" | \"hover\""
+      },
+      {
         "identifier": "ref",
         "type": "Ref<unknown>"
       },
