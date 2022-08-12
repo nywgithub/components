@@ -23,16 +23,31 @@ interface SelectProps {
     style?: any
     className?: string
     trigger?: "click" | "hover"
+    defaultSelected?: string | number
+    multiple?: boolean
 }
 
 interface OptionProps {
     prefixCls?: string
-    value?: string
+    value?: string | number
+    selectedValue?: string | number
+    multiple?: boolean
+    onSelect?: (val: any) => void
 }
 interface DropDownProps {
     prefixCls: string
     trigger?: "click" | "hover"
-    SelectionListArray?: any
+    dropDownListArray?: any
+    defaultSelected?: string | number
+    multiple?: boolean
+}
+
+interface PickerProps {
+    prefixCls: string
+    type?: "default" | "search"
+    dropDownListArray?: any
+    defaultSelected?: string | number
+    multiple?: boolean
 }
 
 export {
@@ -43,4 +58,5 @@ export {
     DropDownProps,
     SelectProps,
     OptionProps,
+    PickerProps,
 }
