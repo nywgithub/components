@@ -3,19 +3,18 @@ import classNames from "classnames"
 import { OptionProps } from "../interface"
 
 const Option: React.FC<OptionProps> = (props) => {
-    const { prefixCls, value, selectedValue, multiple, onSelect } = props
-
+    const { prefixCls, value, multiple, onSelect, children, selected } = props
     const handleClick = () => {
         onSelect?.(value)
     }
     return (
         <div
             className={`${prefixCls}-option ${classNames({
-                'selected': selectedValue === value,
+                selected: selected,
             })}`}
             onClick={handleClick}
         >
-            {value}
+            {children}
         </div>
     )
 }

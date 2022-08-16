@@ -1368,6 +1368,14 @@
         "type": "\"click\" | \"hover\""
       },
       {
+        "identifier": "defaultSelected",
+        "type": "string | number"
+      },
+      {
+        "identifier": "multiple",
+        "type": "boolean"
+      },
+      {
         "identifier": "ref",
         "type": "Ref<unknown>"
       },

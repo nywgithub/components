@@ -3,7 +3,6 @@ import classNames from "classnames"
 import { SelectProps } from "./interface"
 import { ConfigContext } from "../common-provider/context"
 import NativeSelect from "./native/nativeSelect"
-import DropDown from "./DropDown"
 import Option from "./DropDown/Option"
 import Picker from "./Picker"
 
@@ -11,11 +10,11 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
     { prefixCls: customizePrefixCls, ...props },
     ref
 ) => {
-    const { style, className, children, multiple } = props
+    const { style, className, children, multiple, defaultSelected, value, onChange } = props
     const { getPrefixCls } = React.useContext(ConfigContext)
     const prefixCls = getPrefixCls("select", customizePrefixCls)
 
-    const dropDownListArray = React.Children.toArray(
+    const pickerListArray = React.Children.toArray(
         children
     ) as React.ReactElement[]
 
@@ -59,10 +58,15 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
     return (
         <div className={`${prefixCls} ${className || ""}`} style={style}>
             <Picker
+                onChange={onChange}
+                value={value}
+                defaultSelected={defaultSelected}
                 prefixCls={prefixCls}
-                dropDownListArray={dropDownListArray}
                 multiple={multiple}
-            />
+            >
+                {pickerListArray.length > 0 &&
+                    pickerListArray.map((item) => React.cloneElement(item))}
+            </Picker>
 
             {/* 根据children生成原生select */}
             <NativeSelect groupList={nativeGroups} />

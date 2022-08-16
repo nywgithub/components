@@ -21,10 +21,12 @@ interface NativeInputProps
 interface SelectProps {
     prefixCls?: string
     style?: any
+    value?: string | number
     className?: string
     trigger?: "click" | "hover"
     defaultSelected?: string | number
     multiple?: boolean
+    onChange?: (val: any) => void
 }
 
 interface OptionProps {
@@ -32,22 +34,25 @@ interface OptionProps {
     value?: string | number
     selectedValue?: string | number
     multiple?: boolean
+    selected?: boolean
     onSelect?: (val: any) => void
 }
 interface DropDownProps {
     prefixCls: string
     trigger?: "click" | "hover"
     dropDownListArray?: any
-    defaultSelected?: string | number
     multiple?: boolean
+    onSelect?: (val: any) => void
+    current?: any
 }
 
 interface PickerProps {
     prefixCls: string
     type?: "default" | "search"
-    dropDownListArray?: any
+    value?: string | number
     defaultSelected?: string | number
     multiple?: boolean
+    onChange?: (val: any) => void
 }
 
 export {
