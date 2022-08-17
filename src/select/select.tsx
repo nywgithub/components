@@ -94,17 +94,25 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
                                   {...node.props}
                               >
                                   {node.props.children &&
-                                      node.props.children.map((option) => (
-                                          <Option
-                                              {...option.props}
-                                              selected={
-                                                  option.props.value === current
-                                              }
-                                              key={option.props.value}
-                                              prefixCls={prefixCls}
-                                              multiple={multiple}
-                                          ></Option>
-                                      ))}
+                                      node.props.children.map((option) => {
+                                          if (typeof option === "string")  return (
+                                              <React.Fragment>
+                                                  {option}
+                                              </React.Fragment>
+                                          )
+                                          return (
+                                              <Option
+                                                  {...option.props}
+                                                  selected={
+                                                      option.props.value ===
+                                                      current
+                                                  }
+                                                  key={option.props.value}
+                                                  prefixCls={prefixCls}
+                                                  multiple={multiple}
+                                              ></Option>
+                                          )
+                                      })}
                               </OptGroup>
                           ) : (
                               <Option

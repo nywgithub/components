@@ -70,10 +70,11 @@ export default () => {
                     <Option value="three">3</Option>
                     <Option value="four">4</Option>
                 </OptGroup>
-                <OptGroup disabled>
+                <OptGroup>
                     <Option value="black">
                         <span>a</span>
                     </Option>
+                    {/* <span>1</span> */}
                     <Option value="blue">b</Option>
                     <Option value="red">c</Option>
                     <Option value="yellow">d</Option>
