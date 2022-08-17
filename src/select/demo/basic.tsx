@@ -16,6 +16,7 @@ const { Option, OptGroup } = Select
     7. icon
     8. clear
     9. group
+    10. 字符串处理
 */
 
 const Selector = (props) => {
@@ -63,7 +64,7 @@ export default () => {
                     <Option value="one">
                         <span>1</span>
                     </Option>
-                    <Option value="two" disabled={true}>
+                    <Option value="two" disabled>
                         2
                     </Option>
                     <Option value="three">3</Option>
@@ -72,7 +73,7 @@ export default () => {
                 <OptGroup disabled>
                     <Option value="black">
                         <span>a</span>
-                    </Option>s
+                    </Option>
                     <Option value="blue">b</Option>
                     <Option value="red">c</Option>
                     <Option value="yellow">d</Option>

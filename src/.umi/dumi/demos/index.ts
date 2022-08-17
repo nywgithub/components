@@ -20,14 +20,24 @@ import rawCode16 from '!!dumi-raw-code-loader!D:/git-work/components/src/paginat
 import rawCode17 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/style/index.ts?dumi-raw-code';
 import rawCode18 from '!!dumi-raw-code-loader!D:/git-work/components/src/pagination/style/index.less?dumi-raw-code';
 import rawCode19 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/demo/basic.tsx?dumi-raw-code';
-import rawCode20 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/demo/basic.tsx?dumi-raw-code';
-import rawCode21 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/index.tsx?dumi-raw-code';
-import rawCode22 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/upload.tsx?dumi-raw-code';
-import rawCode23 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/uploadList.tsx?dumi-raw-code';
-import rawCode24 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/item.tsx?dumi-raw-code';
-import rawCode25 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
-import rawCode26 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
-import rawCode27 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
+import rawCode20 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/index.tsx?dumi-raw-code';
+import rawCode21 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/Select.tsx?dumi-raw-code';
+import rawCode22 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/native/nativeSelect.tsx?dumi-raw-code';
+import rawCode23 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/Option.tsx?dumi-raw-code';
+import rawCode24 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/Picker.tsx?dumi-raw-code';
+import rawCode25 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/DropDown/index.tsx?dumi-raw-code';
+import rawCode26 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/OptGroup.tsx?dumi-raw-code';
+import rawCode27 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/interface.ts?dumi-raw-code';
+import rawCode28 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/style/index.ts?dumi-raw-code';
+import rawCode29 from '!!dumi-raw-code-loader!D:/git-work/components/src/select/style/index.less?dumi-raw-code';
+import rawCode30 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/demo/basic.tsx?dumi-raw-code';
+import rawCode31 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/index.tsx?dumi-raw-code';
+import rawCode32 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/upload.tsx?dumi-raw-code';
+import rawCode33 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/uploadList.tsx?dumi-raw-code';
+import rawCode34 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/item.tsx?dumi-raw-code';
+import rawCode35 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
+import rawCode36 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
+import rawCode37 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -56,13 +66,13 @@ export default {
       loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'D:/git-work/components/src/select/demo/basic.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode19}},"dependencies":{},"identifier":"select-basic"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode19},"index.tsx":{"import":"..","content":rawCode20},"Select.tsx":{"import":"./Select","content":rawCode21},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"native/nativeSelect.tsx":{"import":"./native/nativeSelect","content":rawCode22},"Option.tsx":{"import":"./Option","content":rawCode23},"Picker.tsx":{"import":"./Picker","content":rawCode24},"DropDown/index.tsx":{"import":"./DropDown","content":rawCode25},"OptGroup.tsx":{"import":"./OptGroup","content":rawCode26},"interface.ts":{"import":"./interface","content":rawCode27},"style/index.ts":{"import":"../style","content":rawCode28},"style/index.less":{"import":"./index.less","content":rawCode29}},"dependencies":{"react":{"version":"17.0.2"},"classnames":{"version":"2.3.1"}},"identifier":"select-basic"},
   },
   'upload-basic': {
     component: dynamic({
       loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'D:/git-work/components/src/upload/demo/basic.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode20},"index.tsx":{"import":"..","content":rawCode21},"upload.tsx":{"import":"./upload","content":rawCode22},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode23},"item.tsx":{"import":"./item","content":rawCode24},"progress.tsx":{"import":"./progress","content":rawCode25},"style/index.ts":{"import":"./style","content":rawCode26},"style/index.less":{"import":"./index.less","content":rawCode27}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"identifier":"upload-basic"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode30},"index.tsx":{"import":"..","content":rawCode31},"upload.tsx":{"import":"./upload","content":rawCode32},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode33},"item.tsx":{"import":"./item","content":rawCode34},"progress.tsx":{"import":"./progress","content":rawCode35},"style/index.ts":{"import":"./style","content":rawCode36},"style/index.less":{"import":"./index.less","content":rawCode37}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"identifier":"upload-basic"},
   },
 };

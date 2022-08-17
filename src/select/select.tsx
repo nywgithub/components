@@ -88,7 +88,11 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
                           console.log("node", node)
                           let nodeType = node.type.name
                           return nodeType === "OptGroup" ? (
-                              <OptGroup key={node.key} prefixCls={prefixCls} {...node.props}>
+                              <OptGroup
+                                  key={node.key}
+                                  prefixCls={prefixCls}
+                                  {...node.props}
+                              >
                                   {node.props.children &&
                                       node.props.children.map((option) => (
                                           <Option
