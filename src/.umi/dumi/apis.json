@@ -1357,11 +1357,15 @@
       },
       {
         "identifier": "style",
-        "type": "any"
+        "type": "CSSProperties"
       },
       {
         "identifier": "className",
         "type": "string"
+      },
+      {
+        "identifier": "value",
+        "type": "string | number"
       },
       {
         "identifier": "trigger",
@@ -1374,6 +1378,10 @@
       {
         "identifier": "multiple",
         "type": "boolean"
+      },
+      {
+        "identifier": "onChange",
+        "type": "(val: any) => void"
       },
       {
         "identifier": "ref",

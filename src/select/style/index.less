@@ -1,7 +1,11 @@
 @selectPrefix: wei-select;
 .@{selectPrefix} {
     &-option {
+        cursor: pointer;
         &.selected {
+            color: red;
+        }
+        &:hover {
             color: red;
         }
     }

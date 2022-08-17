@@ -20,9 +20,9 @@ interface NativeInputProps
 
 interface SelectProps {
     prefixCls?: string
-    style?: any
-    value?: string | number
+    style?: React.CSSProperties
     className?: string
+    value?: string | number
     trigger?: "click" | "hover"
     defaultSelected?: string | number
     multiple?: boolean
@@ -35,19 +35,28 @@ interface OptionProps {
     selectedValue?: string | number
     multiple?: boolean
     selected?: boolean
-    onSelect?: (val: any) => void
+    onChange?: (val: any) => void
+    disabled?: boolean
+    groupDisabled?: boolean
+}
+
+interface OptGroupProps {
+    prefixCls?: string
+    disabled?: boolean
+    onChange?: (val: any) => void
 }
 interface DropDownProps {
-    prefixCls: string
+    prefixCls?: string
     trigger?: "click" | "hover"
-    dropDownListArray?: any
     multiple?: boolean
-    onSelect?: (val: any) => void
+    onChange?: (val: any) => void
     current?: any
 }
 
 interface PickerProps {
-    prefixCls: string
+    prefixCls?: string
+    className?: string
+    style?: React.CSSProperties
     type?: "default" | "search"
     value?: string | number
     defaultSelected?: string | number
@@ -64,4 +73,5 @@ export {
     SelectProps,
     OptionProps,
     PickerProps,
+    OptGroupProps,
 }
