@@ -44,6 +44,7 @@ const Selector = (props) => {
 export default () => {
     const [value, setValue] = useState("three")
     const [pickerValue, setPickerValue] = useState("one")
+    const list = [1,2,3]
     const onChange = (val) => {
         setValue(val)
     }
@@ -54,6 +55,15 @@ export default () => {
     return (
         <>
             <Select defaultSelected={"three"} value={value} onChange={onChange}>
+                {/* {
+                    list.map((item) => (
+                        <li
+                            key={item}
+                        >
+                            {item}
+                        </li>
+                    ))
+                } */}
                 {/* <Option value="one">
                     <span>1</span>
                 </Option>
@@ -64,9 +74,7 @@ export default () => {
                     <Option value="one">
                         <span>1</span>
                     </Option>
-                    <Option value="two" disabled>
-                        2
-                    </Option>
+                    <Option value="two">2</Option>
                     <Option value="three">3</Option>
                     <Option value="four">4</Option>
                 </OptGroup>
@@ -74,18 +82,54 @@ export default () => {
                     <Option value="black">
                         <span>a</span>
                     </Option>
-                    {/* <span>1</span> */}
+                    <span>1</span>
                     <Option value="blue">b</Option>
                     <Option value="red">c</Option>
                     <Option value="yellow">d</Option>
                 </OptGroup>
+                test string
             </Select>
             <div>current: {value}</div>
-
             <Picker value={pickerValue} onChange={pickerChange}>
                 <Selector></Selector>
             </Picker>
             <div>currentPicker: {pickerValue}</div>
+            多选：
+            <Select defaultSelected={["one", "three"]} value={["one", "three"]} multiple>
+                {/* {
+                    list.map((item) => (
+                        <li
+                            key={item}
+                        >
+                            {item}
+                        </li>
+                    ))
+                } */}
+                {/* <Option value="one">
+                    <span>1</span>
+                </Option>
+                <Option value="two">2</Option>
+                <Option value="three">3</Option>
+                <Option value="four">4</Option> */}
+                <OptGroup>
+                    <Option value="one">
+                        <span>1</span>
+                    </Option>
+                    <Option value="two">2</Option>
+                    <Option value="three">3</Option>
+                    <Option value="four">4</Option>
+                </OptGroup>
+                <OptGroup>
+                    <Option value="black">
+                        <span>a</span>
+                    </Option>
+                    <span>1</span>
+                    <Option value="blue">b</Option>
+                    <Option value="red">c</Option>
+                    <Option value="yellow">d</Option>
+                </OptGroup>
+                test string
+            </Select>
         </>
     )
 }

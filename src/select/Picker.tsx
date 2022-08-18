@@ -18,7 +18,7 @@ const Picker: React.FC<PickerProps> = (props) => {
     const [selectedValue, setSelectedValue] = React.useState(
         defaultSelected || value
     )
-   
+
     const [searchValue, setSearchValue] = React.useState<any>(defaultSelected)
 
     const inputFocus = (e) => {
@@ -29,19 +29,39 @@ const Picker: React.FC<PickerProps> = (props) => {
         console.log(e)
     }
 
-     const handleChange = (val) => {
-         setSelectedValue(val)
-         onChange?.(val)
-     }
+    const handleChange = (val) => {
+        let currentValue = val
+        if (multiple) {
+            if (Array.isArray(selectedValue)) {
+                currentValue = [...selectedValue]
+                currentValue.push(val)
+                setSelectedValue(currentValue)
+            }
+        } else {
+            setSelectedValue(val)
+        }
 
+        onChange?.(currentValue)
+    }
 
     const searchChange = (e) => {
         setSearchValue(e.target.value)
     }
 
+    const deleteValue = (val) => {
+        console.log("deleteValue", val)
+        if (Array.isArray(selectedValue)) {
+            let currentValue = [...selectedValue]
+            currentValue.indexOf(val) !== -1 &&
+                currentValue.splice(currentValue.indexOf(val), 1)
+            setSelectedValue(currentValue)
+            onChange?.(currentValue)
+        }
+    }
+
     return (
         <>
-            <div className={`${prefixCls}-picker`}>
+            <div className={`${prefixCls}-picker ${className}`} style={style}>
                 <div className={`${prefixCls}-selector-container`}>
                     <span className={`${prefixCls}-selector-search`}>
                         <input
@@ -52,9 +72,34 @@ const Picker: React.FC<PickerProps> = (props) => {
                             onChange={searchChange}
                         />
                     </span>
-                    <span className={`${prefixCls}-selector-item`}>
-                        {selectedValue}
-                    </span>
+                    {selectedValue &&
+                        (!Array.isArray(selectedValue) ? (
+                            <span className={`${prefixCls}-selector-item`}>
+                                {selectedValue}
+                            </span>
+                        ) : (
+                            selectedValue.length > 0 &&
+                            selectedValue.map((item, i) => {
+                                return (
+                                    <span
+                                        className={`${prefixCls}-selector-item`}
+                                        key={i}
+                                    >
+                                        {item}
+                                        {multiple && (
+                                            <i
+                                                className={"delete-icon"}
+                                                onClick={() => {
+                                                    deleteValue(item)
+                                                }}
+                                            >
+                                                x
+                                            </i>
+                                        )}
+                                    </span>
+                                )
+                            })
+                        ))}
                 </div>
                 <div className={`${prefixCls}-picker-icon`}> - </div>
             </div>

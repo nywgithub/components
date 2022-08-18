@@ -22,9 +22,9 @@ interface SelectProps {
     prefixCls?: string
     style?: React.CSSProperties
     className?: string
-    value?: string | number
+    value?: string | number | Array<string | number>
     trigger?: "click" | "hover"
-    defaultSelected?: string | number
+    defaultSelected?: string | number | Array<string | number>
     multiple?: boolean
     onChange?: (val: any) => void
 }
@@ -58,8 +58,8 @@ interface PickerProps {
     className?: string
     style?: React.CSSProperties
     type?: "default" | "search"
-    value?: string | number
-    defaultSelected?: string | number
+    value?: string | number | Array<string | number>
+    defaultSelected?: string | number | Array<string | number>
     multiple?: boolean
     onChange?: (val: any) => void
 }

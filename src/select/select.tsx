@@ -60,18 +60,33 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
 
     React.useImperativeHandle(ref, () => ({}))
 
-    const [current, setCurrent] = React.useState<string | number | undefined>(
-        defaultSelected || value
-    )
+    const [current, setCurrent] = React.useState<
+        SelectProps["value"] | undefined
+    >(defaultSelected || value)
 
+    /* 只允许非string的结构作为children渲染 */
     const PickerNodeList =
-        children && React.isValidElement(children[0])
+        children &&
+        typeof children !== "string" &&
+        (children as React.ReactNode[]).length > 0
             ? (React.Children.toArray(children) as React.ReactElement[])
             : null
+
     console.log("PickerNodeList", PickerNodeList)
+
     const pickerChange = (val) => {
         setCurrent(val)
         onChange?.(val)
+    }
+
+    const isOtionSelected = (val) => {
+        console.log('current', current)
+        if (Array.isArray(current)) {
+            console.log('val', val)
+            return current.indexOf(val) !== -1
+        } else {
+            return val === current
+        }
     }
 
     return (
@@ -84,9 +99,18 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
                 multiple={multiple}
             >
                 {PickerNodeList && PickerNodeList?.length > 0
-                    ? PickerNodeList.map((node) => {
+                    ? PickerNodeList.map((node, i) => {
                           console.log("node", node)
+
+                          if (typeof node === "string")
+                              return (
+                                  <React.Fragment key={i}>
+                                      {node}
+                                  </React.Fragment>
+                              )
+
                           let nodeType = node.type.name
+
                           return nodeType === "OptGroup" ? (
                               <OptGroup
                                   key={node.key}
@@ -94,30 +118,35 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
                                   {...node.props}
                               >
                                   {node.props.children &&
-                                      node.props.children.map((option) => {
-                                          if (typeof option === "string")  return (
-                                              <React.Fragment>
-                                                  {option}
-                                              </React.Fragment>
-                                          )
-                                          return (
-                                              <Option
-                                                  {...option.props}
-                                                  selected={
-                                                      option.props.value ===
-                                                      current
-                                                  }
-                                                  key={option.props.value}
-                                                  prefixCls={prefixCls}
-                                                  multiple={multiple}
-                                              ></Option>
-                                          )
-                                      })}
+                                      node.props.children.map(
+                                          (option, index) => {
+                                              if (typeof option === "string")
+                                                  return (
+                                                      <React.Fragment>
+                                                          {option}
+                                                      </React.Fragment>
+                                                  )
+                                              return (
+                                                  <Option
+                                                      {...option.props}
+                                                      selected={isOtionSelected(
+                                                          option.props.value
+                                                      )}
+                                                      key={
+                                                          option.props.value ||
+                                                          index
+                                                      }
+                                                      prefixCls={prefixCls}
+                                                      multiple={multiple}
+                                                  ></Option>
+                                              )
+                                          }
+                                      )}
                               </OptGroup>
                           ) : (
                               <Option
                                   {...node.props}
-                                  selected={node.props.value === current}
+                                  selected={isOtionSelected(node.props.value)}
                                   key={node.key}
                                   prefixCls={prefixCls}
                                   multiple={multiple}
@@ -136,7 +165,6 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
 const Select = React.forwardRef<unknown, SelectProps>(ForwardSelect)
 
 Select.defaultProps = {}
-//@ts-ignore
 Select.Option = Option
 Select.OptGroup = OptGroup
 
