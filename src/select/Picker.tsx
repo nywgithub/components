@@ -59,6 +59,17 @@ const Picker: React.FC<PickerProps> = (props) => {
         }
     }
 
+    const clear = () => {
+        let currentValue: any = ""
+        if (Array.isArray(selectedValue)) {
+            setSelectedValue([])
+            currentValue = []
+        } else {
+            setSelectedValue("")
+        }
+        onChange?.(currentValue)
+    }
+
     return (
         <>
             <div className={`${prefixCls}-picker ${className}`} style={style}>
@@ -71,6 +82,10 @@ const Picker: React.FC<PickerProps> = (props) => {
                             value={searchValue}
                             onChange={searchChange}
                         />
+                    </span>
+                    <span className="delete-icon" onClick={clear}>
+                        {" "}
+                        clear{" "}
                     </span>
                     {selectedValue &&
                         (!Array.isArray(selectedValue) ? (
