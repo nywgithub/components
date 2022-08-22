@@ -1,8 +1,18 @@
+import classNames from "classnames"
 import React from "react"
 import { DropDownProps } from "../interface"
 import Portals from "./Portals"
-const DropDown: React.FC<DropDownProps> = (props) => {
-    const { prefixCls, children, trigger, multiple, onChange, current } = props
+
+const ForwardDropDown: React.ForwardRefRenderFunction<unknown, DropDownProps> = (props, ref) => {
+    const {
+        prefixCls,
+        children,
+        trigger,
+        multiple,
+        onChange,
+        current,
+        className,
+    } = props
 
     const handleSelect = (val) => {
         console.log("choosen", val)
@@ -17,7 +27,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
 
     return (
         <Portals container={document.body}>
-            <div className={`${prefixCls}-dropDown`}>
+            <div className={`${prefixCls}-dropDown ${className}`} id="source">
                 {isValidChildren
                     ? (dropDownNode as React.ReactElement[]).map(
                           (option, i) => {
@@ -35,5 +45,9 @@ const DropDown: React.FC<DropDownProps> = (props) => {
         </Portals>
     )
 }
+
+const DropDown = React.forwardRef<unknown, DropDownProps>(
+    ForwardDropDown
+)
 
 export default DropDown

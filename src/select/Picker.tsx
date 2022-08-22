@@ -21,12 +21,29 @@ const Picker: React.FC<PickerProps> = (props) => {
 
     const [searchValue, setSearchValue] = React.useState<any>(defaultSelected)
 
+    const [show, setShow] = React.useState<boolean>(false)
+
+    const dropDownRef = React.useRef()
+
+    const inputRef = React.useRef()
+
+    const align = () => {
+        domAlign(document.getElementById("source"), inputRef?.current, {
+            points: ["tl", "tl"],
+            offset: [0, 0],
+        })
+    }
+
     const inputFocus = (e) => {
         console.log(e)
+        console.log("dropDownRef?.current", dropDownRef?.current)
+        align()
+        setShow(true)
     }
 
     const inputBlur = (e) => {
         console.log(e)
+        setShow(false)
     }
 
     const handleChange = (val) => {
@@ -81,6 +98,7 @@ const Picker: React.FC<PickerProps> = (props) => {
                             onBlur={inputBlur}
                             value={searchValue}
                             onChange={searchChange}
+                            ref={(el) => ((inputRef as any).current = el)}
                         />
                     </span>
                     <span className="delete-icon" onClick={clear}>
@@ -123,6 +141,8 @@ const Picker: React.FC<PickerProps> = (props) => {
                 prefixCls={prefixCls}
                 children={children}
                 onChange={handleChange}
+                ref = {el => (dropDownRef as any).current = el}
+                className={show ? 'show' : 'hidden'}
             />
         </>
     )

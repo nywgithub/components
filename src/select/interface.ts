@@ -51,6 +51,7 @@ interface DropDownProps {
     multiple?: boolean
     onChange?: (val: any) => void
     current?: any
+    className?: string
 }
 
 interface PickerProps {

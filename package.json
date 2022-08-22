@@ -58,6 +58,7 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "css-loader": "^6.7.1",
+    "dom-align": "^1.12.3",
     "is-mobile": "^3.1.1",
     "node-sass": "npm:sass@^1.49.9",
     "rc-input-number": "^7.3.4",
