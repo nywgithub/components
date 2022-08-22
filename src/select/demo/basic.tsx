@@ -90,7 +90,7 @@ export default () => {
                 test string
             </Select>
             <div>current: {value}</div>
-            <Picker value={pickerValue} onChange={pickerChange}>
+            <Picker value={pickerValue} onChange={pickerChange} prefixCls={'picker'}>
                 <Selector></Selector>
             </Picker>
             <div>currentPicker: {pickerValue}</div>

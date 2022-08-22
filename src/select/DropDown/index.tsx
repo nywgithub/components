@@ -1,6 +1,6 @@
 import React from "react"
 import { DropDownProps } from "../interface"
-// import Option from "../Option"
+import Portals from "./Portals"
 const DropDown: React.FC<DropDownProps> = (props) => {
     const { prefixCls, children, trigger, multiple, onChange, current } = props
 
@@ -9,23 +9,30 @@ const DropDown: React.FC<DropDownProps> = (props) => {
         onChange?.(val)
     }
 
-    const isValidChildren =
-        children && typeof children !== "string"
+    const isValidChildren = children && typeof children !== "string"
 
     let dropDownNode = isValidChildren
         ? React.Children.toArray(children)
         : children
 
     return (
-        <div className={`${prefixCls}-dropDown`}>
-            {isValidChildren ? (dropDownNode as React.ReactElement[]).map((option, i)=>{
-              return (
-                  <React.Fragment key={i}>
-                      {React.cloneElement(option, { onChange: handleSelect })}
-                  </React.Fragment>
-              )
-            }) : dropDownNode}
-        </div>
+        <Portals container={document.body}>
+            <div className={`${prefixCls}-dropDown`}>
+                {isValidChildren
+                    ? (dropDownNode as React.ReactElement[]).map(
+                          (option, i) => {
+                              return (
+                                  <React.Fragment key={i}>
+                                      {React.cloneElement(option, {
+                                          onChange: handleSelect,
+                                      })}
+                                  </React.Fragment>
+                              )
+                          }
+                      )
+                    : dropDownNode}
+            </div>
+        </Portals>
     )
 }
 

@@ -64,6 +64,10 @@ interface PickerProps {
     onChange?: (val: any) => void
 }
 
+interface PortalsProps {
+    container: Element
+}
+
 export {
     NativeSelectProps,
     NativeInputProps,
@@ -74,4 +78,5 @@ export {
     OptionProps,
     PickerProps,
     OptGroupProps,
+    PortalsProps,
 }
