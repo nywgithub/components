@@ -3,7 +3,10 @@ import React from "react"
 import { DropDownProps } from "../interface"
 import Portals from "./Portals"
 
-const ForwardDropDown: React.ForwardRefRenderFunction<unknown, DropDownProps> = (props, ref) => {
+const ForwardDropDown: React.ForwardRefRenderFunction<
+    unknown,
+    DropDownProps
+> = (props, ref) => {
     const {
         prefixCls,
         children,
@@ -27,7 +30,7 @@ const ForwardDropDown: React.ForwardRefRenderFunction<unknown, DropDownProps> = 
 
     return (
         <Portals container={document.body}>
-            <div className={`${prefixCls}-dropDown ${className}`} id="source">
+            <div className={`${prefixCls}-dropDown ${className}`} id="source" ref={ref}>
                 {isValidChildren
                     ? (dropDownNode as React.ReactElement[]).map(
                           (option, i) => {
@@ -46,8 +49,6 @@ const ForwardDropDown: React.ForwardRefRenderFunction<unknown, DropDownProps> = 
     )
 }
 
-const DropDown = React.forwardRef<unknown, DropDownProps>(
-    ForwardDropDown
-)
+const DropDown = React.forwardRef<unknown, DropDownProps>(ForwardDropDown)
 
 export default DropDown

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import Select from ".."
 import Picker from "../Picker"
 import "../style"
@@ -9,7 +9,7 @@ const { Option, OptGroup } = Select
     TODO: 
     1. picker的children处理(可以传不受限制的ReactNode)， Select的children（限制OptGroup和Option）
     2. portals
-    3. dom-align
+    3. dom-align(1.获取dropDdown的ref 2.解决DOMAlign返回初始状态的问题 3.domAlign的触发时机)
     4. 多选
     5. search后数据筛选
     6. 公共类型抽取
@@ -46,15 +46,19 @@ export default () => {
     const [pickerValue, setPickerValue] = useState("one")
     const list = [1,2,3]
     const onChange = (val) => {
+        console.log('selectRef', selectRef)
         setValue(val)
     }
 
     const pickerChange = (val) => {
         setPickerValue(val)
     }
+
+    const selectRef = useRef(null)
+    
     return (
         <>
-            <Select defaultSelected={"three"} value={value} onChange={onChange}>
+            <Select defaultSelected={"three"} value={value} onChange={onChange} ref={selectRef}>
                 {/* {
                     list.map((item) => (
                         <li
@@ -90,9 +94,9 @@ export default () => {
                 test string
             </Select>
             <div>current: {value}</div>
-            <Picker value={pickerValue} onChange={pickerChange} prefixCls={'picker'}>
+            {/* <Picker value={pickerValue} onChange={pickerChange} prefixCls={'picker'}>
                 <Selector></Selector>
-            </Picker>
+            </Picker> */}
             <div>currentPicker: {pickerValue}</div>
             多选：
             <Select defaultSelected={["one", "three"]} value={["one", "three"]} multiple>
@@ -128,7 +132,6 @@ export default () => {
                     <Option value="red">c</Option>
                     <Option value="yellow">d</Option>
                 </OptGroup>
-                test string
             </Select>
         </>
     )

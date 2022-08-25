@@ -3,6 +3,7 @@ import classNames from "classnames"
 import domAlign from "dom-align"
 import { PickerProps } from "./interface"
 import DropDown from "./DropDown"
+import { useClickAway } from 'ahooks';
 
 const Picker: React.FC<PickerProps> = (props) => {
     const {
@@ -23,28 +24,36 @@ const Picker: React.FC<PickerProps> = (props) => {
 
     const [show, setShow] = React.useState<boolean>(false)
 
+    const dropDownNodeRef = React.useRef()
+
     const dropDownRef = React.useRef()
 
     const inputRef = React.useRef()
 
     const align = () => {
-        domAlign(document.getElementById("source"), inputRef?.current, {
+        domAlign(dropDownNodeRef?.current, inputRef?.current, {
             points: ["tl", "tl"],
-            offset: [0, 0],
+            offset: [0, 22],
         })
     }
 
+    React.useEffect(() => {
+        show && align()
+    }, [show])
+
+    React.useEffect(() => {
+        setShow(false)
+    }, [selectedValue])
+
+    useClickAway(() => {
+        setShow(false)
+    },[dropDownNodeRef?.current, inputRef?.current])
+
     const inputFocus = (e) => {
-        console.log(e)
-        console.log("dropDownRef?.current", dropDownRef?.current)
-        align()
         setShow(true)
     }
 
-    const inputBlur = (e) => {
-        console.log(e)
-        setShow(false)
-    }
+    const inputBlur = (e) => {}
 
     const handleChange = (val) => {
         let currentValue = val
@@ -141,7 +150,7 @@ const Picker: React.FC<PickerProps> = (props) => {
                 prefixCls={prefixCls}
                 children={children}
                 onChange={handleChange}
-                ref = {el => (dropDownRef as any).current = el}
+                ref = {el => (dropDownNodeRef as any).current = el}
                 className={show ? 'show' : 'hidden'}
             />
         </>

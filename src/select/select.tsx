@@ -58,7 +58,9 @@ const ForwardSelect: React.ForwardRefRenderFunction<unknown, SelectProps> = (
         },
     ]
 
-    React.useImperativeHandle(ref, () => ({}))
+    React.useImperativeHandle(ref, () => ({
+      current,
+    }))
 
     const [current, setCurrent] = React.useState<
         SelectProps["value"] | undefined
