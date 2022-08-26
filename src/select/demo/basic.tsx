@@ -94,9 +94,9 @@ export default () => {
                 test string
             </Select>
             <div>current: {value}</div>
-            {/* <Picker value={pickerValue} onChange={pickerChange} prefixCls={'picker'}>
+            <Picker value={pickerValue} onChange={pickerChange} prefixCls={'picker'}>
                 <Selector></Selector>
-            </Picker> */}
+            </Picker>
             <div>currentPicker: {pickerValue}</div>
             多选：
             <Select defaultSelected={["one", "three"]} value={["one", "three"]} multiple>

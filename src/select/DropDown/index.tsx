@@ -30,7 +30,7 @@ const ForwardDropDown: React.ForwardRefRenderFunction<
 
     return (
         <Portals container={document.body}>
-            <div className={`${prefixCls}-dropDown ${className}`} id="source" ref={ref}>
+            <div className={`picker-dropDown ${prefixCls}-dropDown ${className}`} id="source" ref={ref}>
                 {isValidChildren
                     ? (dropDownNode as React.ReactElement[]).map(
                           (option, i) => {

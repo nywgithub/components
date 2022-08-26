@@ -11,7 +11,13 @@
             color: red;
         }
     }
-    &-dropDown {
+}
+.portals-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .picker-dropDown{
         padding: 5px;
         min-width: 150px;
         position: absolute;
@@ -23,14 +29,8 @@
         font-size: 14px;
         box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014,
             0 9px 28px 8px #0000000d;
-        &.hidden {
-            display: none;
-        }
     }
-}
-.portals-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    .hidden {
+        display: none;
+    }
 }
