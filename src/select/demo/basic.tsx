@@ -11,7 +11,7 @@ const { Option, OptGroup } = Select
     2. portals
     3. dom-align(1.获取dropDdown的ref 2.解决DOMAlign返回初始状态的问题 3.domAlign的触发时机)
     4. 多选
-    5. search后数据筛选
+    5. search后数据筛选 (virtual list)
     6. 公共类型抽取
     7. icon
     8. clear
@@ -74,7 +74,7 @@ export default () => {
                 <Option value="two">2</Option>
                 <Option value="three">3</Option>
                 <Option value="four">4</Option> */}
-                <OptGroup>
+                <OptGroup label="number">
                     <Option value="one">
                         <span>1</span>
                     </Option>

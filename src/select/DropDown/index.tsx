@@ -15,6 +15,7 @@ const ForwardDropDown: React.ForwardRefRenderFunction<
         onChange,
         current,
         className,
+        searchValue,
     } = props
 
     const handleSelect = (val) => {

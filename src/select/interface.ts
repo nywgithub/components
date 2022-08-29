@@ -52,6 +52,7 @@ interface DropDownProps {
     onChange?: (val: any) => void
     current?: any
     className?: string
+    searchValue?: any
 }
 
 interface PickerProps {

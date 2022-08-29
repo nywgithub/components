@@ -147,11 +147,12 @@ const Picker: React.FC<PickerProps> = (props) => {
             </div>
             <DropDown
                 current={selectedValue}
+                searchValue={searchValue}
                 prefixCls={prefixCls}
                 children={children}
                 onChange={handleChange}
-                ref = {el => (dropDownNodeRef as any).current = el}
-                className={show ? 'show' : 'hidden'}
+                ref={(el) => ((dropDownNodeRef as any).current = el)}
+                className={show ? "show" : "hidden"}
             />
         </>
     )

@@ -1365,7 +1365,7 @@
       },
       {
         "identifier": "value",
-        "type": "string | number"
+        "type": "string | number | (string | number)[]"
       },
       {
         "identifier": "trigger",
@@ -1373,7 +1373,7 @@
       },
       {
         "identifier": "defaultSelected",
-        "type": "string | number"
+        "type": "string | number | (string | number)[]"
       },
       {
         "identifier": "multiple",
