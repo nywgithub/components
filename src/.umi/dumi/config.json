@@ -39,6 +39,11 @@
           "meta": {}
         },
         {
+          "path": "/component/popover",
+          "title": "Popover 弹出层",
+          "meta": {}
+        },
+        {
           "path": "/component/select",
           "title": "Select 选择",
           "meta": {}

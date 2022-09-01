@@ -39,6 +39,12 @@ import rawCode35 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/
 import rawCode36 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
 import rawCode37 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
 import rawCode38 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
+import rawCode39 from '!!dumi-raw-code-loader!D:/git-work/components/src/popover/demo/basic.tsx?dumi-raw-code';
+import rawCode40 from '!!dumi-raw-code-loader!D:/git-work/components/src/popover/index.tsx?dumi-raw-code';
+import rawCode41 from '!!dumi-raw-code-loader!D:/git-work/components/src/popover/popover.tsx?dumi-raw-code';
+import rawCode42 from '!!dumi-raw-code-loader!D:/git-work/components/src/popover/interface.ts?dumi-raw-code';
+import rawCode43 from '!!dumi-raw-code-loader!D:/git-work/components/src/popover/style/index.ts?dumi-raw-code';
+import rawCode44 from '!!dumi-raw-code-loader!D:/git-work/components/src/popover/style/index.less?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -75,5 +81,12 @@ export default {
       loading: () => null,
     }),
     previewerProps: {"sources":{"_":{"tsx":rawCode31},"index.tsx":{"import":"..","content":rawCode32},"upload.tsx":{"import":"./upload","content":rawCode33},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode34},"item.tsx":{"import":"./item","content":rawCode35},"progress.tsx":{"import":"./progress","content":rawCode36},"style/index.ts":{"import":"./style","content":rawCode37},"style/index.less":{"import":"./index.less","content":rawCode38}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"identifier":"upload-basic"},
+  },
+  'popover-basic': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'D:/git-work/components/src/popover/demo/basic.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode39},"index.tsx":{"import":"..","content":rawCode40},"popover.tsx":{"import":"./popover","content":rawCode41},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"interface.ts":{"import":"./interface","content":rawCode42},"style/index.ts":{"import":"../style","content":rawCode43},"style/index.less":{"import":"./index.less","content":rawCode44}},"dependencies":{"react":{"version":"17.0.2"}},"identifier":"popover-basic"},
   },
 };

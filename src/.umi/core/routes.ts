@@ -277,6 +277,44 @@ export function getRoutes() {
         "title": "Pagination 分页 - W"
       },
       {
+        "path": "/component/popover",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__popover.md' */'D:/git-work/components/docs/component/popover.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/popover.md",
+          "updatedTime": 1662011716006,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Popover 弹出层",
+              "heading": "popover-弹出层"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Popover 弹出层",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "Popover 弹出层 - W"
+      },
+      {
         "path": "/component/select",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__select.md' */'D:/git-work/components/docs/component/select.md')}),
         "exact": true,
