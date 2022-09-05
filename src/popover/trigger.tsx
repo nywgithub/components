@@ -3,7 +3,7 @@ import { isElement, isFragment } from "react-is"
 
 export interface TriggerProps {
     trigger?: "click" | "focus" | "hover"
-    triggerEvent?: () => void
+    triggerEvent?: any
 }
 
 const Trigger: React.FC<TriggerProps> = (props) => {
@@ -12,11 +12,11 @@ const Trigger: React.FC<TriggerProps> = (props) => {
     let childrenProps = {}
 
     if (trigger === "click") {
-        childrenProps["onClick"] = triggerEvent
+        childrenProps["onClick"] = triggerEvent!["onClick"]
     } else if (trigger === "hover") {
-
+        childrenProps["onMouseEnter"] = triggerEvent!["onMouseEnter"]
+        childrenProps["onMouseLeave"] = triggerEvent!["onMouseLeave"]
     } else if (trigger === "focus") {
-        
     }
 
     let childrenNode: React.ReactNode

@@ -10,7 +10,16 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
     { prefixCls: customizePrefixCls, ...props },
     ref
 ) => {
-    const { style, className, closeByEsc, onClose } = props
+    const {
+        style,
+        className,
+        closeByEsc,
+        onClose,
+        container,
+        trigger,
+        triggerEvent,
+        target,
+    } = props
     const { getPrefixCls } = React.useContext(ConfigContext)
     const prefixCls = getPrefixCls("popover", customizePrefixCls)
 
@@ -28,9 +37,12 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
     }, [])
 
     return (
-        <div className={`${prefixCls} ${className || ""}`} style={style}>
-            
-        </div>
+        <>
+            <Trigger trigger={trigger} triggerEvent={triggerEvent}>
+                {target}
+            </Trigger>
+            <Portal container={container}>{props.children}</Portal>
+        </>
     )
 }
 
