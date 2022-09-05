@@ -1349,6 +1349,38 @@
       }
     ]
   },
+  "popover": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "any"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "onClose",
+        "type": "(e: KeyboardEvent) => void"
+      },
+      {
+        "identifier": "closeByEsc",
+        "type": "boolean"
+      },
+      {
+        "identifier": "ref",
+        "type": "Ref<unknown>"
+      },
+      {
+        "identifier": "key",
+        "type": "Key"
+      }
+    ]
+  },
   "select": {
     "default": [
       {
@@ -1520,30 +1552,6 @@
       {
         "identifier": "ref",
         "type": "Ref<any>"
-      },
-      {
-        "identifier": "key",
-        "type": "Key"
-      }
-    ]
-  },
-  "popover": {
-    "default": [
-      {
-        "identifier": "prefixCls",
-        "type": "string"
-      },
-      {
-        "identifier": "style",
-        "type": "any"
-      },
-      {
-        "identifier": "className",
-        "type": "string"
-      },
-      {
-        "identifier": "ref",
-        "type": "Ref<unknown>"
       },
       {
         "identifier": "key",

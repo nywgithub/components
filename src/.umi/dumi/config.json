@@ -1,6 +1,20 @@
 {
   "menus": {
     "en-US": {
+      "/popover": [
+        {
+          "title": "Demo",
+          "path": "/popover/demo",
+          "meta": {},
+          "children": [
+            {
+              "path": "/popover/demo/example",
+              "title": "Example",
+              "meta": {}
+            }
+          ]
+        }
+      ],
       "/getting-started": [
         {
           "path": "/getting-started",
@@ -72,6 +86,10 @@
       {
         "title": "帮助",
         "path": "/help"
+      },
+      {
+        "path": "/popover",
+        "title": "Popover"
       },
       {
         "path": "/component",
