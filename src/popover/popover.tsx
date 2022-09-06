@@ -96,6 +96,12 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
         }
     }
 
+    useImperativeHandle(ref, () => ({
+        close: () => {
+            handleVisible(false)
+        },
+    }))
+
     return (
         <>
             <Trigger
@@ -128,10 +134,10 @@ const PopOver = React.forwardRef<unknown, PopOverProps>(ForwardPopOver)
 PopOver.defaultProps = {
     visible: false,
     alignConfig: {
-        points: ["bl", "tl"], // align top left point of sourceNode with top right point of targetNode
-        offset: [0, 0], // the offset sourceNode by 10px in x and 20px in y,
-        targetOffset: [0, 0], // the offset targetNode by 30% of targetNode width in x and 40% of targetNode height in y,
-        overflow: { adjustX: true, adjustY: true }, // auto adjust position when sourceNode is overflowed
+        points: ["bl", "tl"],
+        offset: [0, 0],
+        targetOffset: [0, 0],
+        overflow: { adjustX: true, adjustY: true },
     },
     closeByEsc: true,
     container: "body",

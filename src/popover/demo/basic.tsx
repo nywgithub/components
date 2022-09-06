@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import PopOver from ".."
 import "../style"
 
@@ -19,9 +19,16 @@ export default () => {
         console.log("visible", val)
     }
 
+    const popRef = useRef(null)
+
+    const closePop = () => {
+        popRef.current?.close()
+    }
+
     return (
         <>
             <PopOver
+                ref={popRef}
                 target={<button>点击</button>}
                 triggerEvent={triggerEvent}
                 trigger="click"
@@ -29,7 +36,9 @@ export default () => {
                 visible={visible}
                 onVisibleChange={onVisibleChange}
             >
-                <div className="main">这里是弹出层内容</div>
+                <div className="main">
+                    这里是弹出层内容 <span onClick={closePop}>x</span>
+                </div>
             </PopOver>
         </>
     )
