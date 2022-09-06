@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import React, { useEffect } from "react"
+import React, { useRef, useEffect, useImperativeHandle } from "react"
 import ReactDOM from "react-dom"
 import { getNodeFromSelector } from "./utils"
 export interface PortalProps {
@@ -7,16 +7,33 @@ export interface PortalProps {
     style?: React.CSSProperties
     container: Element | string
     visible?: boolean
+    Pref: any
 }
 
-const Portal: React.FC<PortalProps> = (props) => {
+const Portal: React.FC<PortalProps> = ({ Pref, ...props }) => {
     const { container, children, visible, className, style } = props
+
+    const sourceRef = useRef(null)
+
     const sourceNode = (
-        <div className={`portal-wrapper ${className}`} style={style}>
+        <div
+            className={`portal-wrapper ${classNames({
+                [className!]: className,
+            })}`}
+            style={style}
+            ref={(e) => {
+                sourceRef.current = e
+            }}
+        >
             {children}
         </div>
     )
+
     const portalContainer = getNodeFromSelector(container)
+
+    useImperativeHandle(Pref, () => ({
+        element: sourceRef.current,
+    }))
 
     const purePortal = portalContainer
         ? ReactDOM.createPortal(

@@ -8,4 +8,8 @@ export interface PopOverProps {
     trigger?: "click" | "focus" | "hover"
     triggerEvent?: any
     target?: React.ReactNode
+    alignConfig?: any
+    visible?: boolean
+    onVisibleChange?: (val: boolean) => void
+    closeOnClickOutside: boolean
 }

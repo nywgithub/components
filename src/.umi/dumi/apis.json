@@ -1372,6 +1372,23 @@
         "type": "boolean"
       },
       {
+        "identifier": "container",
+        "type": "string | Element",
+        "required": true
+      },
+      {
+        "identifier": "trigger",
+        "type": "\"click\" | \"focus\" | \"hover\""
+      },
+      {
+        "identifier": "triggerEvent",
+        "type": "any"
+      },
+      {
+        "identifier": "target",
+        "type": "ReactNode"
+      },
+      {
         "identifier": "ref",
         "type": "Ref<unknown>"
       },
