@@ -103,19 +103,10 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
                 triggerEvent={popTriggerEvent}
                 Tref={(ref) => {
                     console.log(ref)
-                    // triggerRef.current = ref?.element?.current
+                    triggerRef.current = ref?.element?.current
                 }}
             >
-                <div className={`${prefixCls}-target`}>
-                    {React.cloneElement(
-                        target as React.FunctionComponentElement<{
-                            ref: React.MutableRefObject<null>
-                        }>,
-                        {
-                            ref: triggerRef,
-                        }
-                    )}
-                </div>
+                <div className={`${prefixCls}-target`}>{target}</div>
             </Trigger>
             <Portal
                 container={container}
