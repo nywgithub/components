@@ -13,7 +13,7 @@ export interface PortalProps {
 const Portal: React.FC<PortalProps> = ({ Pref, ...props }) => {
     const { container, children, visible, className, style } = props
 
-    const sourceRef = useRef(null)
+    const sourceRef: any = useRef(null)
 
     const sourceNode = (
         <div
@@ -21,8 +21,8 @@ const Portal: React.FC<PortalProps> = ({ Pref, ...props }) => {
                 [className!]: className,
             })}`}
             style={style}
-            ref={(e) => {
-                sourceRef.current = e
+            ref={(el: HTMLDivElement) => {
+                sourceRef.current = el
             }}
         >
             {children}

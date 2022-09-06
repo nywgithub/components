@@ -58,7 +58,9 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
         handleVisible(true)
         setTimeout(() => {
             console.log("align", portalRef.current, triggerRef.current)
-            domAlign(portalRef.current, triggerRef.current, alignConfig)
+            portalRef.current &&
+                triggerRef.current &&
+                domAlign(portalRef.current, triggerRef.current, alignConfig)
         })
     }
 
