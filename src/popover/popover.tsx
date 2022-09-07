@@ -55,14 +55,15 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
     }, [triggerRef, portalRef])
 
     const align = () => {
-        handleVisible(true)
-        setTimeout(() => {
-            console.log("align", portalRef.current, triggerRef.current)
-            portalRef.current &&
-                triggerRef.current &&
-                domAlign(portalRef.current, triggerRef.current, alignConfig)
-        })
+        console.log("align", portalRef.current, triggerRef.current)
+        portalRef.current &&
+            triggerRef.current &&
+            domAlign(portalRef.current, triggerRef.current, alignConfig)
     }
+
+    useEffect(() => {
+        popVisible && align()
+    }, [popVisible])
 
     const cancelAlign = () => {
         handleVisible(false)
@@ -72,12 +73,12 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
 
     if (trigger === "click") {
         popTriggerEvent["onClick"] = function () {
-            align()
+            handleVisible(true)
             triggerEvent["onClick"]?.()
         }
     } else if (trigger === "hover") {
         popTriggerEvent["onMouseEnter"] = function () {
-            align()
+            handleVisible(true)
             triggerEvent["onMouseEnter"]?.()
         }
 
@@ -87,7 +88,7 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
         }
     } else if (trigger === "focus") {
         popTriggerEvent["onFocus"] = function () {
-            align()
+            handleVisible(true)
             triggerEvent["onFocus"]?.()
         }
         popTriggerEvent["onBlur"] = function () {

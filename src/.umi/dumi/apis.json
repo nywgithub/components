@@ -76,6 +76,10 @@
         "type": "number"
       },
       {
+        "identifier": "onChange",
+        "type": "(e: any, val: any) => void"
+      },
+      {
         "identifier": "accept",
         "type": "string"
       },
@@ -202,10 +206,6 @@
       {
         "identifier": "width",
         "type": "string | number"
-      },
-      {
-        "identifier": "onChange",
-        "type": "ChangeEventHandler<HTMLInputElement>"
       },
       {
         "identifier": "defaultChecked",
@@ -1369,16 +1369,18 @@
       },
       {
         "identifier": "closeByEsc",
-        "type": "boolean"
+        "type": "boolean",
+        "default": "true"
       },
       {
         "identifier": "container",
         "type": "string | Element",
-        "required": true
+        "default": "body"
       },
       {
         "identifier": "trigger",
-        "type": "\"click\" | \"focus\" | \"hover\""
+        "type": "\"click\" | \"focus\" | \"hover\"",
+        "default": "hover"
       },
       {
         "identifier": "triggerEvent",
@@ -1387,6 +1389,25 @@
       {
         "identifier": "target",
         "type": "ReactNode"
+      },
+      {
+        "identifier": "alignConfig",
+        "type": "any",
+        "default": "{\r\n        points: [\"bl\", \"tl\"],\r\n        offset: [0, 0],\r\n        targetOffset: [0, 0],\r\n        overflow: { adjustX: true, adjustY: true },\r\n    }"
+      },
+      {
+        "identifier": "visible",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "onVisibleChange",
+        "type": "(val: boolean) => void"
+      },
+      {
+        "identifier": "closeOnClickOutside",
+        "type": "boolean",
+        "default": "true"
       },
       {
         "identifier": "ref",
@@ -1569,6 +1590,30 @@
       {
         "identifier": "ref",
         "type": "Ref<any>"
+      },
+      {
+        "identifier": "key",
+        "type": "Key"
+      }
+    ]
+  },
+  "dialog": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "any"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "ref",
+        "type": "Ref<unknown>"
       },
       {
         "identifier": "key",

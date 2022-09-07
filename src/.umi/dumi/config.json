@@ -43,6 +43,11 @@
           "meta": {}
         },
         {
+          "path": "/component/dialog",
+          "title": "Dialog 弹框",
+          "meta": {}
+        },
+        {
           "path": "/component/input",
           "title": "Input 输入框",
           "meta": {}

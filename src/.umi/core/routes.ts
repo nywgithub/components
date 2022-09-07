@@ -221,6 +221,44 @@ export function getRoutes() {
         "title": "Alert 警告提示 - W"
       },
       {
+        "path": "/component/dialog",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__dialog.md' */'D:/git-work/components/docs/component/dialog.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/dialog.md",
+          "updatedTime": 1662518587569,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Dialog 弹框",
+              "heading": "dialog-弹框"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Dialog 弹框",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "Dialog 弹框 - W"
+      },
+      {
         "path": "/component/input",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__input.md' */'D:/git-work/components/docs/component/input.md')}),
         "exact": true,
