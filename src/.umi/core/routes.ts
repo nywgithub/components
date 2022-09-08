@@ -63,26 +63,6 @@ export function getRoutes() {
     "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/git-work/components/node_modules/dumi-theme-default/es/layout.js')})],
     "routes": [
       {
-        "path": "/popover/demo/example",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'popover__demo__example.md' */'D:/git-work/components/src/popover/demo/example.md')}),
-        "exact": true,
-        "meta": {
-          "filePath": "src/popover/demo/example.md",
-          "updatedTime": 1662370892000,
-          "slugs": [],
-          "nav": {
-            "path": "/popover",
-            "title": "Popover"
-          },
-          "group": {
-            "path": "/popover/demo",
-            "title": "Demo"
-          },
-          "title": "Example"
-        },
-        "title": "Example - W"
-      },
-      {
         "path": "/getting-started",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__getting-started.md' */'D:/git-work/components/docs/getting-started.md')}),
         "exact": true,
@@ -226,7 +206,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/dialog.md",
-          "updatedTime": 1662518587569,
+          "updatedTime": 1662520647000,
           "slugs": [
             {
               "depth": 1,
@@ -447,18 +427,6 @@ export function getRoutes() {
           }
         },
         "title": "Upload 上传 - W"
-      },
-      {
-        "path": "/popover/demo",
-        "meta": {},
-        "exact": true,
-        "redirect": "/popover/demo/example"
-      },
-      {
-        "path": "/popover",
-        "meta": {},
-        "exact": true,
-        "redirect": "/popover/demo"
       },
       {
         "path": "/component",

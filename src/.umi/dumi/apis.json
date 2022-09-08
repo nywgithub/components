@@ -33,6 +33,93 @@
       }
     ]
   },
+  "dialog": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "any"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "visible",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "delay",
+        "type": "number",
+        "default": "300"
+      },
+      {
+        "identifier": "mask",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "identifier": "title",
+        "type": "ReactNode",
+        "default": ""
+      },
+      {
+        "identifier": "footer",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "closeIcon",
+        "type": "ReactNode",
+        "default": "<i>x</i>"
+      },
+      {
+        "identifier": "closeOnClickOutside",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "identifier": "NoScroll",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "onClose",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onClosed",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onOpen",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onOpened",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onCancel",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onConfirm",
+        "type": "() => void"
+      },
+      {
+        "identifier": "ref",
+        "type": "Ref<unknown>"
+      },
+      {
+        "identifier": "key",
+        "type": "Key"
+      }
+    ]
+  },
   "input": {
     "default": [
       {
@@ -1590,30 +1677,6 @@
       {
         "identifier": "ref",
         "type": "Ref<any>"
-      },
-      {
-        "identifier": "key",
-        "type": "Key"
-      }
-    ]
-  },
-  "dialog": {
-    "default": [
-      {
-        "identifier": "prefixCls",
-        "type": "string"
-      },
-      {
-        "identifier": "style",
-        "type": "any"
-      },
-      {
-        "identifier": "className",
-        "type": "string"
-      },
-      {
-        "identifier": "ref",
-        "type": "Ref<unknown>"
       },
       {
         "identifier": "key",

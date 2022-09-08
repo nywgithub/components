@@ -5,9 +5,9 @@ import { getNodeFromSelector } from "./utils"
 export interface PortalProps {
     className?: string
     style?: React.CSSProperties
-    container: Element | string
+    container?: Element | string
     visible?: boolean
-    Pref: any
+    Pref?: any
 }
 
 const Portal: React.FC<PortalProps> = ({ Pref, ...props }) => {
@@ -29,7 +29,7 @@ const Portal: React.FC<PortalProps> = ({ Pref, ...props }) => {
         </div>
     )
 
-    const portalContainer = getNodeFromSelector(container)
+    const portalContainer = getNodeFromSelector(container!)
 
     useImperativeHandle(Pref, () => ({
         element: sourceRef.current,

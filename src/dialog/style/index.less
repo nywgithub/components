@@ -1,4 +1,105 @@
 @Prefix: wei-dialog;
 .@{Prefix} {
-    
+    &-mask {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 100%;
+        z-index: 1050;
+    }
+    &-root {
+        position: fixed;
+        overflow: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1050;
+        outline: 0;
+        text-align: center;
+        font-size: 0;
+        white-space: nowrap;
+        &::before {
+            content: "";
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .@{Prefix}-wrap{
+            background-color: #fff;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: initial;
+            border-radius: 4px;
+            padding: 16px 0;
+            box-sizing: border-box;
+            white-space: normal;
+            min-width: 560px;
+            max-width: calc(100vw - 56px);
+            min-height: 190px;
+            max-height: calc(100vh - 112px);
+            .@{Prefix}-close{
+                color: #333;
+                background-color: #fff;
+                position: absolute;
+                display: inline-block;
+                font-size: 20px;
+                line-height: 20px;
+                text-align: right;
+                vertical-align: middle;
+                cursor: pointer;
+                border: 0;
+                outline: none;
+                user-select: none;
+                padding: 0 0 0 6px;
+                margin: 0;
+                top: 18px;
+                right: 16px;
+            }
+            .@{Prefix}-title{
+                font-size: 16px;
+                line-height: 24px;
+                border-bottom-color: #e0e0e0;
+                color: #333;
+                padding: 0 16px 16px;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                margin: 0;
+                box-sizing: border-box;
+                font-weight: 500;
+            }
+            .@{Prefix}-body{
+                font-size: 14px;
+                line-height: 20px;
+                color: #333;
+                padding: 20px;
+            }
+        }
+    }
+    .fade-enter {
+    opacity: 0;
+    transform: translateX(100%);
+    }
+
+    .fade-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 500ms;
+    }
+
+    .fade-exit {
+    opacity: 1;
+    transform: translateX(0);
+    }
+
+    .fade-exit-active {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 500ms;
+    }
+
 }
