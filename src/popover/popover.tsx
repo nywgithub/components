@@ -6,6 +6,7 @@ import Portal from "./portal"
 import Trigger from "./trigger"
 import domAlign from "dom-align"
 import { useClickAway } from "ahooks"
+import { useCloseByEsc } from "../util/closeByEsc"
 
 const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
     { prefixCls: customizePrefixCls, ...props },
@@ -35,17 +36,10 @@ const ForwardPopOver: React.ForwardRefRenderFunction<unknown, PopOverProps> = (
         onVisibleChange?.(val)
     }
 
-    useEffect(() => {
-        if (closeByEsc) {
-            function onKeyUp(e: KeyboardEvent) {
-                if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
-                    handleVisible(false)
-                    onClose!(e)
-                }
-            }
-            document.body.addEventListener("keyup", onKeyUp)
-        }
-    }, [])
+    useCloseByEsc((e) => {
+        handleVisible(false)
+        onClose!(e)
+    })
 
     const portalRef = useRef(null)
     const triggerRef = useRef(null)

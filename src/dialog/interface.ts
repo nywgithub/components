@@ -8,7 +8,8 @@ export interface DialogProps {
     title?: React.ReactNode
     footer?: boolean | React.ReactNode
     closeIcon?: boolean | React.ReactNode
-    closeOnClickOutside?: boolean
+    closeOnClickMask?: boolean
+    closeByEsc?: boolean
     NoScroll?: boolean
     onClose?: () => void
     onClosed?: () => void

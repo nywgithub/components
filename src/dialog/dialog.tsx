@@ -4,6 +4,7 @@ import { DialogProps } from "./interface"
 import { ConfigContext } from "../common-provider/context"
 import { CSSTransition } from "react-transition-group"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { useCloseByEsc } from "../util/closeByEsc"
 import Portal from "@/popover/portal"
 
 const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
@@ -20,8 +21,9 @@ const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
         title,
         footer,
         closeIcon,
-        closeOnClickOutside,
+        closeOnClickMask,
         NoScroll,
+        closeByEsc,
         onClose,
         onClosed,
         onOpen,
@@ -39,14 +41,21 @@ const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
 
     const openDialog = () => handleVisible(true)
 
+    const dialogRef = React.useRef(null)
+
     useEffect(() => {
-        visible && openDialog()
+        if (visible) {
+            openDialog()
+            NoScroll && disableBodyScroll(dialogRef)
+        } else {
+            NoScroll && enableBodyScroll(dialogRef)
+        }
     }, [visible])
 
     React.useImperativeHandle(ref, () => ({}))
 
     const dialogNode = (
-        <div className={`${prefixCls}-wrap`} style={style}>
+        <div className={`${prefixCls}-wrap`} style={style} ref={dialogRef}>
             <div className={`${prefixCls}-close`} onClick={closeDialog}>
                 {closeIcon}
             </div>
@@ -58,10 +67,19 @@ const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
         </div>
     )
 
+    useCloseByEsc(() => {
+        closeByEsc && onClose?.()
+    })
+
+    const handleMaskClick = (e) => {
+        console.log(e.target, e.currentTarget)
+        mask && e.target === e.currentTarget && closeOnClickMask && onClose?.()
+    }
+
     return (
         <Portal visible={visible} className={`${prefixCls} ${className || ""}`}>
             {mask && <div className={`${prefixCls}-mask`}></div>}
-            <div className={`${prefixCls}-root`}>
+            <div className={`${prefixCls}-root`} onClick={handleMaskClick}>
                 <CSSTransition
                     appear
                     mountOnEnter
@@ -86,8 +104,9 @@ Dialog.defaultProps = {
     mask: true,
     title: "",
     closeIcon: <i>x</i>,
-    closeOnClickOutside: true,
+    closeOnClickMask: false,
     delay: 300,
+    closeByEsc: false,
     NoScroll: false,
 }
 

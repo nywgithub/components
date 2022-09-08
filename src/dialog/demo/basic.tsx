@@ -26,6 +26,9 @@ export default () => {
                 onOpen={onOpen}
                 onClose={onClose}
                 title="标题"
+                closeByEsc
+                closeOnClickMask
+                NoScroll
                 footer={
                     <div className="demo-bottom">
                         <button style={{ marginRight: 10 }} onClick={onClose}>
