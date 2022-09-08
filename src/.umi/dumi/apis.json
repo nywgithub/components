@@ -77,9 +77,14 @@
         "default": "<i>x</i>"
       },
       {
-        "identifier": "closeOnClickOutside",
+        "identifier": "closeOnClickMask",
         "type": "boolean",
-        "default": "true"
+        "default": "false"
+      },
+      {
+        "identifier": "closeByEsc",
+        "type": "boolean",
+        "default": "false"
       },
       {
         "identifier": "NoScroll",
@@ -117,6 +122,13 @@
       {
         "identifier": "key",
         "type": "Key"
+      }
+    ],
+    "open": [
+      {
+        "identifier": "content",
+        "type": "any",
+        "required": true
       }
     ]
   },

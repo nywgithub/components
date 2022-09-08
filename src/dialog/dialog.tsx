@@ -7,6 +7,8 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import { useCloseByEsc } from "../util/closeByEsc"
 import Portal from "@/popover/portal"
 
+//TODO:visible改成受控的
+
 const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
     { prefixCls: customizePrefixCls, ...props },
     ref
@@ -33,7 +35,7 @@ const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
     const { getPrefixCls } = React.useContext(ConfigContext)
     const prefixCls = getPrefixCls("dialog", customizePrefixCls)
 
-    const handleVisible = (show) => {
+    const handleVisible = (show: boolean) => {
         show ? onOpen?.() : onClose?.()
     }
 
@@ -71,7 +73,7 @@ const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
         closeByEsc && onClose?.()
     })
 
-    const handleMaskClick = (e) => {
+    const handleMaskClick = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e.target, e.currentTarget)
         mask && e.target === e.currentTarget && closeOnClickMask && onClose?.()
     }
