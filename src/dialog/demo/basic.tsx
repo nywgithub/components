@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Dialog from ".."
-import { open, clear } from ".."
+import { open, clear, alert } from ".."
 import "../style"
 import "./basic.less"
 
@@ -70,6 +70,17 @@ export default () => {
         })
     }
 
+    const openDialgInstanceSuccess = () => {
+        alert.success({
+            onOpen,
+            title: false,
+            closeByEsc: true,
+            closeOnClickMask: true,
+            NoScroll: true,
+            footer: false,
+        })
+    }
+
     return (
         <>
             <div id="test"></div>
@@ -81,6 +92,9 @@ export default () => {
             </div>
             <div>
                 <button onClick={openDialgInstance}>打开实例弹窗</button>
+            </div>
+            <div>
+                <button onClick={openDialgInstanceSuccess}>success</button>
             </div>
             <Dialog
                 visible={visible}

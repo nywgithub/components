@@ -59,4 +59,20 @@ const open = ({ content, ...props }) => {
     }
 }
 
-export { open }
+const getAlert = (config, type) => {
+    const content = (
+        <div className="dialog-alert">
+            <i className={`${type}-icon`}>{type}</i>
+        </div>
+    )
+    open({ ...config, footer: false, title: false, content })
+}
+
+const alert = {
+    info: (config) => getAlert(config, "info"),
+    success: (config) => getAlert(config, "success"),
+    error: (config) => getAlert(config, "error"),
+    warning: (config) => getAlert(config, "warning"),
+}
+
+export { open, alert }

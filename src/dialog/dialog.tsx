@@ -62,11 +62,13 @@ const ForwardDialog: React.ForwardRefRenderFunction<unknown, DialogProps> = (
             <div className={`${prefixCls}-close`} onClick={closeDialog}>
                 {closeIcon}
             </div>
-            <div className={`${prefixCls}-head`}>
-                <div className={`${prefixCls}-title`}>{title}</div>
-            </div>
+            {title && (
+                <div className={`${prefixCls}-head`}>
+                    <div className={`${prefixCls}-title`}>{title}</div>
+                </div>
+            )}
             <div className={`${prefixCls}-body`}>{children}</div>
-            <div className={`${prefixCls}-foot`}>{footer}</div>
+            {footer && <div className={`${prefixCls}-foot`}>{footer}</div>}
         </div>
     )
 
