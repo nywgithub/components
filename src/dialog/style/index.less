@@ -10,6 +10,17 @@
         height: 100%;
         z-index: 1050;
     }
+    &.alert{
+        .@{Prefix}-root, .@{Prefix}-wrap{
+            min-width: 260px;
+            min-height: 140px;
+            .@{Prefix}-close{
+                top: 5px;
+                right: 15px;
+            }
+        }
+    }
+
     &-root {
         position: fixed;
         overflow: auto;

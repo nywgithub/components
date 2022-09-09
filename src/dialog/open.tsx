@@ -65,7 +65,13 @@ const getAlert = (config, type) => {
             <i className={`${type}-icon`}>{type}</i>
         </div>
     )
-    open({ ...config, footer: false, title: false, content })
+    open({
+        ...config,
+        footer: false,
+        title: false,
+        content,
+        className: `alert alert-${type}`,
+    })
 }
 
 const alert = {
