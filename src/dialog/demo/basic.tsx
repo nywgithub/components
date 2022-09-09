@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Dialog from ".."
-import { open } from ".."
+import { open, clear } from ".."
 import "../style"
 import "./basic.less"
 
@@ -21,26 +21,35 @@ export default () => {
 
     //TODO:实例模式下react的状态改变不会取通知实例
 
-    const openDialgInstance = React.useCallback(() => {
-        open({
+    const openDialgInstance = () => {
+        let dialoger = open({
             content: "实例弹窗的内容",
-            visible,
             onOpen,
-            onClose,
             title: "实例弹窗标题",
             closeByEsc: true,
             closeOnClickMask: true,
             NoScroll: true,
             footer: (
                 <div className="demo-bottom">
-                    <button style={{ marginRight: 10 }} onClick={onClose}>
+                    <button
+                        style={{ marginRight: 10 }}
+                        onClick={() => {
+                            dialoger?.close()
+                        }}
+                    >
                         cancel
                     </button>
-                    <button onClick={onClose}>confirm</button>
+                    <button
+                        onClick={() => {
+                            dialoger?.close()
+                        }}
+                    >
+                        confirm
+                    </button>
                 </div>
             ),
         })
-    }, [visible])
+    }
 
     return (
         <>

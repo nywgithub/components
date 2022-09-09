@@ -1,5 +1,5 @@
 import Dialog from "./dialog"
 export { DialogProps } from "./interface"
 export { open } from "./open"
-// Dialog.open = open
+export { clear } from "./clear"
 export default Dialog
