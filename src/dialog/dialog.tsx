@@ -6,6 +6,7 @@ import { CSSTransition } from "react-transition-group"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import { useCloseByEsc } from "../util/closeByEsc"
 import Portal from "@/popover/portal"
+import ConfirmDialog from "./confirmDialog"
 
 //TODO:visible改成受控的
 
@@ -111,5 +112,7 @@ Dialog.defaultProps = {
     closeByEsc: false,
     NoScroll: false,
 }
+
+Dialog.ConfirmDialog = ConfirmDialog
 
 export default Dialog
