@@ -130,8 +130,31 @@
         "type": "any",
         "required": true
       }
-    ],
-    "alert": []
+    ]
+  },
+  "form": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "any"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "ref",
+        "type": "Ref<unknown>"
+      },
+      {
+        "identifier": "key",
+        "type": "Key"
+      }
+    ]
   },
   "input": {
     "default": [
@@ -1690,6 +1713,30 @@
       {
         "identifier": "ref",
         "type": "Ref<any>"
+      },
+      {
+        "identifier": "key",
+        "type": "Key"
+      }
+    ]
+  },
+  "CheckBox": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "any"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "ref",
+        "type": "Ref<unknown>"
       },
       {
         "identifier": "key",

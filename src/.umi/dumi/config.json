@@ -29,8 +29,18 @@
           "meta": {}
         },
         {
+          "path": "/component/check-box",
+          "title": "CheckBox 选择框",
+          "meta": {}
+        },
+        {
           "path": "/component/dialog",
           "title": "Dialog 弹框",
+          "meta": {}
+        },
+        {
+          "path": "/component/form",
+          "title": "Form 表单",
           "meta": {}
         },
         {

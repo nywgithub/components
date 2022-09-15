@@ -201,6 +201,44 @@ export function getRoutes() {
         "title": "Alert 警告提示 - W"
       },
       {
+        "path": "/component/check-box",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__checkBox.md' */'D:/git-work/components/docs/component/checkBox.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/checkBox.md",
+          "updatedTime": 1663211854569,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "CheckBox 选择框",
+              "heading": "checkbox-选择框"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "CheckBox 选择框",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "CheckBox 选择框 - W"
+      },
+      {
         "path": "/component/dialog",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__dialog.md' */'D:/git-work/components/docs/component/dialog.md')}),
         "exact": true,
@@ -227,6 +265,11 @@ export function getRoutes() {
               "depth": 2,
               "value": "API",
               "heading": "api"
+            },
+            {
+              "depth": 3,
+              "value": "open",
+              "heading": "api-open"
             }
           ],
           "title": "Dialog 弹框",
@@ -237,6 +280,44 @@ export function getRoutes() {
           }
         },
         "title": "Dialog 弹框 - W"
+      },
+      {
+        "path": "/component/form",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__form.md' */'D:/git-work/components/docs/component/form.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/form.md",
+          "updatedTime": 1663123220000,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Form 表单",
+              "heading": "form-表单"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Form 表单",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "Form 表单 - W"
       },
       {
         "path": "/component/input",
