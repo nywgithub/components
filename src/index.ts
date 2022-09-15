@@ -8,6 +8,12 @@
  *
  * Copyright (c) 2022 by nyw, All Rights Reserved.
  */
-export { default as Alert } from './alert'
-export { default as Input } from './input'
-export { default as Upload } from './upload/upload'
+export { default as Alert } from "./alert"
+export { default as Input } from "./input"
+export { default as Upload } from "./upload/"
+export { default as Dialog } from "./dialog/"
+export { default as Select } from "./select/"
+export { default as Form } from "./form/"
+export { default as Popover } from "./popover/"
+export { default as Pagination } from "./pagination/"
+export { default as checkBox } from "./checkBox/"

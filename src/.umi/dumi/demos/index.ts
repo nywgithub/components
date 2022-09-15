@@ -59,9 +59,10 @@ import rawCode55 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/
 import rawCode56 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/demo/basic.tsx?dumi-raw-code';
 import rawCode57 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/index.tsx?dumi-raw-code';
 import rawCode58 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/checkBox.tsx?dumi-raw-code';
-import rawCode59 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/interface.ts?dumi-raw-code';
-import rawCode60 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/style/index.ts?dumi-raw-code';
-import rawCode61 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/style/index.less?dumi-raw-code';
+import rawCode59 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/checkGroup.tsx?dumi-raw-code';
+import rawCode60 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/interface.ts?dumi-raw-code';
+import rawCode61 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/style/index.ts?dumi-raw-code';
+import rawCode62 from '!!dumi-raw-code-loader!D:/git-work/components/src/CheckBox/style/index.less?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -125,6 +126,6 @@ export default {
       loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'D:/git-work/components/src/CheckBox/demo/basic.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode56},"index.tsx":{"import":"..","content":rawCode57},"checkBox.tsx":{"import":"./checkBox","content":rawCode58},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"interface.ts":{"import":"./interface","content":rawCode59},"style/index.ts":{"import":"../style","content":rawCode60},"style/index.less":{"import":"./index.less","content":rawCode61}},"dependencies":{"react":{"version":"17.0.2"}},"identifier":"checkbox-basic"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode56},"index.tsx":{"import":"..","content":rawCode57},"checkBox.tsx":{"import":"./checkBox","content":rawCode58},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"checkGroup.tsx":{"import":"./checkGroup","content":rawCode59},"interface.ts":{"import":"./interface","content":rawCode60},"style/index.ts":{"import":"../style","content":rawCode61},"style/index.less":{"import":"./index.less","content":rawCode62}},"dependencies":{"react":{"version":"17.0.2"}},"identifier":"checkbox-basic"},
   },
 };

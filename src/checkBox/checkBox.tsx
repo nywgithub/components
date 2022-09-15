@@ -1,26 +1,57 @@
 import React from "react"
-import classNames from "classnames"
 import { CheckBoxProps } from "./interface"
 import { ConfigContext } from "../common-provider/context"
-const ForwardCheckBox: React.ForwardRefRenderFunction<
-    unknown,
-    CheckBoxProps
-> = ({ prefixCls: customizePrefixCls, ...props }, ref) => {
-    const { style, className } = props
+import CheckGroup from "./checkGroup"
+const CheckBox = ({
+    prefixCls: customizePrefixCls,
+    ...props
+}: CheckBoxProps) => {
+    const {
+        style,
+        className,
+        onChange,
+        checked,
+        disabled,
+        value,
+        children,
+    } = props
     const { getPrefixCls } = React.useContext(ConfigContext)
     const prefixCls = getPrefixCls("checkBox", customizePrefixCls)
 
-    React.useImperativeHandle(ref, () => ({}))
+    const handleNativeCheckboxChange = (evt) => {
+        console.log(evt)
+        const e = Object.create(evt)
+        e.props = {
+            value,
+            checked: e.target?.checked,
+        }
+        onChange?.(e)
+    }
+
+    const nativeCheckbox = (
+        <input
+            id="demo"
+            type="checkbox"
+            onChange={handleNativeCheckboxChange}
+            checked={checked}
+            disabled={disabled}
+        />
+    )
 
     return (
-        <div className={`${prefixCls} ${className || ""}`} style={style}></div>
+        // input的事件会冒泡到label上
+        <label className={`${prefixCls} ${className || ""}`} style={style}>
+            <span className={`${prefixCls}-inner`}>{nativeCheckbox}</span>
+            <span className={`${prefixCls}-label`}>{children}</span>
+        </label>
     )
 }
 
-const CheckBox = React.forwardRef<unknown, CheckBoxProps>(
-    ForwardCheckBox
-)
+CheckBox.defaultProps = {
+    checked: false,
+    disabled: false,
+}
 
-CheckBox.defaultProps = {}
+CheckBox.Group = CheckGroup
 
 export default CheckBox
