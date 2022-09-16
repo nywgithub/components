@@ -33,6 +33,40 @@
       }
     ]
   },
+  "CheckBox": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "onChange",
+        "type": "(e: any) => void"
+      },
+      {
+        "identifier": "checked",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "disabled",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "value",
+        "type": "any"
+      }
+    ]
+  },
   "dialog": {
     "default": [
       {
@@ -1713,30 +1747,6 @@
       {
         "identifier": "ref",
         "type": "Ref<any>"
-      },
-      {
-        "identifier": "key",
-        "type": "Key"
-      }
-    ]
-  },
-  "CheckBox": {
-    "default": [
-      {
-        "identifier": "prefixCls",
-        "type": "string"
-      },
-      {
-        "identifier": "style",
-        "type": "any"
-      },
-      {
-        "identifier": "className",
-        "type": "string"
-      },
-      {
-        "identifier": "ref",
-        "type": "Ref<unknown>"
       },
       {
         "identifier": "key",

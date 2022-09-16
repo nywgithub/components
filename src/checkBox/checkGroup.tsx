@@ -11,6 +11,9 @@ const CheckGroup: React.FC<CheckGroupProps> = ({
     const prefixCls = getPrefixCls("checkBox", customizePrefixCls)
 
     // console.log(React.Children.toArray(children))
+    // console.log(React.isValidElement(children))
+
+    // console.log(React.Children)
 
     return (
         <div

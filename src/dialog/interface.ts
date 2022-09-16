@@ -2,6 +2,7 @@ export interface DialogProps {
     prefixCls?: string
     style?: any
     className?: string
+    children?: React.ReactNode
     visible?: boolean
     delay?: number
     mask?: boolean

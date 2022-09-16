@@ -206,7 +206,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/checkBox.md",
-          "updatedTime": 1663211854569,
+          "updatedTime": 1663211885000,
           "slugs": [
             {
               "depth": 1,
