@@ -206,7 +206,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/checkBox.md",
-          "updatedTime": 1663211885000,
+          "updatedTime": 1663317110000,
           "slugs": [
             {
               "depth": 1,
@@ -432,6 +432,44 @@ export function getRoutes() {
           }
         },
         "title": "Popover 弹出层 - W"
+      },
+      {
+        "path": "/component/rate",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'docs__component__rate.md' */'D:/git-work/components/docs/component/rate.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "docs/component/rate.md",
+          "updatedTime": 1663737631114,
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "Rate 评分",
+              "heading": "rate-评分"
+            },
+            {
+              "depth": 2,
+              "value": "代码演示",
+              "heading": "代码演示"
+            },
+            {
+              "depth": 3,
+              "value": "基本用法",
+              "heading": "基本用法"
+            },
+            {
+              "depth": 2,
+              "value": "API",
+              "heading": "api"
+            }
+          ],
+          "title": "Rate 评分",
+          "hasPreviewer": true,
+          "nav": {
+            "path": "/component",
+            "title": "Component"
+          }
+        },
+        "title": "Rate 评分 - W"
       },
       {
         "path": "/component/select",

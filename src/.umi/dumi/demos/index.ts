@@ -63,6 +63,7 @@ import rawCode59 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/
 import rawCode60 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/progress.tsx?dumi-raw-code';
 import rawCode61 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.ts?dumi-raw-code';
 import rawCode62 from '!!dumi-raw-code-loader!D:/git-work/components/src/upload/style/index.less?dumi-raw-code';
+import rawCode63 from '!!dumi-raw-code-loader!D:/git-work/components/src/rate/demo/basic.tsx?dumi-raw-code';
 
 export default {
   'alert-basic': {
@@ -127,5 +128,12 @@ export default {
       loading: () => null,
     }),
     previewerProps: {"sources":{"_":{"tsx":rawCode55},"index.tsx":{"import":"..","content":rawCode56},"upload.tsx":{"import":"./upload","content":rawCode57},"common-provider/context.tsx":{"import":"../common-provider/context","content":rawCode5},"uploadList.tsx":{"import":"./uploadList","content":rawCode58},"item.tsx":{"import":"./item","content":rawCode59},"progress.tsx":{"import":"./progress","content":rawCode60},"style/index.ts":{"import":"./style","content":rawCode61},"style/index.less":{"import":"./index.less","content":rawCode62}},"dependencies":{"react":{"version":"17.0.2"},"rc-upload":{"version":"4.3.3"},"rc-util":{"version":"5.21.0"},"react-dom":{"version":">=16.9.0"}},"identifier":"upload-basic"},
+  },
+  'rate-basic': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'D:/git-work/components/src/rate/demo/basic.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode63}},"dependencies":{},"identifier":"rate-basic"},
   },
 };

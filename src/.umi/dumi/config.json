@@ -59,6 +59,11 @@
           "meta": {}
         },
         {
+          "path": "/component/rate",
+          "title": "Rate 评分",
+          "meta": {}
+        },
+        {
           "path": "/component/select",
           "title": "Select 选择",
           "meta": {}

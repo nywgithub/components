@@ -1753,5 +1753,29 @@
         "type": "Key"
       }
     ]
+  },
+  "rate": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "any"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "ref",
+        "type": "Ref<unknown>"
+      },
+      {
+        "identifier": "key",
+        "type": "Key"
+      }
+    ]
   }
 }
