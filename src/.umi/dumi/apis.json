@@ -1576,6 +1576,60 @@
       }
     ]
   },
+  "rate": {
+    "default": [
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "style",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "character",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "count",
+        "type": "number",
+        "default": "5"
+      },
+      {
+        "identifier": "value",
+        "type": "number"
+      },
+      {
+        "identifier": "defaultValue",
+        "type": "number",
+        "default": "5"
+      },
+      {
+        "identifier": "allowHalf",
+        "type": "boolean"
+      },
+      {
+        "identifier": "allowClear",
+        "type": "boolean"
+      },
+      {
+        "identifier": "disabled",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onChange",
+        "type": "(value: number) => void"
+      },
+      {
+        "identifier": "onHoverChange",
+        "type": "(value: number) => void"
+      }
+    ]
+  },
   "select": {
     "default": [
       {
@@ -1751,60 +1805,6 @@
       {
         "identifier": "key",
         "type": "Key"
-      }
-    ]
-  },
-  "rate": {
-    "default": [
-      {
-        "identifier": "prefixCls",
-        "type": "string"
-      },
-      {
-        "identifier": "style",
-        "type": "CSSProperties"
-      },
-      {
-        "identifier": "className",
-        "type": "string"
-      },
-      {
-        "identifier": "character",
-        "type": "ReactNode"
-      },
-      {
-        "identifier": "count",
-        "type": "number",
-        "default": "5"
-      },
-      {
-        "identifier": "value",
-        "type": "number"
-      },
-      {
-        "identifier": "defaultValue",
-        "type": "number",
-        "default": "5"
-      },
-      {
-        "identifier": "allowHalf",
-        "type": "boolean"
-      },
-      {
-        "identifier": "allowClear",
-        "type": "boolean"
-      },
-      {
-        "identifier": "disabled",
-        "type": "boolean"
-      },
-      {
-        "identifier": "onChange",
-        "type": "(value: number) => void"
-      },
-      {
-        "identifier": "onHoverChange",
-        "type": "(value: number) => void"
       }
     ]
   }

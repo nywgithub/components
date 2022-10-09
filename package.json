@@ -1,11 +1,12 @@
 {
   "name": "weiui",
   "version": "1.0.0",
-  "description": "",
+  "description": "基于rc组件库封装的组件库",
   "main": "index.js",
   "scripts": {
     "release": "webpack --config ./config/webpack.prod.js",
     "build": "webpack --config ./config/webpack.dev.js",
+    "build:types": "tsc -p tsconfig.build.json",
     "dev": "dumi dev",
     "build:site": "rimraf doc-site && dumi build",
     "preview:site": "npm run build:site && serve doc-site"

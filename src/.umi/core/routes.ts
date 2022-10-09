@@ -439,7 +439,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/rate.md",
-          "updatedTime": 1663737631114,
+          "updatedTime": 1663739495000,
           "slugs": [
             {
               "depth": 1,
