@@ -1,7 +1,7 @@
 ---
-title: weiui
+title: cherryui
 hero:
-  title: weiui
+  title: cherryui
   desc: 文档站点基于 dumi 生成
   actions:
     - text: 快速上手

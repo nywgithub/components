@@ -9,13 +9,11 @@
  * Copyright (c) 2022 by nyw, All Rights Reserved.
  */
 
-import Input from './input'
-import InputNumber from './inputNumber'
+import type { InputProps } from './input';
+import Input from './input';
+import type { InputNumberProps } from './inputNumber';
+import InputNumber from './inputNumber';
 
-export { InputProps } from './input'
-export { InputNumberProps } from './inputNumber'
+export { Input, InputNumber, InputProps, InputNumberProps };
 
-//@ts-ignore
-Input.InputNumber = InputNumber
-
-export default Input
+// Input.InputNumber = InputNumber;

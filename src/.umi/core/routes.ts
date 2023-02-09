@@ -60,7 +60,7 @@ export function getRoutes() {
     "__dumiRoot": true,
     "layout": false,
     "path": "/",
-    "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/git-work/components/node_modules/dumi-theme-default/es/layout.js')})],
+    "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout')}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/git-work/components/node_modules/@umijs/preset-dumi/node_modules/dumi-theme-default/es/layout.js')})],
     "routes": [
       {
         "path": "/getting-started",
@@ -98,7 +98,7 @@ export function getRoutes() {
           ],
           "title": "快速上手"
         },
-        "title": "快速上手 - W"
+        "title": "快速上手 - Cheey"
       },
       {
         "path": "/help",
@@ -120,7 +120,7 @@ export function getRoutes() {
           ],
           "title": "帮助"
         },
-        "title": "帮助 - W"
+        "title": "帮助 - Cheey"
       },
       {
         "path": "/",
@@ -129,9 +129,9 @@ export function getRoutes() {
         "meta": {
           "filePath": "docs/index.md",
           "updatedTime": 1649301324000,
-          "title": "weiui",
+          "title": "cherryui",
           "hero": {
-            "title": "weiui",
+            "title": "cherryui",
             "desc": "<div class=\"markdown\"><p>文档站点基于 dumi 生成</p></div>",
             "actions": [
               {
@@ -160,7 +160,7 @@ export function getRoutes() {
           "footer": "<div class=\"markdown\"><p>Open-source MIT Licensed | Copyright © 2020<br />Powered by <a href=\"https://d.umijs.org/\" target=\"_blank\">dumi<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" width=\"15\" height=\"15\" class=\"__dumi-default-external-link-icon\"><path fill=\"currentColor\" d=\"M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z\"></path><polygon fill=\"currentColor\" points=\"45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9\"></polygon></svg></a></p></div>",
           "slugs": []
         },
-        "title": "weiui - W"
+        "title": "cherryui - Cheey"
       },
       {
         "path": "/component/alert",
@@ -198,7 +198,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Alert 警告提示 - W"
+        "title": "Alert 警告提示 - Cheey"
       },
       {
         "path": "/component/check-box",
@@ -236,7 +236,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "CheckBox 选择框 - W"
+        "title": "CheckBox 选择框 - Cheey"
       },
       {
         "path": "/component/dialog",
@@ -268,8 +268,8 @@ export function getRoutes() {
             },
             {
               "depth": 3,
-              "value": "open",
-              "heading": "api-open"
+              "value": "ConfirmDialog",
+              "heading": "api-confirmdialog"
             }
           ],
           "title": "Dialog 弹框",
@@ -279,7 +279,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Dialog 弹框 - W"
+        "title": "Dialog 弹框 - Cheey"
       },
       {
         "path": "/component/form",
@@ -317,7 +317,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Form 表单 - W"
+        "title": "Form 表单 - Cheey"
       },
       {
         "path": "/component/input",
@@ -346,6 +346,11 @@ export function getRoutes() {
               "depth": 2,
               "value": "API",
               "heading": "api"
+            },
+            {
+              "depth": 3,
+              "value": "InputNumber",
+              "heading": "api-inputnumber"
             }
           ],
           "title": "Input 输入框",
@@ -355,7 +360,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Input 输入框 - W"
+        "title": "Input 输入框 - Cheey"
       },
       {
         "path": "/component/pagination",
@@ -393,7 +398,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Pagination 分页 - W"
+        "title": "Pagination 分页 - Cheey"
       },
       {
         "path": "/component/popover",
@@ -431,7 +436,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Popover 弹出层 - W"
+        "title": "Popover 弹出层 - Cheey"
       },
       {
         "path": "/component/rate",
@@ -460,6 +465,11 @@ export function getRoutes() {
               "depth": 2,
               "value": "API",
               "heading": "api"
+            },
+            {
+              "depth": 3,
+              "value": "FingerRate",
+              "heading": "api-fingerrate"
             }
           ],
           "title": "Rate 评分",
@@ -469,7 +479,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Rate 评分 - W"
+        "title": "Rate 评分 - Cheey"
       },
       {
         "path": "/component/select",
@@ -498,6 +508,16 @@ export function getRoutes() {
               "depth": 2,
               "value": "API",
               "heading": "api"
+            },
+            {
+              "depth": 3,
+              "value": "Option",
+              "heading": "api-option"
+            },
+            {
+              "depth": 3,
+              "value": "OptGroup",
+              "heading": "api-optgroup"
             }
           ],
           "title": "Select 选择",
@@ -507,7 +527,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Select 选择 - W"
+        "title": "Select 选择 - Cheey"
       },
       {
         "path": "/component/upload",
@@ -545,7 +565,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Upload 上传 - W"
+        "title": "Upload 上传 - Cheey"
       },
       {
         "path": "/component",
@@ -554,7 +574,7 @@ export function getRoutes() {
         "redirect": "/component/alert"
       }
     ],
-    "title": "W",
+    "title": "Cheey",
     "component": (props) => props.children
   }
 ];

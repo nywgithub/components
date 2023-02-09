@@ -5,7 +5,7 @@ import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
 import { ApplyPluginsType } from 'D:/git-work/components/node_modules/@umijs/runtime';
-import { renderClient } from 'D:/git-work/components/node_modules/@umijs/renderer-react';
+import { renderClient } from 'D:/git-work/components/node_modules/@umijs/preset-built-in/node_modules/@umijs/renderer-react/dist/index.js';
 import { getRoutes } from './core/routes';
 
 
@@ -25,7 +25,7 @@ const getClientRender = (args: { hot?: boolean; routes?: any[] } = {}) => plugin
         isServer: process.env.__IS_SERVER,
         dynamicImport: true,
         rootElement: 'root',
-        defaultTitle: `W`,
+        defaultTitle: `Cheey`,
       },
     });
     return renderClient(opts);
@@ -38,7 +38,7 @@ export default clientRender();
 
 
     window.g_umi = {
-      version: '3.5.21',
+      version: '3.5.36',
     };
   
 

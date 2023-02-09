@@ -11,18 +11,18 @@ nav:
 **使用 npm 或 yarn 安装**
 
 ```shell
-npm install weiui
+npm install cherryui
 ```
 
 ```shell
-yarn add weiui
+yarn add cherryui
 ```
 
 ## 示例
 
 ```js
-import Alert from 'weiui/alert'; // 手动按需加载 js
-import 'weiui/alert/style'; // 手动按需加载 less
+import Alert from 'cherryui/alert'; // 手动按需加载 js
+import 'cherryui/alert/style'; // 手动按需加载 less
 
 ReactDOM.render(<Alert kind="warning">这是一条警告提示</Alert>, mountNode);
 ```
@@ -32,7 +32,7 @@ ReactDOM.render(<Alert kind="warning">这是一条警告提示</Alert>, mountNod
 使用 [babel-plugin-import ](https://www.npmjs.com/package/babel-plugin-import) 优化引入方式，如下：
 
 ```js
-import { Alert } from 'weiui'; // 与上述示例等价
+import { Alert } from 'cherryui'; // 与上述示例等价
 
 ReactDOM.render(<Alert kind="warning">这是一条警告提示</Alert>, mountNode);
 ```
@@ -51,7 +51,7 @@ yarn add babel-plugin-import --dev
     [
       "import",
       {
-        "libraryName": "weiui",
+        "libraryName": "cherryui",
         "libraryDirectory": "esm", // default: lib
         "style": true // or 'css'
       }

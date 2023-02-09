@@ -1,5 +1,6 @@
-import Rate from "./rate"
-import FingerRate from "./FingerRate"
-export { RateProps } from "./interface"
-Rate.FingerRate = FingerRate
-export default Rate
+import FingerRate from './FingerRate';
+import Rate from './rate';
+export { RateProps } from './interface';
+export { FingerRate };
+
+export default Rate;

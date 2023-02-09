@@ -6,6 +6,6 @@
 
 ### 基本用法
 CheckBox是一个受控组件, 必须要设置 onChange 回调方法在组件外部处理 value 变化.
-<code src="../../src/CheckBox/demo/basic.tsx"></code> 
+<code src="../../src/checkBox/demo/basic.tsx"></code> 
 
-<API src="../../src/CheckBox/index.tsx"></API> 
+<API src="../../src/checkBox/index.tsx"></API> 

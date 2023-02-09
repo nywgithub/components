@@ -1,4 +1,4 @@
-import { FileProps } from "./interface"
+import { FileProps } from './interface';
 
 // ==================== Default Image Preview ====================
 const extname = (url: string = '') => {
@@ -70,6 +70,6 @@ export function previewImage(file: File | Blob): Promise<string> {
 
       resolve(dataURL);
     };
-    img.src = window.URL.createObjectURL(file)
+    img.src = window.URL.createObjectURL(file);
   });
 }

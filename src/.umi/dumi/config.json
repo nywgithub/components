@@ -18,7 +18,7 @@
       "*": [
         {
           "path": "/",
-          "title": "weiui",
+          "title": "cherryui",
           "meta": {}
         }
       ],
@@ -99,10 +99,10 @@
       }
     ]
   },
-  "title": "W",
+  "title": "Cheey",
   "mode": "site",
   "repository": {
-    "url": "",
+    "url": "https://github.com/nywgithub/components",
     "branch": "master"
   },
   "theme": {},

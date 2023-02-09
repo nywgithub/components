@@ -1,81 +1,109 @@
 {
-  "name": "weiui",
+  "name": "cherry-ui",
   "version": "1.0.0",
-  "description": "基于rc组件库封装的组件库",
-  "main": "index.js",
-  "scripts": {
-    "release": "webpack --config ./config/webpack.prod.js",
-    "build": "webpack --config ./config/webpack.dev.js",
-    "build:types": "tsc -p tsconfig.build.json",
-    "dev": "dumi dev",
-    "build:site": "rimraf doc-site && dumi build",
-    "preview:site": "npm run build:site && serve doc-site"
+  "description": "A React UI Library Based in RC.",
+  "keywords": [],
+  "homepage": "git://github.com/nywgithub/components.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nywgithub/components.git"
   },
-  "author": "nyw",
   "license": "ISC",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "esm"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:types && gulp",
+    "build:site": "dumi build",
+    "build:types": "tsc -p tsconfig.build.json && cpr lib esm",
+    "clean": "rimraf lib esm dist .dumi doc-site",
+    "deploy:site": "npm run build:site && gh-pages -d doc-site",
+    "dev": "npm start",
+    "postnew": "prettier --write src/**/*{ts,tsx} --loglevel silent",
+    "prepublishOnly": "npm run build",
+    "preview": "cross-env PREVIEW=1 npm run build:site && cross-env PREVIEW=1 dumi preview",
+    "release": "np --no-cleanup --any-branch",
+    "start": "dumi dev"
   },
-  "babel": {},
-  "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-proposal-json-strings": "^7.16.7",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-syntax-import-meta": "^7.10.4",
-    "@babel/plugin-transform-async-to-generator": "^7.16.8",
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
-    "@types/classnames": "^2.3.1",
-    "@types/node": "^17.0.23",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
-    "babel-loader": "^8.2.4",
-    "babel-plugin-import": "^1.13.3",
-    "clean-webpack-plugin": "^4.0.0",
-    "dumi": "^1.1.40",
-    "html-webpack-plugin": "^5.5.0",
-    "less-loader": "^10.2.0",
-    "mini-css-extract-plugin": "^2.6.0",
-    "serve": "^13.0.2",
-    "terser-webpack-plugin": "^5.3.1",
-    "ts-loader": "^9.2.8",
-    "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-merge": "^5.8.0"
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "dependencies": {
-    "@future/areapicker": "^2.2.1",
-    "ahooks": "^3.7.0",
+    "@babel/runtime": "^7",
+    "ahooks": "^3.7.4",
     "body-scroll-lock": "^4.0.0-beta.0",
-    "classnames": "^2.3.1",
-    "css-loader": "^6.7.1",
-    "dom-align": "^1.12.3",
     "is-mobile": "^3.1.1",
-    "node-sass": "npm:sass@^1.49.9",
-    "rc-align": "^4.0.12",
-    "rc-input-number": "^7.3.4",
-    "rc-rate": "^2.9.2",
-    "rc-upload": "^4.3.3",
-    "rc-util": "^5.21.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "rc-input-number": "^7.4.0",
+    "rc-rate": "^2.10.0",
+    "rc-upload": "^4.3.4",
+    "rc-util": "^5.27.2",
     "react-is": "^18.2.0",
-    "react-transition-group": "^4.4.5",
-    "sass-loader": "^12.6.0",
-    "style-loader": "^3.3.1",
-    "typescript": "^4.6.2"
+    "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.7",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/body-scroll-lock": "^3.1.0",
+    "@types/node": "^16.11.26",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
+    "@types/react-is": "^17.0.3",
+    "@types/react-transition-group": "^4.4.5",
+    "@umijs/fabric": "^3",
+    "babel-plugin-import": "^1.13.3",
+    "commitizen": "^4.2.5",
+    "core-js": "^3.26.1",
+    "cpr": "^3.0.1",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "doctoc": "^1.4.0",
+    "dumi": "^1.1.40",
+    "eslint": "^7",
+    "gh-pages": "^3.2.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-less": "^4.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "less": "^3.10.3",
+    "lint-staged": "^13",
+    "np": "^7.5.0",
+    "plop": "^2",
+    "prettier": "^2.8.0",
+    "prettier-plugin-packagejson": "^2.3.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "rimraf": "^3.0.0",
+    "snapshot-diff": "^0.6.1",
+    "through2": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "authors": {
+    "name": "nyw",
+    "email": "1500920628@qq.com"
   }
 }

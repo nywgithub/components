@@ -1,5 +1,8 @@
-import Dialog from "./dialog"
-export { DialogProps } from "./interface"
-export { open, alert } from "./open"
-export { clear } from "./clear"
-export default Dialog
+import ConfirmDialog from './confirmDialog';
+import Dialog from './dialog';
+export { clear } from './clear';
+export { DialogProps } from './interface';
+export { alert, open } from './open';
+export { ConfirmDialog };
+
+export default Dialog;
