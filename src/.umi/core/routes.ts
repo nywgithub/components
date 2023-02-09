@@ -68,7 +68,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/getting-started.md",
-          "updatedTime": 1649301324000,
+          "updatedTime": 1675930889000,
           "nav": {
             "title": "快速上手",
             "order": 1,
@@ -98,7 +98,7 @@ export function getRoutes() {
           ],
           "title": "快速上手"
         },
-        "title": "快速上手 - Cheey"
+        "title": "快速上手 - Cherry"
       },
       {
         "path": "/help",
@@ -120,7 +120,7 @@ export function getRoutes() {
           ],
           "title": "帮助"
         },
-        "title": "帮助 - Cheey"
+        "title": "帮助 - Cherry"
       },
       {
         "path": "/",
@@ -128,7 +128,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",
-          "updatedTime": 1649301324000,
+          "updatedTime": 1675930889000,
           "title": "cherryui",
           "hero": {
             "title": "cherryui",
@@ -160,7 +160,7 @@ export function getRoutes() {
           "footer": "<div class=\"markdown\"><p>Open-source MIT Licensed | Copyright © 2020<br />Powered by <a href=\"https://d.umijs.org/\" target=\"_blank\">dumi<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"\" x=\"0px\" y=\"0px\" viewBox=\"0 0 100 100\" width=\"15\" height=\"15\" class=\"__dumi-default-external-link-icon\"><path fill=\"currentColor\" d=\"M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z\"></path><polygon fill=\"currentColor\" points=\"45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9\"></polygon></svg></a></p></div>",
           "slugs": []
         },
-        "title": "cherryui - Cheey"
+        "title": "cherryui - Cherry"
       },
       {
         "path": "/component/alert",
@@ -198,7 +198,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Alert 警告提示 - Cheey"
+        "title": "Alert 警告提示 - Cherry"
       },
       {
         "path": "/component/check-box",
@@ -206,7 +206,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/component/checkBox.md",
-          "updatedTime": 1663317110000,
+          "updatedTime": 1675930889000,
           "slugs": [
             {
               "depth": 1,
@@ -236,7 +236,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "CheckBox 选择框 - Cheey"
+        "title": "CheckBox 选择框 - Cherry"
       },
       {
         "path": "/component/dialog",
@@ -279,7 +279,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Dialog 弹框 - Cheey"
+        "title": "Dialog 弹框 - Cherry"
       },
       {
         "path": "/component/form",
@@ -317,7 +317,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Form 表单 - Cheey"
+        "title": "Form 表单 - Cherry"
       },
       {
         "path": "/component/input",
@@ -360,7 +360,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Input 输入框 - Cheey"
+        "title": "Input 输入框 - Cherry"
       },
       {
         "path": "/component/pagination",
@@ -398,7 +398,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Pagination 分页 - Cheey"
+        "title": "Pagination 分页 - Cherry"
       },
       {
         "path": "/component/popover",
@@ -436,7 +436,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Popover 弹出层 - Cheey"
+        "title": "Popover 弹出层 - Cherry"
       },
       {
         "path": "/component/rate",
@@ -479,7 +479,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Rate 评分 - Cheey"
+        "title": "Rate 评分 - Cherry"
       },
       {
         "path": "/component/select",
@@ -527,7 +527,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Select 选择 - Cheey"
+        "title": "Select 选择 - Cherry"
       },
       {
         "path": "/component/upload",
@@ -565,7 +565,7 @@ export function getRoutes() {
             "title": "Component"
           }
         },
-        "title": "Upload 上传 - Cheey"
+        "title": "Upload 上传 - Cherry"
       },
       {
         "path": "/component",
@@ -574,7 +574,7 @@ export function getRoutes() {
         "redirect": "/component/alert"
       }
     ],
-    "title": "Cheey",
+    "title": "Cherry",
     "component": (props) => props.children
   }
 ];
