@@ -16,7 +16,7 @@
 /dist
 /lib
 /esm
-# /doc-site
+/doc-site
 /types
 
 # dumi
