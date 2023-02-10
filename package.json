@@ -1,7 +1,7 @@
 {
   "name": "cherry-rc-ui",
   "version": "1.0.3",
-  "description": "A React UI Library Based in RC.",
+  "description": "A React UI Library Based on RC.",
   "keywords": [],
   "homepage": "git://github.com/nywgithub/components.git#readme",
   "repository": {
