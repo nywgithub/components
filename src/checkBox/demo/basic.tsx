@@ -36,14 +36,7 @@ export default () => {
           苹果
         </CheckBox>
       </div>
-      <CheckBox.Group>字符串</CheckBox.Group>
-      {/* <CheckBox.Group>{() => <h1>Hello World!</h1>}</CheckBox.Group> */}
-      <CheckBox.Group>
-        <>
-          <span>React.Fragment</span>
-        </>
-      </CheckBox.Group>
-      <CheckBox.Group></CheckBox.Group>
+
       <div>
         <CheckBox.Group
           onChange={handleGroupChange}
