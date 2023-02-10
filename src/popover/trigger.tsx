@@ -1,37 +1,38 @@
-import React, { cloneElement, useImperativeHandle } from "react"
-import { isElement, isFragment } from "react-is"
+import React, { cloneElement, useImperativeHandle } from 'react';
+import { isElement, isFragment } from 'react-is';
 
 export interface TriggerProps {
-    trigger?: "click" | "focus" | "hover"
-    triggerEvent?: any
-    Tref: any
+  trigger?: 'click' | 'focus' | 'hover';
+  triggerEvent?: any;
+  Tref: any;
+  children?: React.ReactNode;
 }
 
 const Trigger: React.FC<TriggerProps> = ({ Tref, ...props }) => {
-    const { children, trigger, triggerEvent } = props
+  const { children, trigger, triggerEvent } = props;
 
-    let childrenNode: React.ReactNode
+  let childrenNode: React.ReactNode;
 
-    const ref = React.useRef(null)
+  const ref = React.useRef(null);
 
-    useImperativeHandle(Tref, () => ({
-        element: ref,
-    }))
+  useImperativeHandle(Tref, () => ({
+    element: ref,
+  }));
 
-    if (isElement(children) && !isFragment(children)) {
-        childrenNode = cloneElement(
-            children as React.FunctionComponentElement<{
-                ref: React.MutableRefObject<null>
-            }>,
-            triggerEvent
-        )
-    }
+  if (isElement(children) && !isFragment(children)) {
+    childrenNode = cloneElement(
+      children as React.FunctionComponentElement<{
+        ref: React.MutableRefObject<null>;
+      }>,
+      triggerEvent,
+    );
+  }
 
-    return (
-        <div className="trigger-wrapper" ref={ref}>
-            {childrenNode}
-        </div>
-    )
-}
+  return (
+    <div className="trigger-wrapper" ref={ref}>
+      {childrenNode}
+    </div>
+  );
+};
 
-export default Trigger
+export default Trigger;

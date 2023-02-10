@@ -1,5 +1,5 @@
 export { default as Alert } from './alert';
-export { default as checkBox } from './checkBox/';
+export { default as CheckBox } from './checkBox/';
 export { alert, ConfirmDialog, default as Dialog, open } from './dialog/';
 export { default as Form } from './form/';
 export { default as Input, InputNumber } from './input';

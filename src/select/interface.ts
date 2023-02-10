@@ -27,6 +27,7 @@ interface SelectProps {
   defaultSelected?: string | number | Array<string | number>;
   multiple?: boolean;
   onChange?: (val: any) => void;
+  children?: React.ReactNode;
 }
 
 interface OptionProps {
@@ -38,12 +39,14 @@ interface OptionProps {
   onChange?: (val: any) => void;
   disabled?: boolean;
   groupDisabled?: boolean;
+  children?: React.ReactNode;
 }
 
 interface OptGroupProps {
   prefixCls?: string;
   disabled?: boolean;
   onChange?: (val: any) => void;
+  children?: React.ReactNode;
 }
 interface DropDownProps {
   prefixCls?: string;
@@ -65,6 +68,7 @@ interface PickerProps {
   defaultSelected?: string | number | Array<string | number>;
   multiple?: boolean;
   onChange?: (val: any) => void;
+  children?: React.ReactNode;
 }
 
 interface PortalsProps {
@@ -72,15 +76,14 @@ interface PortalsProps {
 }
 
 export {
-NativeSelectProps,
-NativeInputProps,
-BaseOptionProps,
-BaseOptgroupProps,
-DropDownProps,
-SelectProps,
-OptionProps,
-PickerProps,
-OptGroupProps,
-PortalsProps,
+  NativeSelectProps,
+  NativeInputProps,
+  BaseOptionProps,
+  BaseOptgroupProps,
+  DropDownProps,
+  SelectProps,
+  OptionProps,
+  PickerProps,
+  OptGroupProps,
+  PortalsProps,
 };
-
