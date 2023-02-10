@@ -1,3 +1,3 @@
 import PopOver from './popover'
-export type { PopOverProps } from "./interface"
+// export type { PopOverProps } from "./interface"
 export default PopOver
