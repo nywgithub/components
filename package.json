@@ -27,7 +27,8 @@
     "prepublishOnly": "npm run build",
     "preview": "cross-env PREVIEW=1 npm run build:site && cross-env PREVIEW=1 dumi preview",
     "release": "np --no-cleanup --no-tests --any-branch",
-    "start": "dumi dev"
+    "start": "dumi dev",
+    "release:all": "git pull && git add . && git commit -m 'rebuild' && git push && npm run build && npm run build:site && gh-pages -d doc-site && npm run release"
   },
   "config": {
     "commitizen": {

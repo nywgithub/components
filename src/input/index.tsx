@@ -14,6 +14,7 @@ import Input from './input';
 import type { InputNumberProps } from './inputNumber';
 import InputNumber from './inputNumber';
 
-export { Input, InputNumber, InputProps, InputNumberProps };
+export default Input;
+export { InputNumber, InputProps, InputNumberProps };
 
 // Input.InputNumber = InputNumber;

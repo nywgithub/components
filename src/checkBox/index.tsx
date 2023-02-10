@@ -1,3 +1,3 @@
-import CheckBox from "./checkBox"
-// export { CheckBoxProps } from "./interface"
-export default CheckBox
+import CheckBox from './checkBox';
+export type { CheckBoxProps } from './interface';
+export default CheckBox;

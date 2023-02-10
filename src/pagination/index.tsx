@@ -1,3 +1,3 @@
-import Pagination from './pagination'
-export { PagerProps } from './interface'
-export default Pagination
+import Pagination from './pagination';
+export type { PagerProps } from './interface';
+export default Pagination;

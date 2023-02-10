@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Input, InputNumber } from '..';
+import Input, { InputNumber } from '..';
 import ConfigProvider from '../../common-provider/context';
 // import InputNumber from '../inputNumber'
 import '../style';

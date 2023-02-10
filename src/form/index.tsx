@@ -1,3 +1,3 @@
-import Form from './form'
-export { FormProps } from './interface'
-export default Form
+import Form from './form';
+export type { FormProps } from './interface';
+export default Form;

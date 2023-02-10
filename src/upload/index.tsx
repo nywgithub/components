@@ -1,4 +1,5 @@
-import Upload from "./upload"
-// import { UploadProps } from "./interface"
+import Upload from './upload';
 
-export default Upload
+export type { UploadProps } from './interface';
+
+export default Upload;
