@@ -27,7 +27,8 @@
     "prepublishOnly": "npm run build",
     "preview": "cross-env PREVIEW=1 npm run build:site && cross-env PREVIEW=1 dumi preview",
     "release": "np --no-cleanup --any-branch",
-    "start": "dumi dev"
+    "start": "dumi dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "config": {
     "commitizen": {
