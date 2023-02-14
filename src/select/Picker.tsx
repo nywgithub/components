@@ -1,6 +1,7 @@
 import { useClickAway } from 'ahooks';
 import domAlign from 'dom-align';
 import React from 'react';
+import Input from '../input';
 import DropDown from './DropDown';
 import { PickerProps } from './interface';
 
@@ -95,7 +96,7 @@ const Picker: React.FC<PickerProps> = (props) => {
               onBlur={inputBlur}
               value={searchValue}
               onChange={searchChange}
-              ref={(el) => ((inputRef as any).current = el)}
+              ref={(el: any) => ((inputRef as any).current = el)}
             />
           </span>
           <span className="delete-icon" onClick={clear}>

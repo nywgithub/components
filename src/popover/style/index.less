@@ -1,20 +1,20 @@
-@Prefix: wei-popover;
+@Prefix: cherry-popover;
 .@{Prefix} {
-    &-portal {
-        max-width: 200px;
-        font-size: 14px;
-        line-height: 20px;
-        background-color: #fff;
-        box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-        z-index: 2000;
-    }
-    &-content {
-        background-color: #fff;
-        color: #333;
-        position: relative;
-        border-radius: 4px;
-        padding: 16px;
-        z-index: 2;
-    }
+  &-portal {
+    z-index: 2000;
+    max-width: 200px;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
+  }
+  &-content {
+    position: relative;
+    z-index: 2;
+    padding: 16px;
+    color: #333;
+    background-color: #fff;
+    border-radius: 4px;
+  }
 }

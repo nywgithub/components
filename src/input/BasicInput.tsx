@@ -1,4 +1,6 @@
+import cls from 'classnames';
 import * as React from 'react';
+import { CloseIcon } from '../icon';
 
 interface BasicInputProps {
   suffix?: React.ReactNode;
@@ -24,6 +26,7 @@ const BasicInput: React.FC<BasicInputProps> = (props) => {
     type,
     handleClear,
   } = props;
+
   const renderClearIcon = (prefixCls: string) => {
     if (!allowClear) {
       return null;
@@ -32,7 +35,7 @@ const BasicInput: React.FC<BasicInputProps> = (props) => {
     // TODO:换成icon图标
     return (
       <span className={className} onClick={handleClear}>
-        x
+        <CloseIcon />
       </span>
     );
   };
@@ -49,7 +52,7 @@ const BasicInput: React.FC<BasicInputProps> = (props) => {
 
   const renderLabelNode = (
     prefixCls: string,
-    type: 'suffix' | 'prefix' | 'addonBefore' | 'addonAfter',
+    nodetype: 'suffix' | 'prefix' | 'addonBefore' | 'addonAfter',
   ) => {
     const obj = {
       suffix,
@@ -57,18 +60,40 @@ const BasicInput: React.FC<BasicInputProps> = (props) => {
       addonBefore,
       addonAfter,
     };
-    return obj[type] ? <span className={`${prefixCls}-${type}`}>{obj[type]}</span> : null;
+    return obj[nodetype] ? (
+      <span
+        className={`${prefixCls}-${nodetype} ${
+          nodetype.indexOf('addon') !== -1
+            ? `${prefixCls}-addon`
+            : nodetype.indexOf('fix') !== -1
+            ? `${prefixCls}-fix`
+            : ''
+        }`}
+      >
+        {obj[nodetype]}
+      </span>
+    ) : allowClear ? (
+      <span className={`${prefixCls}-suffix ${prefixCls}-fix`}>
+        {/* 清除按钮 */}
+        {type !== 'textarea' ? renderClearIcon(prefixCls) : null}
+      </span>
+    ) : null;
   };
 
   const renderInput = (prefixCls: string, element: React.ReactElement) => {
     return (
       <span className={`${prefixCls}-wrapper`}>
         {renderLabelNode(prefixCls, 'addonBefore')}
-        {renderLabelNode(prefixCls, 'prefix')}
-        {React.cloneElement(element)}
-        {/* 清除按钮 */}
-        {renderClearIcon('input')}
-        {renderLabelNode(prefixCls, 'suffix')}
+        <span
+          className={cls(prefixCls + '-group', {
+            [`${prefixCls}-has-prefix`]: prefix,
+            [`${prefixCls}-has-suffix`]: suffix,
+          })}
+        >
+          {renderLabelNode(prefixCls, 'prefix')}
+          {React.cloneElement(element, { className: prefixCls })}
+          {renderLabelNode(prefixCls, 'suffix')}
+        </span>
         {renderLabelNode(prefixCls, 'addonAfter')}
       </span>
     );

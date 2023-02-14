@@ -1,4 +1,107 @@
-@Prefix: wei-checkBox;
+@import '../../styles/vars.less';
+@Prefix: cherry-checkBox;
 .@{Prefix} {
-    
+  display: inline-block;
+  color: @font-color;
+  font-size: @font-size;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: sub;
+  outline: none;
+  &-group {
+    .@{Prefix}-wrapper {
+      margin-right: @cherry-checkbox-group-offset-right;
+    }
+  }
+  &-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 0;
+    opacity: 0;
+  }
+  &.@{Prefix}-disabled {
+    cursor: not-allowed;
+  }
+  &-disabled {
+    .@{Prefix}-inner {
+      background-color: @disabled-color !important;
+      border-color: @border-color !important;
+      &::after {
+        border-color: @disabled-color;
+      }
+    }
+    .@{Prefix}-input {
+      cursor: not-allowed;
+    }
+    & + span {
+      color: @disabled-font-color;
+      cursor: not-allowed;
+    }
+  }
+  &-checked {
+    .@{Prefix}-inner {
+      background-color: @primary-color;
+      border-color: @primary-color;
+      &::after {
+        transform: rotate(45deg) scale(1); //勾√ 晚一点出现
+        transition: all 0.2s @animate-type 0.1s;
+      }
+    }
+    &.@{Prefix}-disabled {
+      .@{Prefix}-inner {
+        &::after {
+          border-color: fade(@font-color, 10%);
+        }
+      }
+    }
+  }
+  &-inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: @cherry-checkbox-width;
+    height: @cherry-checkbox-height;
+    margin-right: @cherry-checkbox-offset-right;
+    background: #fff;
+    border: 1px solid @border-color;
+    border-radius: @border-radius - 2px;
+    transition: all @default-transition;
+    &::after {
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      display: table;
+      width: 5px;
+      height: 8px;
+      border: 2px solid #fff;
+      border-top: 0;
+      border-left: 0;
+      //画一个矩形 旋转45° 形成一个 √
+      transform: rotate(45deg) scale(0);
+      transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6);
+      content: ' ';
+    }
+  }
+}
+
+.@{Prefix}-wrapper {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: @font-color;
+  font-size: @font-size;
+  cursor: pointer;
+  transition: all @default-transition;
+  user-select: none;
+  &.@{Prefix}-disabled {
+    cursor: not-allowed;
+  }
 }

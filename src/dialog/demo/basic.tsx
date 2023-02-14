@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Dialog, { alert, ConfirmDialog, open } from '..';
+import Button from '../../button';
 import '../style';
 import './basic.less';
 
@@ -49,21 +50,21 @@ export default () => {
       NoScroll: true,
       footer: (
         <div className="demo-bottom">
-          <button
+          <Button
             style={{ marginRight: 10 }}
             onClick={() => {
               dialoger?.close();
             }}
           >
             cancel
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => {
               dialoger?.close();
             }}
           >
             confirm
-          </button>
+          </Button>
         </div>
       ),
     });
@@ -81,20 +82,17 @@ export default () => {
   };
 
   return (
-    <>
+    <div className='dialog-example'>
       <div id="test"></div>
-      <div>
-        <button onClick={openDialg}>打开弹窗</button>
-      </div>
-      <div>
-        <button onClick={openConfirmDialg}>打开confirm弹窗</button>
-      </div>
-      <div>
-        <button onClick={openDialgInstance}>打开实例弹窗</button>
-      </div>
-      <div>
-        <button onClick={openDialgInstanceSuccess}>success</button>
-      </div>
+
+      <Button onClick={openDialg}>打开弹窗</Button>
+
+      <Button onClick={openConfirmDialg}>打开confirm弹窗</Button>
+
+      <Button onClick={openDialgInstance}>打开实例弹窗</Button>
+
+      <Button onClick={openDialgInstanceSuccess}>success</Button>
+
       <Dialog
         visible={visible}
         onOpen={onOpen}
@@ -105,10 +103,10 @@ export default () => {
         NoScroll
         footer={
           <div className="demo-bottom">
-            <button style={{ marginRight: 10 }} onClick={onClose}>
+            <Button style={{ marginRight: 10 }} onClick={onClose}>
               cancel
-            </button>
-            <button onClick={onClose}>confirm</button>
+            </Button>
+            <Button onClick={onClose}>confirm</Button>
           </div>
         }
       >
@@ -129,6 +127,6 @@ export default () => {
       >
         confrim弹窗内容
       </ConfirmDialog>
-    </>
+    </div>
   );
 };

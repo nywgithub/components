@@ -1,7 +1,9 @@
+import cls from 'classnames';
 import React from 'react';
 import { ConfigContext } from '../common-provider/context';
 import CheckGroup from './checkGroup';
 import { CheckBoxProps } from './interface';
+
 const CheckBox = ({ prefixCls: customizePrefixCls, ...props }: CheckBoxProps) => {
   const { style, className, onChange, checked, disabled, value, children } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -19,7 +21,7 @@ const CheckBox = ({ prefixCls: customizePrefixCls, ...props }: CheckBoxProps) =>
 
   const nativeCheckbox = (
     <input
-      id="demo"
+      className={`${prefixCls}-input`}
       type="checkbox"
       onChange={handleNativeCheckboxChange}
       checked={checked}
@@ -29,8 +31,17 @@ const CheckBox = ({ prefixCls: customizePrefixCls, ...props }: CheckBoxProps) =>
 
   return (
     // input的事件会冒泡到label上
-    <label className={`${prefixCls} ${className || ''}`} style={style}>
-      <span className={`${prefixCls}-inner`}>{nativeCheckbox}</span>
+    <label
+      className={cls(`${prefixCls}-wrapper`, {
+        [`${prefixCls}-checked`]: checked,
+        [`${prefixCls}-disabled`]: disabled,
+      })}
+      style={style}
+    >
+      <span className={cls(prefixCls, className)}>
+        {nativeCheckbox}
+        <span className={`${prefixCls}-inner`} />
+      </span>
       <span className={`${prefixCls}-label`}>{children}</span>
     </label>
   );

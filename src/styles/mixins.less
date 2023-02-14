@@ -1,0 +1,131 @@
+.cherry-button-hover(@color: @default-color, @lighten: 5%, @font-color: #fff) {
+  color: @font-color;
+  background-color: @color;
+  border: 1px solid @color;
+  &:not(.cherry-button-disabled):not(.cherry-button-default):not(.cherry-button-dashed):not(
+      .cherry-button-hollow
+    ) {
+    &:hover,
+    &:active,
+    &:focus {
+      color: lighten(@font-color, @lighten);
+      background-color: lighten(@color, @lighten);
+      border: 1px solid @color;
+    }
+  }
+  &.cherry-button-default {
+    &:active,
+    &:focus {
+      color: lighten(@primary-color, @lighten);
+      border: 1px solid @primary-color;
+    }
+  }
+  &.cherry-button-dashed {
+    border: 1px dashed @border-color;
+    &:hover,
+    &:active,
+    &:focus {
+      color: lighten(@font-color, @lighten);
+      background-color: lighten(@color, @lighten);
+    }
+  }
+}
+
+.tag-hover(@color: @default-color, @lighten: 5%, @font-color: #fff) {
+  color: @font-color;
+  background-color: @color;
+  border: 1px solid @color;
+  &:not(.cherry-tag-disabled):not(.cherry-tag-default):not(.cherry-tag-color) {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: lighten(@color, @lighten);
+    }
+  }
+}
+
+.cherry-button-hollow(@color, @lighten : 5%) {
+  color: @color;
+  text-shadow: unset;
+  background: transparent;
+  &:not(.cherry-button-disabled) {
+    &:hover,
+    &:active,
+    &:focus {
+      color: lighten(@color, @lighten);
+      background-color: transparent;
+      border-color: lighten(@color, @lighten);
+    }
+  }
+  &.cherry-button-dashed {
+    border: 1px dashed @color;
+    &:hover,
+    &:active,
+    &:focus {
+      color: lighten(@color, @lighten);
+      background-color: transparent;
+      border: 1px dashed lighten(@color, @lighten);
+    }
+  }
+}
+
+.tag-hollow(@color, @lighten : 5%) {
+  color: @color;
+  background: transparent;
+  &:not(.cherry-tag-disabled):not(.cherry-tag-color) {
+    &:hover,
+    &:active,
+    &:focus {
+      color: lighten(@color, @lighten);
+      background-color: transparent;
+      border-color: lighten(@color, @lighten);
+    }
+  }
+}
+
+.flex-center(@justify: center, @align: center) {
+  display: flex;
+  align-items: @align;
+  justify-content: @justify;
+}
+
+.add-alert-style(@color: @default-color, @opacity: 10%) {
+  background-color: fade(@color, @opacity);
+  border-color: @color;
+}
+
+.clearfix() {
+  &::before,
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+    zoom: 1;
+  }
+}
+
+.set-progress-bar-bg(@primaryColor: @primary-color) {
+  background: repeating-linear-gradient(
+    -45deg,
+    @bg-color 25%,
+    @primaryColor 0,
+    @primaryColor 50%,
+    @bg-color 0,
+    @bg-color 75%,
+    @primaryColor 0
+  );
+  background-size: @cherry-progress-bg-offset;
+}
+
+.ellipsis(@n: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  & when ( @n >= 2 ) {
+    display: -webkit-box;
+    -webkit-line-clamp: @n;
+    -webkit-box-orient: vertical;
+  }
+  & when ( @n = 1 ) {
+    white-space: nowrap;
+  }
+}

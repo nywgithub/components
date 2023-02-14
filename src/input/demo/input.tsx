@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Input, { InputNumber } from '..';
+import React,{ useEffect,useState } from 'react';
+import Input,{ InputNumber } from '..';
 import ConfigProvider from '../../common-provider/context';
+import { SuccessIcon } from '../../icon';
 // import InputNumber from '../inputNumber'
 import '../style';
+import './index.less';
 // const { InputNumber } = Input
 export default () => {
   const inputRef = React.createRef<any>();
@@ -29,11 +31,10 @@ export default () => {
         onKeyDown={() => {
           console.log('onKeyDown');
         }}
-        defaultValue={'默认值'}
-        addonBefore={<span>前缀</span>}
-        addonAfter={<span>后缀</span>}
-        prefix={<span>prefix</span>}
-        suffix={<span>suffix</span>}
+        defaultValue={'github.com/nywgithub/components'}
+        addonBefore={<span>https://</span>}
+        addonAfter={<span>.com</span>}
+        prefix={<SuccessIcon />}
         allowClear
         value={value}
       ></Input>
@@ -42,8 +43,8 @@ export default () => {
           ref={inputRef}
           min={0}
           max={10000000}
-          addonBefore={<span>数量</span>}
-          addonAfter={<span>个(单位)</span>}
+          addonBefore={<span style={{ marginRight: 10 }}>数量:</span>}
+          addonAfter={<span style={{ marginLeft: 10 }}>个(单位)</span>}
           onChange={handleNumberChange}
           defaultValue={1}
           value={numberValue}

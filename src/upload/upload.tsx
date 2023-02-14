@@ -45,7 +45,7 @@ const ForwardRefUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (
   }));
 
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('upload', customizePrefixCls); //wei-upload
+  const prefixCls = getPrefixCls('upload', customizePrefixCls); //cherry-upload
 
   const [fileList, setFileList] = useMergedState(defaultFile || [], {
     value: listValue,

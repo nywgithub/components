@@ -1,5 +1,6 @@
+import 'rc-rate/assets/index.css';
 import React, { useState } from 'react';
-import { FingerRate } from '..';
+import Rate from '..';
 import '../style';
 import './basic.less';
 
@@ -9,8 +10,8 @@ export default () => {
   const [defaultValue, setDefaultValue] = useState([0, 0, 1, 1]);
   return (
     <>
-      {/* <Rate /> */}
-      {list.map((item, index) => (
+      <Rate />
+      {/* {list.map((item, index) => (
         <div key={index} className="finger-wrap">
           <span>{item}</span>
           <FingerRate
@@ -34,7 +35,7 @@ export default () => {
           ]}
           onClick={handleClickSpecial}
         ></FingerRate>
-      </div>
+      </div> */}
     </>
   );
 };

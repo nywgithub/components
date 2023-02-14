@@ -13,7 +13,7 @@ const CheckGroup: React.FC<CheckGroupProps> = ({ prefixCls: customizePrefixCls, 
   // console.log(React.Children)
 
   return (
-    <div className={`${prefixCls}-checkBox-group ${className || ''}`} style={style}>
+    <div className={`${prefixCls}-group ${className || ''}`} style={style}>
       {React.Children.map(children, (child: any, i) => {
         if (child?.type?.name === 'CheckBox') {
           return React.cloneElement(child, {

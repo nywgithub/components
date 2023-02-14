@@ -1,0 +1,154 @@
+@import '../../styles/vars.less';
+@import '../../styles/animate.less';
+@import '../../styles/mixins.less';
+@prefixCls: cherry-button;
+.@{prefixCls} {
+  position: relative;
+  display: inline-block;
+  height: @button-default-height;
+  margin: 0;
+  padding: @button-default-padding;
+  color: @font-color;
+  font-size: @button-default-font-size;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-align: center;
+  text-shadow: @default-text-shadow;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid transparent;
+  border-color: @border-color;
+  border-radius: @border-radius;
+  outline: none;
+  cursor: pointer;
+  transition: all @default-transition;
+  user-select: none;
+  touch-action: manipulation;
+  .cherry-button-hover(@default-color);
+  &.@{prefixCls}-primary {
+    .cherry-button-hover(@primary-color);
+    &.@{prefixCls}-hollow {
+      .cherry-button-hollow(@primary-color);
+    }
+  }
+  &.@{prefixCls}-default {
+    color: @font-color;
+    text-shadow: none;
+    background-color: #fff;
+    border: 1px solid @default-color;
+    &:not(.@{prefixCls}-disabled):not(.@{prefixCls}-loading) {
+      &:hover,
+      &:active {
+        color: @primary-color;
+        border: 1px solid @primary-color;
+      }
+    }
+    &.@{prefixCls}-hollow {
+      .cherry-button-hollow(@default-color);
+    }
+  }
+  &.@{prefixCls}-warning {
+    .cherry-button-hover(@warning-color);
+    &.@{prefixCls}-hollow {
+      .cherry-button-hollow(@warning-color);
+    }
+  }
+  &.@{prefixCls}-error {
+    .cherry-button-hover(@error-color);
+    &.@{prefixCls}-hollow {
+      .cherry-button-hollow(@error-color);
+    }
+  }
+  &.@{prefixCls}-success {
+    .cherry-button-hover(@success-color);
+    &.@{prefixCls}-hollow {
+      .cherry-button-hollow(@success-color);
+    }
+  }
+  &.@{prefixCls}-info {
+    .cherry-button-hover(@info-color);
+    &.@{prefixCls}-hollow {
+      .cherry-button-hollow(@info-color);
+    }
+  }
+  &.@{prefixCls}-disabled {
+    cursor: not-allowed;
+    opacity: @button-disabled-opacity;
+    &.@{prefixCls}-hollow {
+      background-color: transparent !important;
+    }
+    &.@{prefixCls}-normal {
+      .cherry-button-hover(@disabled-color);
+      color: @disabled-font-color !important;
+      text-shadow: none;
+      border: 1px solid @border-color;
+      opacity: 1;
+      &.@{prefixCls}-hollow {
+        color: @disabled-font-color;
+      }
+    }
+  }
+  &.@{prefixCls}-block {
+    display: block;
+    width: 100%;
+  }
+  &.@{prefixCls}-loading {
+    cursor: not-allowed;
+    opacity: @loading-opacity;
+    > .cherry-loading {
+      display: inline-block;
+      margin: -3px 10px 0 0;
+      vertical-align: middle;
+      animation: cherry-spin @loading-time linear infinite;
+    }
+  }
+  &.@{prefixCls}-size-large {
+    height: @button-large-height;
+    padding: @button-large-padding;
+    font-size: @button-large-font-size;
+  }
+  &.@{prefixCls}-size-small {
+    height: @button-small-height;
+    padding: @button-small-padding;
+    font-size: @button-small-font-size;
+  }
+  &.@{prefixCls}-circle {
+    width: @button-default-width;
+    height: @button-default-height;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: @default-section-shadow;
+    &.@{prefixCls}-large {
+      width: @button-large-width;
+      height: @button-large-height;
+    }
+    &.@{prefixCls}-small {
+      width: @button-small-width;
+      height: @button-small-height;
+    }
+    &.@{prefixCls}-loading {
+      position: relative;
+      &:before {
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: @button-default-width + 8px;
+        height: @button-default-width + 8px;
+        border: 1px solid @primary-color;
+        border-right: none;
+        border-bottom: none;
+        border-left: none;
+        border-radius: 50%;
+        animation: cherry-spin @loading-time @animate-type-easy-in-out infinite;
+        content: ' ';
+      }
+    }
+  }
+  &-link {
+    cursor: pointer;
+    &.@{prefixCls}-link-disabled {
+      color: @disabled-font-color;
+      cursor: not-allowed;
+    }
+  }
+}

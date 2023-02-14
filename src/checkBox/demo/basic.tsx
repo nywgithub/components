@@ -29,14 +29,13 @@ export default () => {
 
   return (
     <>
-      单选结果:{checked ? 'true' : 'false'} 复选结果:
-      {gruopValue.map((i) => i + ' ')}
+      <div>单选结果:{checked ? 'true' : 'false'}</div>
       <div>
         <CheckBox onChange={handleChange} value={'苹果'} checked={checked}>
           苹果
         </CheckBox>
       </div>
-
+      <div>复选结果:{gruopValue.map((i) => i + ' ')}</div>
       <div>
         <CheckBox.Group
           onChange={handleGroupChange}

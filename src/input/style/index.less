@@ -1,3 +1,116 @@
-#demo{
-    color: red;
+@import '../../styles/vars.less';
+@import '../../styles/mixins.less';
+
+@Prefix: cherry-input;
+.@{Prefix} {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: @input-height;
+  margin: 0;
+  padding: @input-padding;
+  color: @font-color;
+  font-size: @font-size;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid @border-color;
+  border-radius: @border-radius;
+  outline: none;
+  transition: all @animate-time;
+  &:active,
+  &:hover,
+  &:focus {
+    border-color: @primary-color;
+    outline: none;
+    box-shadow: @input-box-shadow;
+  }
+  &-wrapper {
+    vertical-align: middle;
+    .flex-center(space-around);
+    .@{Prefix}-group {
+      flex: 1 1 auto;
+      width: 100%;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+  }
+  &-addon {
+    position: relative;
+    height: @input-height;
+    padding: @input-padding;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: normal;
+    font-size: @font-size;
+    line-height: @input-height;
+    text-align: center;
+    background-color: @bg-color;
+    border: 1px solid @border-color;
+    border-radius: @border-radius;
+    transition: all @loading-time;
+    .flex-center();
+
+    &.@{Prefix}-addonBefore {
+      border-right: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &.@{Prefix}-addonAfter {
+      border-left: none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &-group {
+    position: relative;
+
+    .@{Prefix}-clear-icon {
+      opacity: 0.5;
+      transition: @default-transition;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    &.@{Prefix}-has-prefix {
+      .@{Prefix} {
+        padding-left: @input-prefix-offset + 20px;
+      }
+    }
+    &.@{Prefix}-has-suffix {
+      .@{Prefix} {
+        padding-right: @input-prefix-offset + 20px;
+      }
+    }
+  }
+  &-prefix,
+  &-suffix {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+    .flex-center();
+    &,
+    svg {
+      color: @disabled-font-color;
+      font-size: @font-size;
+    }
+  }
+
+  &-prefix {
+    left: @input-prefix-offset;
+  }
+
+  &-suffix {
+    right: @input-suffix-offset;
+  }
+
+  &-clear-icon {
+    color: @font-color !important;
+    animation: cuke-zoom-in @default-transition forwards;
+  }
 }
