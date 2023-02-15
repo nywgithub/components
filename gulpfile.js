@@ -1,8 +1,13 @@
 const gulp = require('gulp');
+//babel编译es5以上的新语法特性
 const babel = require('gulp-babel');
+//编译less
 const less = require('gulp-less');
+//根据设置浏览器版本自动处理浏览器前缀
 const autoprefixer = require('gulp-autoprefixer');
+// 压缩css文件体积
 const cssnano = require('gulp-cssnano');
+//处理node的stream流(处理文件),配置打包入口和文件结构
 const through2 = require('through2');
 
 const paths = {
@@ -34,7 +39,9 @@ function cssInjection(content) {
  * @param {string} destDir 目标目录
  */
 function compileScripts(babelEnv, destDir) {
-  const { scripts } = paths;
+  const {
+    scripts
+  } = paths;
   process.env.BABEL_ENV = babelEnv;
   return gulp
     .src(scripts)
@@ -61,7 +68,9 @@ function compileScripts(babelEnv, destDir) {
  * 编译cjs
  */
 function compileCJS() {
-  const { dest } = paths;
+  const {
+    dest
+  } = paths;
   return compileScripts('cjs', dest.lib);
 }
 
@@ -69,7 +78,9 @@ function compileCJS() {
  * 编译esm
  */
 function compileESM() {
-  const { dest } = paths;
+  const {
+    dest
+  } = paths;
   return compileScripts('esm', dest.esm);
 }
 
@@ -90,7 +101,10 @@ function less2css() {
     .src(paths.styles)
     .pipe(less()) // 处理less文件
     .pipe(autoprefixer()) // 根据browserslistrc增加前缀
-    .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
+    .pipe(cssnano({
+      zindex: false,
+      reduceIdents: false
+    })) // 压缩
     .pipe(gulp.dest(paths.dest.lib))
     .pipe(gulp.dest(paths.dest.esm));
 }
