@@ -12,6 +12,10 @@
 设置defaultValue，默认是5
 <code src="../../src/rate/demo/default.tsx"></code>
 
+### 禁用
+设置disabled为true，默认是false
+<code src="../../src/rate/demo/disabled.tsx"></code>
+
 ### 半星
 allowHalf设置为true,默认为false
 <code src="../../src/rate/demo/half.tsx"></code>
