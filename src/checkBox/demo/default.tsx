@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CheckBox from '..';
+import CheckBox, { CheckGroup } from '..';
 import '../style';
 
 export default () => {
@@ -21,7 +21,7 @@ export default () => {
   return (
     <>
       <div>
-        <CheckBox.Group
+        <CheckGroup
           onChange={handleGroupChange}
           value={gruopValue}
           // disabled
@@ -29,7 +29,7 @@ export default () => {
           <CheckBox value={'iphone'}>iphone</CheckBox>
           <CheckBox value={'xiaomi'}>xiaomi</CheckBox>
           <CheckBox value={'huawei'}>huawei</CheckBox>
-        </CheckBox.Group>
+        </CheckGroup>
       </div>
     </>
   );

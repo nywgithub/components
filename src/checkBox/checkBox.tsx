@@ -52,6 +52,6 @@ CheckBox.defaultProps = {
   disabled: false,
 };
 
-CheckBox.Group = CheckGroup;
+// CheckBox.Group = CheckGroup;
 
 export default CheckBox;
