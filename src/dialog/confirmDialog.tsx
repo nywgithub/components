@@ -36,7 +36,9 @@ const ConfirmDialog: React.FC<confirmDialogProps> = ({
           <Button style={{ marginRight: 10 }} onClick={handleCancel}>
             {cancelContent || 'cancel'}
           </Button>
-          <Button onClick={handleConfirm}>{confirmContent || 'confirm'}</Button>
+          <Button type="success" onClick={handleConfirm}>
+            {confirmContent || 'confirm'}
+          </Button>
         </div>
       }
       {...otherProps}

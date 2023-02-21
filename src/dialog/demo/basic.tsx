@@ -42,7 +42,9 @@ export default () => {
             <Button style={{ marginRight: 10 }} onClick={onClose}>
               cancel
             </Button>
-            <Button onClick={onClose}>confirm</Button>
+            <Button type="success" onClick={onClose}>
+              confirm
+            </Button>
           </div>
         }
       >
