@@ -4,7 +4,6 @@ import Button from '../../button';
 import '../style';
 import './basic.less';
 
-
 // const { ConfirmDialog } = Dialog
 
 export default () => {
@@ -26,7 +25,6 @@ export default () => {
         <div className="demo-bottom">
           <Button
             style={{ marginRight: 10 }}
-            type="success"
             onClick={() => {
               dialoger?.close();
             }}
@@ -34,6 +32,7 @@ export default () => {
             cancel
           </Button>
           <Button
+            type="success"
             onClick={() => {
               dialoger?.close();
             }}
