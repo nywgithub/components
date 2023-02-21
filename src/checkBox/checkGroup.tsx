@@ -15,7 +15,8 @@ const CheckGroup: React.FC<CheckGroupProps> = ({ prefixCls: customizePrefixCls, 
   return (
     <div className={`${prefixCls}-group ${className || ''}`} style={style}>
       {React.Children.map(children, (child: any, i) => {
-        if (child?.type?.name === 'CheckBox') {
+        //兼容dumi把name编译压缩的情况
+        if (child?.type?.name === 'CheckBox' || child?.type?.defaultProps.type === 'CheckBox') {
           return React.cloneElement(child, {
             onChange: (e: any) => {
               onChange?.(e);

@@ -1,7 +1,6 @@
 import cls from 'classnames';
 import React from 'react';
 import { ConfigContext } from '../common-provider/context';
-import CheckGroup from './checkGroup';
 import { CheckBoxProps } from './interface';
 
 const CheckBox = ({ prefixCls: customizePrefixCls, ...props }: CheckBoxProps) => {
@@ -50,6 +49,7 @@ const CheckBox = ({ prefixCls: customizePrefixCls, ...props }: CheckBoxProps) =>
 CheckBox.defaultProps = {
   checked: false,
   disabled: false,
+  type: 'CheckBox',
 };
 
 // CheckBox.Group = CheckGroup;
