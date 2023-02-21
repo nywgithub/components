@@ -1,6 +1,5 @@
-import React,{ useEffect,useState } from 'react';
-import Input,{ InputNumber } from '..';
-import ConfigProvider from '../../common-provider/context';
+import React, { useEffect, useState } from 'react';
+import Input from '..';
 import { SuccessIcon } from '../../icon';
 // import InputNumber from '../inputNumber'
 import '../style';
@@ -27,9 +26,13 @@ export default () => {
         onKeyDown={() => {
           console.log('onKeyDown');
         }}
+        defaultValue={'github.com/nywgithub/components'}
+        addonBefore={<span>https://</span>}
+        addonAfter={<span>.com</span>}
+        prefix={<SuccessIcon />}
+        allowClear
         value={value}
       ></Input>
-
     </>
   );
 };

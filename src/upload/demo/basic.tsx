@@ -10,6 +10,8 @@
  */
 import React from 'react';
 import Upload from '..';
+import { CloseIcon } from '../../icon';
+import './index.less';
 // import '../style';
 export default () => {
   const defaultList = [
@@ -57,8 +59,8 @@ export default () => {
     const { del: deleteItem } = option;
     return (
       <div className="upload-item">
-        <div>{file.name}</div>
-        <div onClick={deleteItem}>删除</div>
+        <div style={{ marginRight: 5 }}>{file.name}</div>
+        <CloseIcon onClick={deleteItem} />
       </div>
     );
   };
@@ -102,7 +104,7 @@ export default () => {
         onChange={onChange}
         listValue={listValue}
         itemRender={itemRender}
-        deleteIcon={<div>删除</div>}
+        deleteIcon={<CloseIcon />}
         ref={uploadRef}
         onStart={onStart}
         type="drag"

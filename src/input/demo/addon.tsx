@@ -27,6 +27,10 @@ export default () => {
         onKeyDown={() => {
           console.log('onKeyDown');
         }}
+        defaultValue={'github.com/nywgithub/components'}
+        addonBefore={<span>https://</span>}
+        addonAfter={<span>.com</span>}
+
         value={value}
       ></Input>
 

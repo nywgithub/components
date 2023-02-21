@@ -8,4 +8,7 @@
 
 <code src="../../src/upload/demo/basic.tsx"></code> 
 
+### Tips
+itemRender会自定义回显的上传文件列表，配置过itemRender后deleteIcon会被覆盖
+
 <API src="../../src/upload/index.tsx"></API> 

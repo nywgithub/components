@@ -13,6 +13,7 @@ export default () => {
         total={31}
         showTotal
         showSizerSelect
+        showJumpInput
         onChange={handleChangeDefault}
         style={{ margin: 10 }}
         // hidePagerNum={3}

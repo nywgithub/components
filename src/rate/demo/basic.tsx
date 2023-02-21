@@ -5,9 +5,9 @@ import '../style';
 import './basic.less';
 
 export default () => {
-  const list = ['Responsiveness', 'Customer Service', 'Items As Described', 'Delivery Time'];
+  /* const list = ['Responsiveness', 'Customer Service', 'Items As Described', 'Delivery Time'];
   const handleClickSpecial = () => {};
-  const [defaultValue, setDefaultValue] = useState([0, 0, 1, 1]);
+  const [defaultValue, setDefaultValue] = useState([0, 0, 1, 1]); */
   return (
     <>
       <Rate />

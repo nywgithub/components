@@ -23,10 +23,8 @@ export default () => {
 
   return (
     <div className="dialog-example">
-      <div id="test"></div>
-
       <Button type="primary" onClick={openDialg}>
-        基础弹窗
+        带底部按钮弹窗
       </Button>
 
       <Dialog

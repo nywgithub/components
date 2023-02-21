@@ -15,7 +15,6 @@ export default () => {
     console.log(e, val);
     setValue(val);
   };
-
   const [value, setValue] = useState('');
   return (
     <>
@@ -27,6 +26,10 @@ export default () => {
         onKeyDown={() => {
           console.log('onKeyDown');
         }}
+        defaultValue={'github.com/nywgithub/components'}
+
+        prefix={<SuccessIcon />}
+        allowClear
         value={value}
       ></Input>
 

@@ -1,7 +1,5 @@
-import React,{ useEffect,useState } from 'react';
-import Input,{ InputNumber } from '..';
-import ConfigProvider from '../../common-provider/context';
-import { SuccessIcon } from '../../icon';
+import React, { useEffect, useState } from 'react';
+import Input from '..';
 // import InputNumber from '../inputNumber'
 import '../style';
 import './index.less';
@@ -27,9 +25,9 @@ export default () => {
         onKeyDown={() => {
           console.log('onKeyDown');
         }}
+        defaultValue={'github.com/nywgithub/components'}
         value={value}
       ></Input>
-
     </>
   );
 };
